@@ -1,5 +1,5 @@
-﻿
-@model Fx.InformationPlatform.Site.ViewModel.BuyViewGoods
+﻿@model Fx.InformationPlatform.Site.ViewModel.BuyViewGoods
+@using Fx.InformationPlatform.Site
 
 @{
     Layout = "~/Views/Shared/_LayoutClean.cshtml";
@@ -16,13 +16,13 @@
 }
 @Html.Partial("buyModal")
 
-<script type="text/javascript" src="@Fx.InformationPlatform.Site.AppSettings.JavaScriptDomain("Ajax/AjaxBaseRequest.js")"></script>
+<script type="text/javascript" src="@AppSettings.JavaScriptDomain("Ajax/AjaxBaseRequest.js")"></script>
 
-<script type="text/javascript" src="@Fx.InformationPlatform.Site.AppSettings.JavaScriptDomain("Ajax/AjaxGoodsBuyRequest.js")"></script>
+<script type="text/javascript" src="@AppSettings.JavaScriptDomain("Ajax/AjaxGoodsBuyRequest.js")"></script>
 
-<script type="text/javascript" src="@Fx.InformationPlatform.Site.AppSettings.JavaScriptDomain("Buy/BuyValidGoods.js")"></script>
+<script type="text/javascript" src="@AppSettings.JavaScriptDomain("Buy/BuyValidGoods.js")"></script>
 
-<script type="text/javascript" src="@Fx.InformationPlatform.Site.AppSettings.JavaScriptDomain("Buy/BuyGoodsEvent.js")"></script>
+<script type="text/javascript" src="@AppSettings.JavaScriptDomain("Buy/BuyGoodsEvent.js")"></script>
 
 <!--多文件上传解决方案-->
-<script type="text/javascript" src="@Fx.InformationPlatform.Site.AppSettings.JavaScriptDomain("MutiUpload/MultiFile.js")"></script>
+<script type="text/javascript" src="@AppSettings.JavaScriptDomain("MutiUpload/MultiFile.js")"></script>

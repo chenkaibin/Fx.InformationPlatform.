@@ -1,4 +1,5 @@
 ﻿@model Fx.InformationPlatform.Site.ViewModel.TransferViewHouse
+@using Fx.InformationPlatform.Site
 @{
     Layout = "~/Views/Shared/_LayoutClean.cshtml";
     ViewBag.Title = "发布房租转让信息";
@@ -13,16 +14,16 @@
 }
 @Html.Partial("TransferModal")
 
-<script type="text/javascript" src="@Fx.InformationPlatform.Site.AppSettings.JavaScriptDomain("Ajax/AjaxBaseRequest.js")"></script>
+<script type="text/javascript" src="@AppSettings.JavaScriptDomain("Ajax/AjaxBaseRequest.js")"></script>
 
-@*<script type="text/javascript" src="@Fx.InformationPlatform.Site.AppSettings.JavaScriptDomain("Ajax/AjaxHouseRequest.js")"></script>
+@*<script type="text/javascript" src="@AppSettings.JavaScriptDomain("Ajax/AjaxHouseRequest.js")"></script>
 *@
-<script type="text/javascript" src="@Fx.InformationPlatform.Site.AppSettings.JavaScriptDomain("Transfer/TransferValidHouse.js")"></script>
+<script type="text/javascript" src="@AppSettings.JavaScriptDomain("Transfer/TransferValidHouse.js")"></script>
 
-@*<script type="text/javascript" src="@Fx.InformationPlatform.Site.AppSettings.JavaScriptDomain("Transfer/TransferHouseEvent.js")"></script>
+@*<script type="text/javascript" src="@AppSettings.JavaScriptDomain("Transfer/TransferHouseEvent.js")"></script>
 *@
 <!--多文件上传解决方案-->
-<script type="text/javascript" src="@Fx.InformationPlatform.Site.AppSettings.JavaScriptDomain("MutiUpload/MultiFile.js")"></script>
+<script type="text/javascript" src="@AppSettings.JavaScriptDomain("MutiUpload/MultiFile.js")"></script>
 
 
 

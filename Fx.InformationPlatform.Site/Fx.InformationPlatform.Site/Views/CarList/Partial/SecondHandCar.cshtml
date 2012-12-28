@@ -1,7 +1,8 @@
 ﻿@model List<Fx.Entity.FxCar.CarTransferInfo>
+@using Fx.InformationPlatform.Site
 <div class="grid_24">
     <div class="grid_3 alpha">
-        <img class="list_left_img_demo_tit" src="@Fx.InformationPlatform.Site.AppSettings.ImageDomain("carList/SecondHandCar.png")">
+        <img class="list_left_img_demo_tit" src="@AppSettings.ImageDomain("carList/SecondHandCar.png")">
     </div>
     <div class="grid_21 omega" style="text-align: left; float: right;">
         <div class="topLoop" id="sliders_1" style="width: 830px; height: 243px;">
@@ -19,16 +20,16 @@
                                         if (picture.TransferPictureCatagroy == (int)Fx.Entity.PictureCatagroy.Head)
                                         {
                                         <div style="height: 200px;">
-                                            <a href="@Fx.InformationPlatform.Site.AppSettings.CarTransferLink(Model[i].CarTransferInfoId)" class="tops_aa_imgs_kk">
+                                            <a href="@AppSettings.CarTransferLink(Model[i].CarTransferInfoId)" class="tops_aa_imgs_kk">
 
-                                                <img src="@Fx.InformationPlatform.Site.AppSettings.ImageUploadCdnDomain(picture.ImageUrl)"/>
+                                                <img src="@AppSettings.ImageUploadCdnDomain(picture.ImageUrl)"/>
                                             </a>
                                         </div>
                                             break;
                                         }
                                     }
                                     <div class="tits_btm_coms_list names_btm">
-                                        <a href="@Fx.InformationPlatform.Site.AppSettings.CarTransferLink(Model[i].CarTransferInfoId)">
+                                        <a href="@AppSettings.CarTransferLink(Model[i].CarTransferInfoId)">
                                             @if (Model[i].PublishTitle != null && Model[i].PublishTitle.Length >= 8)
                                             {
                                                 @(Model[i].PublishTitle.Substring(0, 8) + "...")                                                                                                
@@ -49,16 +50,16 @@
                                         if (picture.TransferPictureCatagroy == (int)Fx.Entity.PictureCatagroy.Head)
                                         {
                                         <div style="height: 200px;">
-                                            <a href="@Fx.InformationPlatform.Site.AppSettings.CarTransferLink(Model[i + 1].CarTransferInfoId)" class="tops_aa_imgs_kk">
+                                            <a href="@AppSettings.CarTransferLink(Model[i + 1].CarTransferInfoId)" class="tops_aa_imgs_kk">
 
-                                                <img src="@Fx.InformationPlatform.Site.AppSettings.ImageUploadCdnDomain(picture.ImageUrl)"/>
+                                                <img src="@AppSettings.ImageUploadCdnDomain(picture.ImageUrl)"/>
                                             </a>
                                         </div>
                                             break;
                                         }
                                     }
                                     <div class="tits_btm_coms_list names_btm">
-                                        <a href="@Fx.InformationPlatform.Site.AppSettings.CarTransferLink(Model[i + 1].CarTransferInfoId)">
+                                        <a href="@AppSettings.CarTransferLink(Model[i + 1].CarTransferInfoId)">
                                             @if (Model[i + 1].PublishTitle != null && Model[i + 1].PublishTitle.Length >= 8)
                                             {
                                                 @(Model[i + 1].PublishTitle.Substring(0, 8) + "...")                                                                                                
@@ -75,16 +76,16 @@
                                         if (picture.TransferPictureCatagroy == (int)Fx.Entity.PictureCatagroy.Head)
                                         {
                                         <div style="height: 200px;">
-                                            <a href="@Fx.InformationPlatform.Site.AppSettings.CarTransferLink(Model[i + 2].CarTransferInfoId)" class="tops_aa_imgs_kk">
+                                            <a href="@AppSettings.CarTransferLink(Model[i + 2].CarTransferInfoId)" class="tops_aa_imgs_kk">
 
-                                                <img src="@Fx.InformationPlatform.Site.AppSettings.ImageUploadCdnDomain(picture.ImageUrl)"/>
+                                                <img src="@AppSettings.ImageUploadCdnDomain(picture.ImageUrl)"/>
                                             </a>
                                         </div>
                                             break;
                                         }
                                     }
                                     <div class="tits_btm_coms_list names_btm">
-                                        <a href="@Fx.InformationPlatform.Site.AppSettings.CarTransferLink(Model[i + 2].CarTransferInfoId)">
+                                        <a href="@AppSettings.CarTransferLink(Model[i + 2].CarTransferInfoId)">
                                             @if (Model[i + 2].PublishTitle != null && Model[i + 2].PublishTitle.Length >= 8)
                                             {
                                                 @(Model[i + 2].PublishTitle.Substring(0, 8) + "...")                                                                                                
@@ -101,16 +102,16 @@
                                         if (picture.TransferPictureCatagroy == (int)Fx.Entity.PictureCatagroy.Head)
                                         {
                                         <div style="height: 200px;">
-                                            <a href="@Fx.InformationPlatform.Site.AppSettings.CarTransferLink(Model[i + 3].CarTransferInfoId)" class="tops_aa_imgs_kk">
+                                            <a href="@AppSettings.CarTransferLink(Model[i + 3].CarTransferInfoId)" class="tops_aa_imgs_kk">
 
-                                                <img src="@Fx.InformationPlatform.Site.AppSettings.ImageUploadCdnDomain(picture.ImageUrl)"/>
+                                                <img src="@AppSettings.ImageUploadCdnDomain(picture.ImageUrl)"/>
                                             </a>
                                         </div>
                                             break;
                                         }
                                     }
                                     <div class="tits_btm_coms_list names_btm">
-                                        <a href="@Fx.InformationPlatform.Site.AppSettings.CarTransferLink(Model[i + 3].CarTransferInfoId)">
+                                        <a href="@AppSettings.CarTransferLink(Model[i + 3].CarTransferInfoId)">
                                             @if (Model[i + 3].PublishTitle != null && Model[i + 3].PublishTitle.Length >= 8)
                                             {
                                                 @(Model[i + 3].PublishTitle.Substring(0, 8) + "...")                                                                                                

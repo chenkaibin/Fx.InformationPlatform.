@@ -1,4 +1,5 @@
 ﻿@model Fx.InformationPlatform.Site.ViewModel.TransferViewCar
+@using Fx.InformationPlatform.Site
 @{
     Layout = "~/Views/Shared/_LayoutClean.cshtml";
     ViewBag.Title = "发布车辆转让信息";
@@ -13,18 +14,18 @@
 }
 @Html.Partial("TransferModal")
 
-<script type="text/javascript" src="@Fx.InformationPlatform.Site.AppSettings.JavaScriptDomain("Ajax/AjaxBaseRequest.js")"></script>
+<script type="text/javascript" src="@AppSettings.JavaScriptDomain("Ajax/AjaxBaseRequest.js")"></script>
 
 <!--暂时没有汽车频道需要请求的事件 所以注释-->
-@*<script type="text/javascript" src="@Fx.InformationPlatform.Site.AppSettings.JavaScriptDomain("Ajax/AjaxCarRequest.js")"></script>*@
+@*<script type="text/javascript" src="@AppSettings.JavaScriptDomain("Ajax/AjaxCarRequest.js")"></script>*@
 
-<script type="text/javascript" src="@Fx.InformationPlatform.Site.AppSettings.JavaScriptDomain("Transfer/TransferValidCar.js")"></script>
+<script type="text/javascript" src="@AppSettings.JavaScriptDomain("Transfer/TransferValidCar.js")"></script>
 
 <!--暂时没有换物的事件 所以注释-->
-@*<script type="text/javascript" src="@Fx.InformationPlatform.Site.AppSettings.JavaScriptDomain("Transfer/TransferCarEvent.js")"></script>*@
+@*<script type="text/javascript" src="@AppSettings.JavaScriptDomain("Transfer/TransferCarEvent.js")"></script>*@
 
 <!--多文件上传解决方案-->
-<script type="text/javascript" src="@Fx.InformationPlatform.Site.AppSettings.JavaScriptDomain("MutiUpload/MultiFile.js")"></script>
+<script type="text/javascript" src="@AppSettings.JavaScriptDomain("MutiUpload/MultiFile.js")"></script>
 
 
 

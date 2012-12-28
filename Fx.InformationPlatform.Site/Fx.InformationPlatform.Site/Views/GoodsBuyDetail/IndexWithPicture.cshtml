@@ -1,4 +1,5 @@
 ﻿@model Fx.Entity.FxGoods.GoodsBuyInfo
+@using Fx.InformationPlatform.Site
 @{
     ViewBag.Title = Model.PublishTitle + "二手求购信息";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -6,7 +7,7 @@
 
 <div class="interval_20"></div>
 
-<link rel="stylesheet" href="@Fx.InformationPlatform.Site.AppSettings.CssDomain("easydialog.css")" />
+<link rel="stylesheet" href="@AppSettings.CssDomain("easydialog.css")" />
 @Html.Partial("Partial/Madol")
 
 <div class="grid_24">
@@ -16,8 +17,8 @@
             {
                 if (picture.BuyPictureCatagroy == (int)Fx.Entity.PictureCatagroy.Head)
                 { 
-                <a href="@Fx.InformationPlatform.Site.AppSettings.ImageUploadCdnDomain(picture.ImageUrl)" class="jqzoom" id="big_suol_img">
-                    <img id="midium_imgs" src="@Fx.InformationPlatform.Site.AppSettings.ImageUploadCdnDomain(picture.ImageUrl)"
+                <a href="@AppSettings.ImageUploadCdnDomain(picture.ImageUrl)" class="jqzoom" id="big_suol_img">
+                    <img id="midium_imgs" src="@AppSettings.ImageUploadCdnDomain(picture.ImageUrl)"
                         style="border: 1px solid #cccccc; max-width: 348px;  display: block;">
                 </a>
                     break;
@@ -31,12 +32,12 @@
             {
                 <span>
                     <div class="left_arr">
-                        <img src="@Fx.InformationPlatform.Site.AppSettings.ImageDomain("current_img_arrow.png")" class="arrow_red">
+                        <img src="@AppSettings.ImageDomain("current_img_arrow.png")" class="arrow_red">
                     </div>
                     <div class="right_imgs_dm_on">
                         <a href="#">
-                            <img src="@Fx.InformationPlatform.Site.AppSettings.ImageUploadCdnDomain(picture.MinImageUrl)" 
-                            bigpic="@Fx.InformationPlatform.Site.AppSettings.ImageUploadCdnDomain(picture.ImageUrl)">
+                            <img src="@AppSettings.ImageUploadCdnDomain(picture.MinImageUrl)" 
+                            bigpic="@AppSettings.ImageUploadCdnDomain(picture.ImageUrl)">
                         </a>
                     </div>
                 </span>
@@ -60,11 +61,11 @@
             </div>
 
             <div class="source_wks">
-                希望所处地区：@Fx.InformationPlatform.Site.Helper.GetEnumDescription((Fx.Entity.Catagroy.AreaCatagroy)Model.AreaId)
+                希望所处地区：@Helper.GetAreaName(Model.AreaId)
                 <br />
-                希望所处城市：@Fx.InformationPlatform.Site.Helper.GetEnumDescription((Fx.Entity.Catagroy.CityCatagroy)Model.CityId)
+                希望所处城市：@Helper.GetCityName(Model.CityId)
                 <br />
-                希望新旧程度：@Fx.InformationPlatform.Site.Helper.GetEnumDescription((Fx.Entity.Catagroy.GoodsBuyConditionCatagroy)Model.GoodsconditonId)
+                希望新旧程度：@Helper.GetEnumDescription((Fx.Entity.Catagroy.GoodsBuyConditionCatagroy)Model.GoodsconditonId)
                 @if (!string.IsNullOrWhiteSpace(Model.GoodsConditionMsg))
                 {
                     <br />
@@ -82,26 +83,26 @@
     </div>
     <div class="grid_2 omega">
         <span class="right_btns_demo_set">
-            <font class="saler_btns"><img src="@Fx.InformationPlatform.Site.AppSettings.ImageDomain("infodetail/Contact.png")" id="demoBtn1"></font>
+            <font class="saler_btns"><img src="@AppSettings.ImageDomain("infodetail/Contact.png")" id="demoBtn1"></font>
             <font class="shares_wwkks">分享：
             <input id="jiathistitle" type="hidden" 
     value="亲们！！ 我刚刚在英淘网 http://www.yingtao.co.uk 发现了-（@Model.PublishTitle）- 哦，有兴趣的就转发一下吧！！ （来自@英淘网UK）"/>
             @Html.Partial("_JiaThis")
 		</font>
-            <font><img src="@Fx.InformationPlatform.Site.AppSettings.ImageDomain("infodetail/Message.png")" id="jifa_alert_fras" onclick="show_al_fra()"></font>
+            <font><img src="@AppSettings.ImageDomain("infodetail/Message.png")" id="jifa_alert_fras" onclick="show_al_fra()"></font>
             <font>
                 @if (ViewBag.isFav)
                 {
                 <a href="#">
-                    <img src="@Fx.InformationPlatform.Site.AppSettings.ImageDomain("add_on.png")" alt="已收藏"/>
+                    <img src="@AppSettings.ImageDomain("add_on.png")" alt="已收藏"/>
                 </a>
                 }
                 else
                 {
                 <a href="/GoodsBuyDetail/Favorite?infoId=@Model.GoodsBuyInfoId">
-                    <img src="@Fx.InformationPlatform.Site.AppSettings.ImageDomain("add_off.png")" alt="添加收藏"
-                onmouseover="this.src='@Fx.InformationPlatform.Site.AppSettings.ImageDomain("add_on.png")'" 
-                onmouseout="this.src='@Fx.InformationPlatform.Site.AppSettings.ImageDomain("add_off.png")'"/>
+                    <img src="@AppSettings.ImageDomain("add_off.png")" alt="添加收藏"
+                onmouseover="this.src='@AppSettings.ImageDomain("add_on.png")'" 
+                onmouseout="this.src='@AppSettings.ImageDomain("add_off.png")'"/>
                 </a>
                 }
             </font>
@@ -121,6 +122,6 @@
 
 
 <script type="text/javascript" src="http://v3.jiathis.com/code_mini/jia.js?uid=1353938214106494" charset="utf-8"></script>
-<script type="text/javascript" src="@Fx.InformationPlatform.Site.AppSettings.JavaScriptDomain("easydialog.min.js")"></script>
-<script type="text/javascript" src="@Fx.InformationPlatform.Site.AppSettings.JavaScriptDomain("getelepos.js")"></script>
-<script type="text/javascript" src="@Fx.InformationPlatform.Site.AppSettings.JavaScriptDomain("List.js")"></script>
+<script type="text/javascript" src="@AppSettings.JavaScriptDomain("easydialog.min.js")"></script>
+<script type="text/javascript" src="@AppSettings.JavaScriptDomain("getelepos.js")"></script>
+<script type="text/javascript" src="@AppSettings.JavaScriptDomain("List.js")"></script>

@@ -1,4 +1,5 @@
 ﻿@model Fx.InformationPlatform.Site.ViewModel.BuyViewHouse
+@using Fx.InformationPlatform.Site
 @{
     Layout = "~/Views/Shared/_LayoutClean.cshtml";
     ViewBag.Title = "发布房租求购信息";
@@ -13,14 +14,14 @@
 }
 @Html.Partial("buyModal")
 
-<script type="text/javascript" src="@Fx.InformationPlatform.Site.AppSettings.JavaScriptDomain("Ajax/AjaxBaseRequest.js")"></script>
+<script type="text/javascript" src="@AppSettings.JavaScriptDomain("Ajax/AjaxBaseRequest.js")"></script>
 
-@*<script type="text/javascript" src="@Fx.InformationPlatform.Site.AppSettings.JavaScriptDomain("Ajax/AjaxHouseRequest.js")"></script>*@
+@*<script type="text/javascript" src="@AppSettings.JavaScriptDomain("Ajax/AjaxHouseRequest.js")"></script>*@
 
-<script type="text/javascript" src="@Fx.InformationPlatform.Site.AppSettings.JavaScriptDomain("Buy/BuyValidHouse.js")"></script>
+<script type="text/javascript" src="@AppSettings.JavaScriptDomain("Buy/BuyValidHouse.js")"></script>
 
-@*<script type="text/javascript" src="@Fx.InformationPlatform.Site.AppSettings.JavaScriptDomain("Buy/BuyHouseEvent.js")"></script>*@
+@*<script type="text/javascript" src="@AppSettings.JavaScriptDomain("Buy/BuyHouseEvent.js")"></script>*@
 
 <!--多文件上传解决方案-->
-<script type="text/javascript" src="@Fx.InformationPlatform.Site.AppSettings.JavaScriptDomain("MutiUpload/MultiFile.js")"></script>
+<script type="text/javascript" src="@AppSettings.JavaScriptDomain("MutiUpload/MultiFile.js")"></script>
 

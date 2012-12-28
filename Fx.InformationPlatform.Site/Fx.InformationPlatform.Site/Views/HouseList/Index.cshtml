@@ -1,4 +1,5 @@
 ﻿@model Fx.InformationPlatform.Site.ViewModel.HouseListModel
+@using Fx.InformationPlatform.Site
 @{
     ViewBag.Title = "房屋交易";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -15,20 +16,20 @@
 
 
 <div class="interval_30"></div>
-@Html.Partial("Partial/CommercialProperties",Model.CommercialProperties)
+@Html.Partial("Partial/CommercialProperties", Model.CommercialProperties)
 <div class="interval_20"></div>
 @Html.Partial("Partial/Ad1")
 <div class="interval_20"></div>
-@Html.Partial("Partial/Properties",Model.Properties)
+@Html.Partial("Partial/Properties", Model.Properties)
 <div class="interval_20"></div>
 @Html.Partial("Partial/Ad2")
 <div class="interval_20"></div>
 
 
 
-<script type="text/javascript" src="@Fx.InformationPlatform.Site.AppSettings.JavaScriptDomain("jquery.SuperSlide.js")"></script>
-<script type="text/javascript" src="@Fx.InformationPlatform.Site.AppSettings.JavaScriptDomain("slider.js")"></script>
-<script type="text/javascript" src="@Fx.InformationPlatform.Site.AppSettings.JavaScriptDomain("List.js")"></script>
+<script type="text/javascript" src="@AppSettings.JavaScriptDomain("jquery.SuperSlide.js")"></script>
+<script type="text/javascript" src="@AppSettings.JavaScriptDomain("slider.js")"></script>
+<script type="text/javascript" src="@AppSettings.JavaScriptDomain("List.js")"></script>
 
 
 <script>

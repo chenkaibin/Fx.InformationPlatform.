@@ -1,7 +1,8 @@
-﻿<div class="alert_tips_frames_dm" id="alerts_fra_wks" style="position: absolute; background: none;">
+﻿@using Fx.InformationPlatform.Site
+<div class="alert_tips_frames_dm" id="alerts_fra_wks" style="position: absolute; background: none;">
     <div class="inner_atfd_wks" id="alerts_fra_wks_in">
         <a href="javascript:void(0)" onclick="document.getElementById('alerts_fra_wks').style.display='none'" class="close_btn_r_d_off" onmouseover="this.className='close_btn_r_d_on'" onmouseout="this.className='close_btn_r_d_off'" title="关闭"></a>
-        <img src="@Fx.InformationPlatform.Site.AppSettings.ImageDomain("alert_top_icons.png")" class="ai_tops_img" />
+        <img src="@AppSettings.ImageDomain("alert_top_icons.png")" class="ai_tops_img" />
         <div class="ai_conts">
             <div class="tops_tips_words">给对方留言</div>
             <div class="inputs_wks_d_m">
@@ -29,4 +30,4 @@
         });
     });
 </script>
-<script type="text/javascript" src="@Fx.InformationPlatform.Site.AppSettings.JavaScriptDomain("Ajax/AjaxBaseRequest.js")"></script>
+<script type="text/javascript" src="@AppSettings.JavaScriptDomain("Ajax/AjaxBaseRequest.js")"></script>

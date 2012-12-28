@@ -1,4 +1,5 @@
 ﻿@model Fx.InformationPlatform.Site.ViewModel.BuyViewCar
+@using Fx.InformationPlatform.Site
 @{
     Layout = "~/Views/Shared/_LayoutClean.cshtml";
     ViewBag.Title = "发布车辆求购信息";
@@ -13,15 +14,15 @@
 }
 @Html.Partial("buyModal")
 
-<script type="text/javascript" src="@Fx.InformationPlatform.Site.AppSettings.JavaScriptDomain("Ajax/AjaxBaseRequest.js")"></script>
+<script type="text/javascript" src="@AppSettings.JavaScriptDomain("Ajax/AjaxBaseRequest.js")"></script>
 
 <!--暂时没有汽车频道需要请求的事件 所以注释-->
-@*<script type="text/javascript" src="@Fx.InformationPlatform.Site.AppSettings.JavaScriptDomain("Ajax/AjaxCarRequest.js")"></script>*@
+@*<script type="text/javascript" src="@AppSettings.JavaScriptDomain("Ajax/AjaxCarRequest.js")"></script>*@
 
-<script type="text/javascript" src="@Fx.InformationPlatform.Site.AppSettings.JavaScriptDomain("Buy/BuyValidCar.js")"></script>
+<script type="text/javascript" src="@AppSettings.JavaScriptDomain("Buy/BuyValidCar.js")"></script>
 
 <!--暂时没有换物的事件 所以注释-->
-@*<script type="text/javascript" src="@Fx.InformationPlatform.Site.AppSettings.JavaScriptDomain("Buy/BuyCarEvent.js")"></script>*@
+@*<script type="text/javascript" src="@AppSettings.JavaScriptDomain("Buy/BuyCarEvent.js")"></script>*@
 
 <!--多文件上传解决方案-->
-<script type="text/javascript" src="@Fx.InformationPlatform.Site.AppSettings.JavaScriptDomain("MutiUpload/MultiFile.js")"></script>
+<script type="text/javascript" src="@AppSettings.JavaScriptDomain("MutiUpload/MultiFile.js")"></script>

@@ -1,4 +1,5 @@
 ﻿@model List<Fx.Entity.FxSite.Channel>
+@using Fx.InformationPlatform.Site
 @{
     Layout = "~/Views/Shared/_LayoutClean.cshtml";
     ViewBag.Title = "免费发布信息";
@@ -7,4 +8,4 @@
 @Html.Partial("Partial/Flow")
 @Html.Partial("Partial/Channel",Model)
 
-<script type="text/javascript" src="@Fx.InformationPlatform.Site.AppSettings.JavaScriptDomain("Channel.js")"></script>
+<script type="text/javascript" src="@AppSettings.JavaScriptDomain("Channel.js")"></script>

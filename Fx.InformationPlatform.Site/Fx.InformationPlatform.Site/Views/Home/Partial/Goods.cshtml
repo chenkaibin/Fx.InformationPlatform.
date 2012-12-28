@@ -1,9 +1,10 @@
 ﻿@model Fx.InformationPlatform.Site.ViewModel.HomeGoodsModel
+@using Fx.InformationPlatform.Site
 <div class="grid_24">
     <div class="grid_5 alpha">
         <div class="hot_tags">
             <div class="thing_deal_tops">
-                <img src="@Fx.InformationPlatform.Site.AppSettings.ImageDomain("goods.png")" />
+                <img src="@AppSettings.ImageDomain("goods.png")" />
             </div>
             <div class="interval_line_c"></div>
             <div class="thing_deal_hot_tag">
@@ -71,12 +72,12 @@
                                 <div class="img_cons_wks_common">
                                     <div class="tits_btm_coms_index">最新发布</div>
                                     <div class="interval_line_c"></div>
-                                    <a href="@Fx.InformationPlatform.Site.AppSettings.GoodsTransferLink(item.GoodsTransferInfoId)" class="imgs_a"  target="_blank" >
-                                        <img src="@Fx.InformationPlatform.Site.AppSettings.ImageUploadCdnDomain(picture.ImageUrl)" />
+                                    <a href="@AppSettings.GoodsTransferLink(item.GoodsTransferInfoId)" class="imgs_a"  target="_blank" >
+                                        <img src="@AppSettings.ImageUploadCdnDomain(picture.ImageUrl)" />
 
                                     </a>
                                     <div class="tits_btm_coms_index names_btm">
-                                        <a href="@Fx.InformationPlatform.Site.AppSettings.GoodsTransferLink(item.GoodsTransferInfoId)"  target="_blank" >
+                                        <a href="@AppSettings.GoodsTransferLink(item.GoodsTransferInfoId)"  target="_blank" >
                                             @item.PublishTitle
                                             &nbsp;                                          
                                             ￡@item.Price
@@ -111,12 +112,12 @@
                                 <div class="img_cons_wks_common">
                                     <div class="tits_btm_coms_index">最新发布</div>
                                     <div class="interval_line_c"></div>
-                                    <a href="@Fx.InformationPlatform.Site.AppSettings.GoodsTransferLink(item.GoodsTransferInfoId)" class="imgs_a"  target="_blank" >
-                                        <img src="@Fx.InformationPlatform.Site.AppSettings.ImageUploadCdnDomain(picture.ImageUrl)" />
+                                    <a href="@AppSettings.GoodsTransferLink(item.GoodsTransferInfoId)" class="imgs_a"  target="_blank" >
+                                        <img src="@AppSettings.ImageUploadCdnDomain(picture.ImageUrl)" />
 
                                     </a>
                                     <div class="tits_btm_coms_index names_btm">
-                                        <a href="@Fx.InformationPlatform.Site.AppSettings.GoodsTransferLink(item.GoodsTransferInfoId)"  target="_blank" >
+                                        <a href="@AppSettings.GoodsTransferLink(item.GoodsTransferInfoId)"  target="_blank" >
                                             @item.PublishTitle
                                             &nbsp;
                                             ￡@item.Price
@@ -151,12 +152,12 @@
                                 <div class="img_cons_wks_common">
                                     <div class="tits_btm_coms_index">最新发布</div>
                                     <div class="interval_line_c"></div>
-                                    <a href="@Fx.InformationPlatform.Site.AppSettings.GoodsTransferLink(item.GoodsTransferInfoId)" class="imgs_a"  target="_blank" >
-                                        <img src="@Fx.InformationPlatform.Site.AppSettings.ImageUploadCdnDomain(picture.ImageUrl)" />
+                                    <a href="@AppSettings.GoodsTransferLink(item.GoodsTransferInfoId)" class="imgs_a"  target="_blank" >
+                                        <img src="@AppSettings.ImageUploadCdnDomain(picture.ImageUrl)" />
 
                                     </a>
                                     <div class="tits_btm_coms_index names_btm">
-                                        <a href="@Fx.InformationPlatform.Site.AppSettings.GoodsTransferLink(item.GoodsTransferInfoId)"  target="_blank" >
+                                        <a href="@AppSettings.GoodsTransferLink(item.GoodsTransferInfoId)"  target="_blank" >
                                             @item.PublishTitle
                                             &nbsp;
                                             ￡@item.Price
