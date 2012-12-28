@@ -89,5 +89,11 @@ namespace Fx.InformationPlatform.Site
             SiteCache siteCache = System.Web.Mvc.DependencyResolver.Current.GetService<SiteCache>();
             return siteCache.GetCity().Where(r => r.CityId == cityId).First().CityName;
         }
+
+        public static int PrivateMessageCount(string email)
+        {
+            GlobalCache glo = System.Web.Mvc.DependencyResolver.Current.GetService<GlobalCache>();
+            return glo.PrivateMessageCount(email);
+        }
     }
 }

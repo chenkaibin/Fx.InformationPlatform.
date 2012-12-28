@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using Fx.Domain.FxAggregate.IService;
+using FxCacheService.FxSite;
 
 namespace Fx.InformationPlatform.Site.Controllers
 {
@@ -49,6 +50,10 @@ namespace Fx.InformationPlatform.Site.Controllers
                         Message = privateTxt
 
                     });
+
+                    var glo = System.Web.Mvc.DependencyResolver.Current.GetService<GlobalCache>();
+                    glo.PrivateMessageCountAdd(info.UserAccount);
+                    glo.PrivateMessageTodayCountAdd(info.UserAccount);
                     return Json("私信发送成功", JsonRequestBehavior.DenyGet);
                 }
                 else

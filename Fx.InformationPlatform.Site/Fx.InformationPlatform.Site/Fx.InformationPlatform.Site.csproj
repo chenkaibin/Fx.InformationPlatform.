@@ -173,7 +173,6 @@
   <ItemGroup>
     <Compile Include="App_Start\SimpleInjectorInitializer.cs" />
     <Compile Include="Controllers\AccountController.cs" />
-    <Compile Include="Controllers\AggregateController.cs" />
     <Compile Include="Controllers\AjaxController.cs" />
     <Compile Include="Controllers\AjaxPostController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
@@ -303,6 +302,7 @@
     <Content Include="Content\images\add_off.png" />
     <Content Include="Content\images\add_on.png" />
     <Content Include="Content\images\carList\SecondHandCar.png" />
+    <Content Include="Content\images\privatemessage.png" />
     <Content Include="Content\images\glyphicons_020_home.png" />
     <Content Include="Content\images\glyphicons_028_cars.png" />
     <Content Include="Content\images\glyphicons_194_circle_question_mark.png" />
@@ -333,6 +333,7 @@
     <Content Include="Content\images\mouse_off_bg.png" />
     <Content Include="Content\images\mouse_on_bg.png" />
     <Content Include="Content\images\progressbar.gif" />
+    <Content Include="Content\images\right3.png" />
     <Content Include="Content\images\rit_ad.jpg" />
     <Content Include="Content\images\rit_ad1.jpg" />
     <Content Include="Content\images\r_b.png" />

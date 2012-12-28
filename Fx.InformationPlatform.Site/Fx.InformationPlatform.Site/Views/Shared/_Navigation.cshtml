@@ -23,7 +23,19 @@
                     <div class="grid_2" style="float: right;"><span class="logo_reg_mem"><a href="http://usercenter.yingtao.co.uk/" target="_blank">我的英淘网</a> </span></div>
                     <div class="grid_2" style="float: right;"><span class="logo_reg_mem"><a href="http://yingtao.co.uk/Transfer/Index/0" target="_blank">我要卖</a></span></div>
                     <div class="grid_2" style="float: right;"><span class="logo_reg_mem"><a href="http://yingtao.co.uk/Buy/Index/0" target="_blank">我要买</a></span></div>
-                    <div style="float: right;"><span class="logo_reg_mem" style="width: auto;"><a href="#">欢迎, @Helper.GetSessionName(HttpContext.Current.Session, User.Identity.Name)</a></span></div>
+                    <div style="float: right;">
+                        <span class="logo_reg_mem" style="width: auto;">
+                            <a href="#">欢迎, @Helper.GetSessionName(HttpContext.Current.Session, User.Identity.Name)</a>
+                            @if (Helper.PrivateMessageCount(User.Identity.Name) > 0)
+                            {
+                                <a href="http://usercenter.yingtao.co.uk/UserCenter/PrivateMessage" target="_blank">
+                                    <i class="icon-envelope">                                       
+                                    </i>
+                                     @Helper.PrivateMessageCount(User.Identity.Name)
+                                </a>
+                            }
+                        </span>
+                    </div>
                     <div class="clear"></div>
                 </div>
             }

@@ -33,12 +33,12 @@ namespace Fx.Domain.FxAggregate
         }
 
 
-        public List<PrivateMessage> GetByUser(string user)
+        public List<PrivateMessage> GetByUser(string email)
         {
             using (var content = new FxAggregateContext())
             {
                 var entitys = content.PrivateMessages
-                    .Where(r => r.UserAccount == user).ToList();
+                    .Where(r => r.UserAccount == email).ToList();
                 return entitys;
             }
         }
@@ -51,6 +51,16 @@ namespace Fx.Domain.FxAggregate
                 var entity = content.PrivateMessages
                     .Where(r => r.PrivateMessageId == id).FirstOrDefault();
                 return entity;
+            }
+        }
+
+
+        public int PrivateMessageCount(string email)
+        {
+            using (var content = new FxAggregateContext())
+            {
+                return content.PrivateMessages
+                    .Where(r => r.UserAccount == email).Count();
             }
         }
     }

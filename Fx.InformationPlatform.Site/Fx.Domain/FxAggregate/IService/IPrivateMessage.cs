@@ -14,6 +14,13 @@ namespace Fx.Domain.FxAggregate.IService
 
         PrivateMessage GetById(int id);
 
-        List<PrivateMessage> GetByUser(string user);
+        List<PrivateMessage> GetByUser(string email);
+
+        /// <summary>
+        /// 所有的私信数量
+        /// </summary>
+        /// <param name="email">帐号</param>
+        /// <returns></returns>
+        int PrivateMessageCount(string email);
     }
 }
