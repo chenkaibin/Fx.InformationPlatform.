@@ -54,6 +54,13 @@ viutual 当没有设置的时候 有没有显示加载 这个时候就没有数�
 
 
 
+首页不用这个地址：http://yingtao.co.uk
+使用
+http://yingtao.co.uk/Home/Index
+或者http://yingtao.co.uk/Home/
+
+
+
 
 
 
