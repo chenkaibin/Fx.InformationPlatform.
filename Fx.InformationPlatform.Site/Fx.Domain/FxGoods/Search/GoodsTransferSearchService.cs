@@ -21,6 +21,9 @@ namespace Fx.Domain.FxGoods.Search
 
         public List<GoodsTransferInfo> SearchByKey(string key, int area = 0, int city = 0, int page = 0, int take = 10, bool changegoods = true, bool changeprice = true, int clc = 0)
         {
+            
+
+
             int start = 1 + page * 10;
             int end = page * 10 + take;
             var where = CreateWhereExpress(key, area, city, changegoods, changeprice, clc);
