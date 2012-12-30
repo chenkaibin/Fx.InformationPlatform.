@@ -8,7 +8,7 @@ using Fx.Entity.FxAggregate;
 
 namespace Fx.Domain.FxAggregate
 {
-    public class FxAggregateContext : DbContext, IDisposable
+    public class FxAggregateContext : DbContext
     {
         static FxAggregateContext()
         {

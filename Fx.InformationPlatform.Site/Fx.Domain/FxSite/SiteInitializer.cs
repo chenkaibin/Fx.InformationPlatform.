@@ -546,10 +546,9 @@ namespace Fx.Domain
             {
                 context.SaveChanges();
             }
-            catch (System.Data.Entity.Validation.DbEntityValidationException ex)
+            catch
             {
-
-                throw ex;
+                throw;
             }
 
             #region 频道建立
@@ -951,10 +950,9 @@ namespace Fx.Domain
             {
                 context.SaveChanges();
             }
-            catch (System.Data.Entity.Validation.DbEntityValidationException ex)
+            catch
             {
-
-                throw ex;
+                throw;
             }
 
             #region 二手物品新旧信息建立

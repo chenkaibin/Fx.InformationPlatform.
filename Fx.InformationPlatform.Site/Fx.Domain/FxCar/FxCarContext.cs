@@ -6,7 +6,7 @@ using Fx.Entity.FxCar;
 
 namespace Fx.Domain.FxCar
 {
-    public class FxCarContext : DbContext, IDisposable
+    public class FxCarContext : DbContext
     {
         static FxCarContext()
         {

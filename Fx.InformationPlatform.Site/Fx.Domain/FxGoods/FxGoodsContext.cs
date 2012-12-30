@@ -8,7 +8,7 @@ using Fx.Entity.FxGoods;
 
 namespace Fx.Domain.FxGoods
 {
-    public class FxGoodsContext : DbContext, IDisposable
+    public class FxGoodsContext : DbContext
     {
         static FxGoodsContext()
         {

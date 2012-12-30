@@ -8,7 +8,7 @@ using Fx.Entity.FxBrower;
 
 namespace Fx.Domain.FxBrower
 {
-    public class FxBrowerContext : DbContext, IDisposable
+    public class FxBrowerContext : DbContext
     {
         static FxBrowerContext()
         {

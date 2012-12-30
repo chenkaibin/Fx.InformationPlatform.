@@ -4,6 +4,7 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 
 namespace Fx.Infrastructure.Data
 {
@@ -21,14 +22,21 @@ namespace Fx.Infrastructure.Data
 
         public DataTable GetDt(string strSql)
         {
-            SqlConnection cn = new SqlConnection();
-            cn.ConnectionString = connectString;
-            SqlCommand cmd = cn.CreateCommand();
-            cmd.CommandText = strSql;
-            SqlDataAdapter sda = new SqlDataAdapter(cmd);
-            DataTable dt = new DataTable();
-            sda.Fill(dt);
-            return dt;
+            if (ProcessSqlStr(strSql))
+            {
+                SqlConnection cn = new SqlConnection();
+                cn.ConnectionString = connectString;
+                SqlCommand cmd = cn.CreateCommand();
+                cmd.CommandText = strSql;
+                SqlDataAdapter sda = new SqlDataAdapter(cmd);
+                DataTable dt = new DataTable();
+                sda.Fill(dt);
+                return dt;
+            }
+            else
+            {
+                return null;
+            }
         }
 
         /// <summary>
@@ -58,6 +66,28 @@ namespace Fx.Infrastructure.Data
             return rt;
         }
 
+
+        public bool ProcessSqlStr(string inputString)
+        {
+            string SqlStr = @"and|or|exec|execute|insert|select|delete|update|alter|create|drop|count|\*|chr|char|asc|mid|substring|master|truncate|declare|xp_cmdshell|restore|backup|net +user|net +localgroup +administrators";
+            try
+            {
+                if ((inputString != null) && (inputString != String.Empty))
+                {
+                    string str_Regex = @"\b(" + SqlStr + @")\b";
+                    Regex Regex = new Regex(str_Regex, RegexOptions.IgnoreCase);
+                    //string s = Regex.Match(inputString).Value; 
+                    if (true == Regex.IsMatch(inputString))
+                        return false;
+
+                }
+            }
+            catch
+            {
+                return false;
+            }
+            return true;
+        }
     }
 
     public static class Extend

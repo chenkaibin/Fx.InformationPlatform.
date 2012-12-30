@@ -13,7 +13,7 @@ using Fx.Infrastructure.Db;
 
 namespace Fx.Domain
 {
-    public class SiteContext : DbContext, IDisposable
+    public class SiteContext : DbContext
     {
         static SiteContext()
         {

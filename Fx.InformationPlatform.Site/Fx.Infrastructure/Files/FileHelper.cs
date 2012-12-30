@@ -360,7 +360,6 @@ namespace Fx.Infrastructure.Files
                 StreamWriter Fso = new StreamWriter(filePath);
                 Fso.WriteLine(fileContent);
                 Fso.Close();
-                Fso.Dispose();
                 return true;
             }
             catch

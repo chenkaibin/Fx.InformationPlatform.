@@ -17,10 +17,6 @@ namespace Fx.Entity.MemberShip
     {
         public Applications()
         {
-            this.Membership = new HashSet<Membership>();
-            this.Paths = new HashSet<Paths>();
-            this.Roles = new HashSet<Roles>();
-            this.Users = new HashSet<Users>();
         }
 
         public string ApplicationName { get; set; }

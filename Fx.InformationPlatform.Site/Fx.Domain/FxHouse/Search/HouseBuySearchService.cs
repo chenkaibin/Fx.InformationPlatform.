@@ -28,9 +28,12 @@ namespace Fx.Domain.FxHouse.Search
             SqlHelper db = new SqlHelper(ConfigurationManager.ConnectionStrings["fx.house-sqlserver"].ToString());
             var dt = db.GetDt(sql);
             var ids = new List<int>();
-            for (int i = 0; i < dt.Rows.Count; i++)
+            if (dt != null)
             {
-                ids.Add(Convert.ToInt32(dt.Rows[i][0]));
+                for (int i = 0; i < dt.Rows.Count; i++)
+                {
+                    ids.Add(Convert.ToInt32(dt.Rows[i][0]));
+                }
             }
             if (ids.Count > 0)
             {
