@@ -11,8 +11,21 @@ using Fx.Infrastructure.Data;
 
 namespace Fx.Domain.FxHouse.Search
 {
+    /// <summary>
+    /// 房屋转让查询服务
+    /// </summary>
     public class HouseTransferSearchService : CommonSearch, ISiteSearch<HouseTransferInfo>, IHomeSearch<HouseTransferInfo>, IHouseSearch<HouseTransferInfo>
     {
+        /// <summary>
+        /// 按关键字查询 （标题） 缓存会
+        /// </summary>
+        /// <param name="key">关键字</param>
+        /// <param name="page">页码</param>
+        /// <param name="take">获取数据的数量</param>
+        /// <param name="area">地区</param>
+        /// <param name="city">城市</param>
+        /// <param name="clc">帖子对应的二级或者三级频道Id</param>
+        /// <returns></returns>
         public List<HouseTransferInfo> SearchByKey(string key, int area = 0,
             int city = 0, int page = 0,
             int take = 10, int clc = 0)
@@ -51,6 +64,11 @@ namespace Fx.Domain.FxHouse.Search
             }
         }
 
+        /// <summary>
+        /// 获取首页最新房屋信息
+        /// </summary>
+        /// <param name="count"></param>
+        /// <returns></returns>
         public List<HouseTransferInfo> SearchLatestForHome(int count)
         {
             using (var content = new FxHouseContext())
@@ -68,6 +86,13 @@ namespace Fx.Domain.FxHouse.Search
             throw new NotImplementedException();
         }
 
+        /// <summary>
+        /// 仅仅根据三级类别查询，用于大频道和后续仅仅点击页码的查询
+        /// </summary>
+        /// <param name="catagroy">三级分类目录列表id</param>
+        /// <param name="page">页码</param>
+        /// <param name="take">每页获取多少数据</param>
+        /// <returns>房屋查询的结果集合</returns>
         public List<HouseTransferInfo> SearchByCatagroy(Entity.Catagroy.ChannelListDetailCatagroy catagroy, int page = 0, int take = 20)
         {
             using (var content = new FxHouseContext())
@@ -81,6 +106,14 @@ namespace Fx.Domain.FxHouse.Search
             }
         }
 
+        /// <summary>
+        /// 创建sql where表达式 用于多条件的查询
+        /// </summary>
+        /// <param name="key">关键字</param>
+        /// <param name="area">地区</param>
+        /// <param name="city">城市</param>
+        /// <param name="clc">三级分类</param>
+        /// <returns></returns>
         private StringBuilder CreateWhereExpress(string key, int area,
             int city, int clc)
         {

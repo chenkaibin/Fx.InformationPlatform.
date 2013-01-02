@@ -13,6 +13,9 @@ using Fx.Infrastructure.Db;
 
 namespace Fx.Domain
 {
+    /// <summary>
+    /// 站点上下文
+    /// </summary>
     public class SiteContext : DbContext
     {
         static SiteContext()
@@ -54,32 +57,49 @@ namespace Fx.Domain
             modelBuilder.Configurations.Add(new ChannelListDetail_Mapping());
         }
 
-        public DbSet<Applications> Applications { get; set; }
+        //public DbSet<Applications> Applications { get; set; }
         public DbSet<Membership> Memberships { get; set; }
-        public DbSet<Paths> Paths { get; set; }
-        public DbSet<PersonalizationAllUsers> PersonalizationAllUsers { get; set; }
-        public DbSet<PersonalizationPerUser> PersonalizationPerUsers { get; set; }
-        public DbSet<Profile> Profiles { get; set; }
-        public DbSet<Roles> Roles { get; set; }
-        public DbSet<SchemaVersions> SchemaVersions { get; set; }
+        //public DbSet<Paths> Paths { get; set; }
+        //public DbSet<PersonalizationAllUsers> PersonalizationAllUsers { get; set; }
+        //public DbSet<PersonalizationPerUser> PersonalizationPerUsers { get; set; }
+        //public DbSet<Profile> Profiles { get; set; }
+        //public DbSet<Roles> Roles { get; set; }
+        //public DbSet<SchemaVersions> SchemaVersions { get; set; }
         public DbSet<Users> Users { get; set; }
-        public DbSet<WebEvent_Events> WebEvent_Events { get; set; }
-
-        //User      -Extend not MemberShip
+        //public DbSet<WebEvent_Events> WebEvent_Events { get; set; }
+       
+        /// <summary>
+        /// 用户扩展信息
+        /// </summary>
         public DbSet<OtherInformation> OtherInformations { get; set; }
-        //ELMAH
+        
+        /// <summary>
+        /// ELMAH
+        /// </summary>
         public DbSet<ELMAH_Error> ELMAHErrors { get; set; }
 
 
         //Site
+        /// <summary>
+        /// 区域
+        /// </summary>
         public DbSet<Area> Areas { get; set; }
+        /// <summary>
+        /// 城市
+        /// </summary>
         public DbSet<City> Cities { get; set; }
-
+        /// <summary>
+        /// 一级频道
+        /// </summary>
         public DbSet<Channel> Channels { get; set; }
+        /// <summary>
+        /// 二级频道
+        /// </summary>
         public DbSet<ChannelList> ChannelLists { get; set; }
 
-
-        //
+        /// <summary>
+        /// 物品新旧程度 后期整顿!!TODO
+        /// </summary>
         public DbSet<GoodsCondition> GoodsConditions { get; set; }
     }
 }

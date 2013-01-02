@@ -8,6 +8,9 @@ using Fx.Entity.FxGoods;
 
 namespace Fx.Domain.FxGoods
 {
+    /// <summary>
+    /// 物品上下文
+    /// </summary>
     public class FxGoodsContext : DbContext
     {
         static FxGoodsContext()
@@ -45,9 +48,17 @@ namespace Fx.Domain.FxGoods
             modelBuilder.Configurations.Add(new TransferPicture_Mapping());
 
         }
-
+        /// <summary>
+        /// 物品转让
+        /// </summary>
         public DbSet<GoodsTransferInfo> GoodsTransferInfos { get; set; }
+        /// <summary>
+        /// 物品求购
+        /// </summary>
         public DbSet<GoodsBuyInfo> GoodsBuyInfos { get; set; }
+        /// <summary>
+        /// 图片CND错误  暂时用于监测图片错误信息 不正确的图片格式等导致意外的错误
+        /// </summary>
         public DbSet<PictureCdnError> PictureCdnErrors { get; set; }
 
 

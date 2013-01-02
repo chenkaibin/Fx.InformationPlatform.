@@ -1,6 +1,9 @@
 ﻿namespace Fx.Entity
 {
-   public interface IAction
+    /// <summary>
+    /// 确定信息在MVC中相关路由信息
+    /// </summary>
+    public interface IAction
     {
         /// <summary>
         /// MVC控制器名称 如一个Car频道 那么设置其控制器是Car
@@ -16,7 +19,5 @@
         /// MVC Route参数
         /// </summary>
         string RoutePars { get; set; }
-
-        //string HtmlAttributes { get; set; }
     }
 }

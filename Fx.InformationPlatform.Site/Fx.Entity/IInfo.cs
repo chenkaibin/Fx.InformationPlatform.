@@ -52,10 +52,14 @@ namespace Fx.Entity
         /// </summary>
         string UserAccount { get; set; }
 
-
+        /// <summary>
+        /// 频道所在控制器
+        /// </summary>
         string Controller { get; set; }
 
-
+        /// <summary>
+        /// 频道所在方法 
+        /// </summary>
         string Action { get; set; }
 
 
@@ -74,7 +78,9 @@ namespace Fx.Entity
         /// </summary>
         bool IsPublish { get; set; }
 
-
+        /// <summary>
+        /// 帖子所在状态
+        /// </summary>
         int InfoProcessState { get; set; }
 
         /// <summary>

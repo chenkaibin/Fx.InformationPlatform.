@@ -6,7 +6,6 @@ using Fx.Entity;
 
 namespace Fx.Domain.Base.IService
 {
-    //ChannelCatagroy channelCatagroy, 
     /// <summary>
     /// 帖子关键字查询接口
     /// </summary>

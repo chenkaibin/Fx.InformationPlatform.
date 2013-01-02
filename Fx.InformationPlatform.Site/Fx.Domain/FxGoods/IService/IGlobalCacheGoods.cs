@@ -5,8 +5,15 @@ using System.Text;
 
 namespace Fx.Domain.FxGoods.IService
 {
-   public interface IGlobalCacheGoods
+    /// <summary>
+    /// 全局物品缓存接口
+    /// </summary>
+    public interface IGlobalCacheGoods
     {
-       int InfoCount();
+        /// <summary>
+        /// 帖子数量
+        /// </summary>
+        /// <returns></returns>
+        int InfoCount();
     }
 }

@@ -7,8 +7,15 @@ using Fx.Entity.FxAggregate;
 
 namespace Fx.Domain.FxAggregate
 {
+    /// <summary>
+    /// 私信服务
+    /// </summary>
     public class PrivateMessageService : IPrivateMessage
     {
+        /// <summary>
+        /// 添加私信
+        /// </summary>
+        /// <param name="message"></param>
         public void AddPrivateMessage(PrivateMessage message)
         {
             using (var content = new FxAggregateContext())
@@ -18,6 +25,10 @@ namespace Fx.Domain.FxAggregate
             }
         }
 
+        /// <summary>
+        /// 删除私信
+        /// </summary>
+        /// <param name="message"></param>
         public void RemovePrivateMessage(PrivateMessage message)
         {
             using (var content = new FxAggregateContext())
@@ -32,7 +43,11 @@ namespace Fx.Domain.FxAggregate
             }
         }
 
-
+        /// <summary>
+        /// 获取私信
+        /// </summary>
+        /// <param name="id">私信id</param>
+        /// <returns>私信</returns>
         public List<PrivateMessage> GetByUser(string email)
         {
             using (var content = new FxAggregateContext())
@@ -43,7 +58,11 @@ namespace Fx.Domain.FxAggregate
             }
         }
 
-
+        /// <summary>
+        /// 获取用户私信
+        /// </summary>
+        /// <param name="email">用户帐号</param>
+        /// <returns>私信列表</returns>
         public PrivateMessage GetById(int id)
         {
             using (var content = new FxAggregateContext())
@@ -54,7 +73,11 @@ namespace Fx.Domain.FxAggregate
             }
         }
 
-
+        /// <summary>
+        /// 用户私信数量
+        /// </summary>
+        /// <param name="email">帐号</param>
+        /// <returns>私信数量</returns>
         public int PrivateMessageCount(string email)
         {
             using (var content = new FxAggregateContext())

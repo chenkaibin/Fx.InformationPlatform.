@@ -13,10 +13,13 @@ namespace Fx.Domain.FxAggregate.IService
         /// <summary>
         /// 所有帖子的数量
         /// </summary>
-        /// <returns></returns>
+        /// <returns>帖子数量</returns>
         long InfoCount();
 
-
+        /// <summary>
+        /// 所有交易以完成的数量
+        /// </summary>
+        /// <returns>帖子数量</returns>
         long InfoEndCount();
     }
 }

@@ -11,8 +11,21 @@ using Fx.Infrastructure.Data;
 
 namespace Fx.Domain.FxCar.Search
 {
+    /// <summary>
+    /// 车辆转让查询服务
+    /// </summary>
     public class CarTransferSearchService : CommonSearch, ISiteSearch<CarTransferInfo>, IHomeSearch<CarTransferInfo>, ICarSearch<CarTransferInfo>
     {
+        /// <summary>
+        /// 按关键字查询 （标题） 
+        /// </summary>
+        /// <param name="key">关键字</param>
+        /// <param name="page">页码</param>
+        /// <param name="take">获取数据的数量</param>
+        /// <param name="area">地区</param>
+        /// <param name="city">城市</param>
+        /// <param name="clc">帖子对应的二级或者三级频道Id</param>
+        /// <returns></returns>
         public List<CarTransferInfo> SearchByKey(string key, int area = 0, int city = 0,
             int page = 0, int take = 10, int clc = 0)
         {
@@ -51,6 +64,31 @@ namespace Fx.Domain.FxCar.Search
             }
         }
 
+        /// <summary>
+        /// 仅仅根据三级类别查询，用于大频道和后续仅仅点击页码的查询
+        /// </summary>
+        /// <param name="catagroy">三级分类目录列表id</param>
+        /// <param name="page">页码</param>
+        /// <param name="take">每页获取多少数据</param>
+        /// <returns>车辆查询的结果集合</returns>
+        public List<CarTransferInfo> SearchByCatagroy(Entity.Catagroy.ChannelListDetailCatagroy catagroy, int page, int take)
+        {
+            using (var context = new FxCarContext())
+            {
+                return context.CarTransferInfos
+                    .Include(r => r.Pictures)
+                    .Where(r => r.IsPublish == true && r.CatagroyId == (int)catagroy)
+                    .OrderByDescending(r => r.CreatedTime)
+                    .Skip(page * take)
+                    .Take(take).ToList();
+            }
+        }
+
+        /// <summary>
+        /// 获取首页最新汽车信息
+        /// </summary>
+        /// <param name="count">数量</param>
+        /// <returns></returns>
         public List<CarTransferInfo> SearchLatestForHome(int count)
         {
             using (var content = new FxCarContext())
@@ -68,19 +106,14 @@ namespace Fx.Domain.FxCar.Search
             throw new NotImplementedException();
         }
 
-        public List<CarTransferInfo> SearchByCatagroy(Entity.Catagroy.ChannelListDetailCatagroy catagroy, int page, int take)
-        {
-            using (var context = new FxCarContext())
-            {
-                return context.CarTransferInfos
-                    .Include(r => r.Pictures)
-                    .Where(r => r.IsPublish == true && r.CatagroyId == (int)catagroy)
-                    .OrderByDescending(r => r.CreatedTime)
-                    .Skip(page * take)
-                    .Take(take).ToList();
-            }
-        }
-
+        /// <summary>
+        /// 创建sql where表达式 用于多条件的查询
+        /// </summary>
+        /// <param name="key">关键字</param>
+        /// <param name="area">地区</param>
+        /// <param name="city">城市</param>
+        /// <param name="clc">三级分类</param>
+        /// <returns></returns>
         private StringBuilder CreateWhereExpress(string key, int area,
           int city, int clc)
         {

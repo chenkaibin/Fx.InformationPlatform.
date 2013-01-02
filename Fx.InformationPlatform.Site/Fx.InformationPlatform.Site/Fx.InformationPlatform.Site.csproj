@@ -378,6 +378,7 @@
     <Content Include="Content\js\Debug\log4javascript1.4.3.js" />
     <Content Include="Content\js\jquery-1.8.2.min.js" />
     <Content Include="Content\js\jquery.SuperSlide.js" />
+    <Content Include="Content\js\md5.js" />
     <Content Include="Content\js\slider.js" />
     <Content Include="Content\js\Transfer\TransferGoodsEvent.js" />
     <Content Include="Content\js\instant.js" />

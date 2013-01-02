@@ -8,9 +8,16 @@ using Fx.Entity.FxHouse;
 
 namespace Fx.Domain.FxHouse
 {
+    /// <summary>
+    /// 房屋转让保存读取服务
+    /// </summary>
    public  class FxTransferHouseService:ITransferHouse
     {
-
+        /// <summary>
+        /// 获取房屋转让信息
+        /// </summary>
+        /// <param name="Id">房屋转让Id</param>
+        /// <returns>房屋转让信息</returns>
         public Entity.FxHouse.HouseTransferInfo Get(int Id)
         {
             using (FxHouseContext context = new FxHouseContext())
@@ -20,6 +27,11 @@ namespace Fx.Domain.FxHouse
             }
         }
 
+        /// <summary>
+        /// 保存房屋转让信息
+        /// </summary>
+        /// <param name="car">房屋转让信息</param>
+        /// <returns>是否保存成功</returns>
         public bool SaveTransferHouse(HouseTransferInfo house)
         {
             using (var context = new FxHouseContext())

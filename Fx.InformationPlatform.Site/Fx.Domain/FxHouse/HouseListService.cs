@@ -13,13 +13,17 @@ namespace Fx.Domain.FxHouse
     /// </summary>
     public class HouseListService
     {
+        /// <summary>
+        /// 商业用房列表
+        /// </summary>
+        /// <returns></returns>
         public List<HouseTransferInfo> CommercialProperties()
         {
             List<HouseTransferInfo> list;
             using (FxHouseContext context = new FxHouseContext())
             {
                 list = context.HouseTransferInfos.Include(r => r.Pictures)
-                .Where(r => r.IsPublish==true && r.Action == "CommercialProperties")
+                .Where(r => r.IsPublish == true && r.Action == "CommercialProperties")
                 .OrderByDescending(r => r.CreatedTime)
                 .Take(20).ToList();
             }
@@ -30,13 +34,17 @@ namespace Fx.Domain.FxHouse
             return list;
         }
 
+        /// <summary>
+        /// 居住用房列表
+        /// </summary>
+        /// <returns></returns>
         public List<HouseTransferInfo> Properties()
         {
             List<HouseTransferInfo> list;
             using (FxHouseContext context = new FxHouseContext())
             {
                 list = context.HouseTransferInfos.Include(r => r.Pictures)
-                .Where(r => r.IsPublish==true && r.Action == "Properties")
+                .Where(r => r.IsPublish == true && r.Action == "Properties")
                 .OrderByDescending(r => r.CreatedTime)
                 .Take(20).ToList();
             }

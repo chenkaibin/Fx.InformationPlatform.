@@ -10,14 +10,17 @@ using Fx.Infrastructure.Caching;
 
 namespace Fx.Domain.FxSite
 {
+    /// <summary>
+    /// 站点下房屋基础信息服务（基本不变）
+    /// </summary>
     public class HouseService : IHouse
     {
-        ICacheManager cachemanager;
-        public HouseService(ICacheManager cachemanager)
-        {
-            this.cachemanager = cachemanager;
-        }
-
+        /// <summary>
+        /// 根据路由获取房屋转让三级明细列表
+        /// </summary>
+        /// <param name="ControllerName">控制器名称</param>
+        /// <param name="ActionName">方法名称</param>
+        /// <returns>三级明细列表</returns>
         public List<Entity.FxSite.ChannelListDetail> GetChannelBuyDetail(string ControllerName, string ActionName)
         {
             ChannelList channelList;
@@ -35,7 +38,12 @@ namespace Fx.Domain.FxSite
             return new List<Entity.FxSite.ChannelListDetail>();
         }
 
-
+        /// <summary>
+        /// 根据路由获取房屋求购三级明细列表
+        /// </summary>
+        /// <param name="ControllerName">控制器名称</param>
+        /// <param name="ActionName">方法名称</param>
+        /// <returns>三级明细列表</returns>
         public List<Entity.FxSite.ChannelListDetail> GetChannelTransferDetail(string ControllerName, string ActionName)
         {
             ChannelList channelList;

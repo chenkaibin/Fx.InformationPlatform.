@@ -13,6 +13,10 @@ namespace Fx.Domain.FxCar
     /// </summary>
     public class CarListService
     {
+        /// <summary>
+        /// 获取二手汽车
+        /// </summary>
+        /// <returns></returns>
         public List<CarTransferInfo> GetSecondHandCar()
         {
             List<CarTransferInfo> list;

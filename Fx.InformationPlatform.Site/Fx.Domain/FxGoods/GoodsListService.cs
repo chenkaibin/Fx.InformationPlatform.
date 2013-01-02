@@ -13,6 +13,10 @@ namespace Fx.Domain.FxGoods
     /// </summary>
     public class GoodsListService
     {
+        /// <summary>
+        /// 获取所有的文化生活栏目列表
+        /// </summary>
+        /// <returns></returns>
         public List<GoodsTransferInfo> CultureLife()
         {
             List<GoodsTransferInfo> list;
@@ -30,6 +34,10 @@ namespace Fx.Domain.FxGoods
             return list;
         }
 
+        /// <summary>
+        /// 获取所有的数码产品栏目列表
+        /// </summary>
+        /// <returns></returns>
         public List<GoodsTransferInfo> Electronics()
         {
             List<GoodsTransferInfo> list;
@@ -47,6 +55,10 @@ namespace Fx.Domain.FxGoods
             return list;
         }
 
+        /// <summary>
+        /// 获取所有的衣服鞋包栏目列表
+        /// </summary>
+        /// <returns></returns>
         public List<GoodsTransferInfo> Fashion()
         {
             List<GoodsTransferInfo> list;
@@ -64,6 +76,10 @@ namespace Fx.Domain.FxGoods
             return list;
         }
 
+        /// <summary>
+        /// 获取所有的居家用品栏目列表
+        /// </summary>
+        /// <returns></returns>
         public List<GoodsTransferInfo> HomeSupplies()
         {
             List<GoodsTransferInfo> list;
@@ -81,6 +97,10 @@ namespace Fx.Domain.FxGoods
             return list;
         }
 
+        /// <summary>
+        /// 获取所有的其他栏目列表
+        /// </summary>
+        /// <returns></returns>
         public List<GoodsTransferInfo> Other()
         {
             List<GoodsTransferInfo> list;

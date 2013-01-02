@@ -6,9 +6,15 @@ using Fx.Domain.FxGoods.IService;
 
 namespace Fx.Domain.FxGoods
 {
+    /// <summary>
+    /// 全局物品缓存服务
+    /// </summary>
     public class GlobalCacheGoods : IGlobalCacheGoods
     {
-
+        /// <summary>
+        /// 物品帖子数量（求购+转让）
+        /// </summary>
+        /// <returns></returns>
         public int InfoCount()
         {
             using (var context = new FxGoodsContext())

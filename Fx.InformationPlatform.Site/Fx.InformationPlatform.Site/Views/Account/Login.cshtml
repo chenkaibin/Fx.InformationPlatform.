@@ -1,5 +1,5 @@
-﻿
-@model Fx.Entity.Account.RegisterUser
+﻿@model Fx.Entity.Account.RegisterUser
+@using Fx.InformationPlatform.Site;
 @{
     Layout = "~/Views/Shared/_Layout.cshtml";
     ViewBag.Title = "登录 - 英淘网";
@@ -42,4 +42,14 @@
         </div>
 
     </div>
+    <script type="text/javascript"  src="@AppSettings.JavaScriptDomain("md5.js")"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $(":submit").click(function () {
+                $("#Password").val(hex_md5("input string"));
+            });
+        });
+    </script>
+    
+    
 }

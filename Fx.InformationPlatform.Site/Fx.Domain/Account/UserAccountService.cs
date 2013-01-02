@@ -6,24 +6,17 @@ using Fx.Infrastructure;
 
 namespace Fx.Domain.Account
 {
+    /// <summary>
+    /// 用户帐号服务
+    /// </summary>
     public class UserAccountService : IService.IAccountService
     {
-        public DomainResult IsExistUser(string userName)
-        {
-            var user = Membership.GetUser(userName);
-            if (user != null)
-            {
-                var ret = DomainResult.GetDefault();
-                ret.Tag = user;
-                return ret;
-            }
-            else
-            {
-                return new DomainResult(false);
-            }
-
-        }
-
+        /// <summary>
+        /// 新增一个用户
+        /// </summary>
+        /// <param name="entity">memberiship用户</param>
+        /// <param name="other">用户扩展信息</param>
+        /// <returns>领域处理结果</returns>
         public DomainResult AddUser(Entity.MemberShip.Membership entity, Entity.MemberShip.OtherInformation other)
         {
             if (!IsExistUser(entity.Users.UserName).isSuccess)
@@ -70,10 +63,10 @@ namespace Fx.Domain.Account
         }
 
         /// <summary>
-        /// 实现部分 业务角度来说 其实是不需要的
+        /// 删除一个用户 业务角度来说 其实是不需要的
         /// </summary>
-        /// <param name="entity"></param>
-        /// <returns></returns>
+        /// <param name="entity">memberiship用户</param>
+        /// <returns>领域处理结果</returns>
         public DomainResult DeleteUser(Entity.MemberShip.Membership entity)
         {
             if (IsExistUser(entity.Users.UserName).isSuccess)
@@ -109,16 +102,15 @@ namespace Fx.Domain.Account
 
 
         /// <summary>
-        /// 
+        /// 更新用户信息
         /// </summary>
-        /// <param name="entity"></param>
-        /// <returns></returns>
+        /// <param name="entity">memberiship用户</param>
+        /// <returns>领域处理结果</returns>
         public DomainResult UpdateUser(Entity.MemberShip.Membership entity)
         {
             var res = IsExistUser(entity.Users.UserName);
             if (!res.isSuccess)
             {
-
                 var result = DomainResult.GetDefault();
                 try
                 {
@@ -143,7 +135,12 @@ namespace Fx.Domain.Account
         }
 
 
-
+        /// <summary>
+        /// 修改用户密码
+        /// </summary>
+        /// <param name="entity">memberiship用户</param>
+        /// <param name="oldPassword">用户扩展信息</param>
+        /// <returns>领域处理结果</returns>
         public DomainResult ChangePassword(Entity.MemberShip.Membership entity, string oldPassword)
         {
             var result = DomainResult.GetDefault();
@@ -152,9 +149,7 @@ namespace Fx.Domain.Account
             {
                 try
                 {
-                    //u.ChangePasswordQuestionAndAnswer(entity.Password, null, null);
                     u.ChangePassword(oldPassword, entity.Password);
-                    //u.ResetPassword(u.GetPassword());
                 }
                 catch (Exception ex)
                 {
@@ -168,6 +163,32 @@ namespace Fx.Domain.Account
             return result;
         }
 
+        /// <summary>
+        /// 用户帐号是否存在
+        /// </summary>
+        /// <param name="userName">帐号</param>
+        /// <returns>领域处理结果</returns>
+        public DomainResult IsExistUser(string userName)
+        {
+            var user = Membership.GetUser(userName);
+            if (user != null)
+            {
+                var ret = DomainResult.GetDefault();
+                ret.Tag = user;
+                return ret;
+            }
+            else
+            {
+                return new DomainResult(false);
+            }
+        }
+
+        /// <summary>
+        /// 验证用户
+        /// </summary>
+        /// <param name="userName">帐号</param>
+        /// <param name="password">密码</param>
+        /// <returns>领域处理结果</returns>
         public DomainResult VaildUser(string userName, string password)
         {
             if (Membership.ValidateUser(userName, password))
@@ -180,7 +201,10 @@ namespace Fx.Domain.Account
             }
         }
 
-
+        /// <summary>
+        /// 获取用户的数量
+        /// </summary>
+        /// <returns>用户数量</returns>
         public int GetUserCount()
         {
             using (var content = new SiteContext())
@@ -189,7 +213,11 @@ namespace Fx.Domain.Account
             }
         }
 
-
+        /// <summary>
+        /// 获取当前的用户Guid
+        /// </summary>
+        /// <param name="Email">邮箱帐号</param>
+        /// <returns>领域处理结果，如信息不存在会爆出异常</returns>
         public Guid GetCurrentUser(string Email)
         {
             using (var content = new SiteContext())
@@ -198,7 +226,11 @@ namespace Fx.Domain.Account
             }
         }
 
-
+        /// <summary>
+        /// 获取用户扩展信息
+        /// </summary>
+        /// <param name="Email">邮箱帐号</param>
+        /// <returns>用户扩展信息，如信息不存在会抛出异常</returns>
         public Entity.MemberShip.OtherInformation GetUserExtendInfo(string Email)
         {
             using (var content = new SiteContext())
@@ -207,6 +239,11 @@ namespace Fx.Domain.Account
             }
         }
 
+        /// <summary>
+        /// 重置用户密码 直接返回系统重置的随即密码，需要及时修改
+        /// </summary>
+        /// <param name="Email">邮箱帐号</param>
+        /// <returns>领域处理结果</returns>
         public DomainResult ResetPassword(string Email)
         {
             var result = DomainResult.GetDefault();

@@ -52,7 +52,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Account\AccountInitializer.cs" />
     <Compile Include="Account\Mapping\Applications_Mapping.cs" />
     <Compile Include="Account\Mapping\Membership_Mapping.cs" />
     <Compile Include="Account\Mapping\Other\OtherInformation_Mapping.cs" />
@@ -66,7 +65,6 @@
     <Compile Include="Account\Mapping\WebEvent_Events_Mapping.cs" />
     <Compile Include="Account\UserAccountService.cs" />
     <Compile Include="Account\IService\IAccountService.cs" />
-    <Compile Include="Account\AccountContext.cs" />
     <Compile Include="Base\CommonSearch.cs" />
     <Compile Include="Base\IService\ICarSearch.cs" />
     <Compile Include="Base\IService\IGoodsSearch.cs" />
@@ -194,9 +192,6 @@
       <Project>{41138e06-4c15-4641-9207-d0bf5c9f32da}</Project>
       <Name>Fx.Infrastructure</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>

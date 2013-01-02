@@ -8,6 +8,9 @@ using Fx.Entity.FxBrower;
 
 namespace Fx.Domain.FxBrower
 {
+    /// <summary>
+    /// 浏览器信息记录上下文
+    /// </summary>
     public class FxBrowerContext : DbContext
     {
         static FxBrowerContext()
@@ -28,7 +31,9 @@ namespace Fx.Domain.FxBrower
             modelBuilder.Configurations.Add(new Brower_Mapping());
 
         }
-
+        /// <summary>
+        /// 浏览器
+        /// </summary>
         public DbSet<Brower> Browers { get; set; }
 
     }

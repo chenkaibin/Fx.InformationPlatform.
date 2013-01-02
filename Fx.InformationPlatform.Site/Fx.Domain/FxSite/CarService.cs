@@ -8,9 +8,18 @@ using Fx.Infrastructure.Caching;
 
 namespace Fx.Domain.FxSite
 {
+    /// <summary>
+    /// 站点车辆基础信息服务 
+    /// </summary>
     public class CarService : ICar
     {
+        /// <summary>
+        /// 车辆年份相关数据对应的缓存Key
+        /// </summary>
         private readonly string CARKEYYEAR = "Fx.Domain.FxSite.CarService.GetCarShowYear";
+        /// <summary>
+        /// 车辆英里相关数据对应的缓存Key
+        /// </summary>
         private readonly string CARMILEAGE = "Fx.Domain.FxSite.CarService.CARMILEAGE";
         ICacheManager cachemanager;
         public CarService(ICacheManager cachemanager)
@@ -18,6 +27,12 @@ namespace Fx.Domain.FxSite
             this.cachemanager = cachemanager;
         }
 
+        /// <summary>
+        /// 根据路由获取车辆转让三级明细列表
+        /// </summary>
+        /// <param name="ControllerName">控制器名称</param>
+        /// <param name="ActionName">方法名称</param>
+        /// <returns>三级明细列表</returns>
         public List<Entity.FxSite.ChannelListDetail> GetChannelBuyDetail(string ControllerName, string ActionName)
         {
             Fx.Entity.FxSite.ChannelList channelList;
@@ -35,14 +50,19 @@ namespace Fx.Domain.FxSite
             return new List<Entity.FxSite.ChannelListDetail>();
         }
 
-
+        /// <summary>
+        /// 根据路由获取车辆求购三级明细列表
+        /// </summary>
+        /// <param name="ControllerName">控制器名称</param>
+        /// <param name="ActionName">方法名称</param>
+        /// <returns>三级明细列表</returns>
         public List<Entity.FxSite.ChannelListDetail> GetChannelTransferDetail(string ControllerName, string ActionName)
         {
             Fx.Entity.FxSite.ChannelList channelList;
             using (var content = new SiteContext())
             {
                 channelList = content.ChannelLists.Include(r => r.ChannelListDetails)
-                     .Where(r => r.TransferController == ControllerName && 
+                     .Where(r => r.TransferController == ControllerName &&
                          r.ActionName == ActionName).FirstOrDefault();
             }
             if (channelList != null)
@@ -55,10 +75,9 @@ namespace Fx.Domain.FxSite
 
 
         /// <summary>
-        /// ????  可以不用缓存 因为Controller做了，暂时保留
-        /// 不过后期进行检索较为方便
+        /// 获取汽车允许显示的生产年份 走缓存服务
         /// </summary>
-        /// <returns></returns>
+        /// <returns>生产年份列表</returns>
         public List<int> GetCarShowYear()
         {
             if (cachemanager.Get(CARKEYYEAR) == null)
@@ -74,7 +93,10 @@ namespace Fx.Domain.FxSite
             return cachemanager.Get(CARKEYYEAR) as List<int>;
         }
 
-
+        /// <summary>
+        ///  获取汽车显示的英里数 走缓存服务，具体英里数不保存在相关数据库中
+        /// </summary>
+        /// <returns>英里数和其相关描述</returns>
         public Dictionary<int, string> GetCarMileage()
         {
             if (cachemanager.Get(CARMILEAGE) == null)

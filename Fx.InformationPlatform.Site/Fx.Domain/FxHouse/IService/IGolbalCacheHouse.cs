@@ -5,8 +5,15 @@ using System.Text;
 
 namespace Fx.Domain.FxHouse.IService
 {
-   public interface IGolbalCacheHouse
+    /// <summary>
+    /// 全局缓存房屋统计接口
+    /// </summary>
+    public interface IGolbalCacheHouse
     {
-       int InfoCount();
+        /// <summary>
+        /// 房屋帖子数量
+        /// </summary>
+        /// <returns></returns>
+        int InfoCount();
     }
 }

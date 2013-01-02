@@ -5,6 +5,9 @@ using System.Text;
 
 namespace Fx.Entity.Catagroy
 {
+    /// <summary>
+    /// 三级分类目录列表
+    /// </summary>
     public enum ChannelListDetailCatagroy
     {
         Phone = 1,

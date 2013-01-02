@@ -8,6 +8,9 @@ using Fx.Entity.FxAggregate;
 
 namespace Fx.Domain.FxAggregate
 {
+    /// <summary>
+    /// 收藏服务
+    /// </summary>
     public class FavoriteService : IFavorite
     {
         protected IAggregateInfo aggregateInfoService;
@@ -16,6 +19,11 @@ namespace Fx.Domain.FxAggregate
             this.aggregateInfoService = aggregateInfoService;
         }
 
+        /// <summary>
+        /// 添加收藏
+        /// </summary>
+        /// <param name="favorite"></param>
+        /// <returns></returns>
         public DomainResult AddFavorite(Entity.FxAggregate.Favorite favorite)
         {
 
@@ -40,6 +48,11 @@ namespace Fx.Domain.FxAggregate
             }
         }
 
+        /// <summary>
+        /// 删除收藏
+        /// </summary>
+        /// <param name="favorite"></param>
+        /// <returns></returns>
         public DomainResult DeleteFavorite(Entity.FxAggregate.Favorite favorite)
         {
             using (var context = new FxAggregateContext())
@@ -58,6 +71,13 @@ namespace Fx.Domain.FxAggregate
             }
         }
 
+        /// <summary>
+        /// 获取收藏信息
+        /// </summary>
+        /// <param name="ChannelCatagroy">频道</param>
+        /// <param name="infoId">帖子id</param>
+        /// <param name="accountUser">用户帐号</param>
+        /// <returns>收藏信息</returns>
         public Favorite GetFavorite(int ChannelCatagroy, int infoId, string userAccount)
         {
             using (var context = new FxAggregateContext())
@@ -69,6 +89,11 @@ namespace Fx.Domain.FxAggregate
             }
         }
 
+        /// <summary>
+        /// 获取帐号下所有的收藏信息
+        /// </summary>
+        /// <param name="accountUser">帐号</param>
+        /// <returns>收藏信息列表</returns>
         public List<Favorite> GetFavorite(string accountUser)
         {
             using (var context = new FxAggregateContext())
@@ -78,7 +103,11 @@ namespace Fx.Domain.FxAggregate
             }
         }
 
-
+        /// <summary>
+        /// 根据Id获取收藏信息
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         public Favorite GetById(int id)
         {
             using (var context = new FxAggregateContext())
@@ -88,7 +117,13 @@ namespace Fx.Domain.FxAggregate
             }
         }
 
-
+        /// <summary>
+        /// 查询帖子是否已收藏
+        /// </summary>
+        /// <param name="ChannelCatagroy">频道</param>
+        /// <param name="infoId">帖子id</param>
+        /// <param name="accountUser">帐号</param>
+        /// <returns>是否已收藏</returns>
         public bool IsFavorite(int ChannelCatagroy, int infoId, string accountUser)
         {
             return GetFavorite(ChannelCatagroy, infoId, accountUser) != null;

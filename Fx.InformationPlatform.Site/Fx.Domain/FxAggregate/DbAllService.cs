@@ -6,8 +6,15 @@ using Fx.Domain.FxAggregate.IService;
 
 namespace Fx.Domain.FxAggregate
 {
+    /// <summary>
+    /// 数据库聚合统计服务
+    /// </summary>
     public class DbAllService : IDbAll
     {
+        /// <summary>
+        /// 所有帖子的数量
+        /// </summary>
+        /// <returns>帖子数量</returns>
         public long InfoCount()
         {
             int carBuy = 0;
@@ -34,7 +41,10 @@ namespace Fx.Domain.FxAggregate
             return carBuy + carTransfer + goodsBuy + goodsTransfer + houseBuy + houseTransfer;
         }
 
-
+        /// <summary>
+        /// 所有交易已完成的数量
+        /// </summary>
+        /// <returns>帖子数量</returns>
         public long InfoEndCount()
         {
             int carBuy = 0;

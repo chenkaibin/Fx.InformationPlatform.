@@ -7,8 +7,17 @@ using Fx.Entity;
 
 namespace Fx.Domain.FxAggregate
 {
+    /// <summary>
+    /// 聚合信息服务
+    /// </summary>
     public class AggregateInfoService : IAggregateInfo
     {
+        /// <summary>
+        /// 获取帖子
+        /// </summary>
+        /// <param name="ChannelCatagroy">频道id</param>
+        /// <param name="infoId">分散库中的帖子id</param>
+        /// <returns>帖子抽像对象（详情对象具体在获取）</returns>
         public IInfo GetInfoByCatatgroyAndId(int ChannelCatagroy, int infoId)
         {
             if (ChannelCatagroy == (int)Fx.Entity.ChannelCatagroy.FxCarBuy)
@@ -59,7 +68,11 @@ namespace Fx.Domain.FxAggregate
             return null;
         }
 
-
+        /// <summary>
+        /// 帖子是否(可以操作??)发布
+        /// </summary>
+        /// <param name="info">帖子</param>
+        /// <returns>帖子是否可以操作</returns>
         public bool IsValid(IInfo info)
         {
             return info.IsPublish;

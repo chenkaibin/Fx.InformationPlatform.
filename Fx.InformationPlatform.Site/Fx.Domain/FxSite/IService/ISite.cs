@@ -3,6 +3,9 @@ using Fx.Entity.FxSite;
 
 namespace Fx.Domain.FxSite.IService
 {
+    /// <summary>
+    /// 站点基础信息接口
+    /// </summary>
     public interface ISite
     {
         /// <summary>
@@ -12,7 +15,7 @@ namespace Fx.Domain.FxSite.IService
         List<Area> GetAreas();
 
         /// <summary>
-        /// 获取所有的城市数据// 有重复的呢？
+        /// 获取所有的城市数据
         /// </summary>
         /// <returns></returns>
         List<City> GetCities();
@@ -33,6 +36,6 @@ namespace Fx.Domain.FxSite.IService
         /// 获取所有的地区包括其级联城市
         /// </summary>
         /// <returns></returns>
-        List<Entity.FxSite.Area> GetAreaDomain();
+        List<Area> GetAreaDomain();
     }
 }
