@@ -13,7 +13,14 @@ namespace Fx.Domain.FxAggregate
     /// </summary>
     public class FavoriteService : IFavorite
     {
+        /// <summary>
+        /// 聚合信息接口
+        /// </summary>
         protected IAggregateInfo aggregateInfoService;
+        /// <summary>
+        /// 默认构造函数
+        /// </summary>
+        /// <param name="aggregateInfoService">聚合信息接口</param>
         public FavoriteService(IAggregateInfo aggregateInfoService)
         {
             this.aggregateInfoService = aggregateInfoService;
@@ -76,7 +83,7 @@ namespace Fx.Domain.FxAggregate
         /// </summary>
         /// <param name="ChannelCatagroy">频道</param>
         /// <param name="infoId">帖子id</param>
-        /// <param name="accountUser">用户帐号</param>
+        /// <param name="userAccount">用户帐号</param>
         /// <returns>收藏信息</returns>
         public Favorite GetFavorite(int ChannelCatagroy, int infoId, string userAccount)
         {

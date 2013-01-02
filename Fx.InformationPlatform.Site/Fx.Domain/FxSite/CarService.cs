@@ -22,6 +22,10 @@ namespace Fx.Domain.FxSite
         /// </summary>
         private readonly string CARMILEAGE = "Fx.Domain.FxSite.CarService.CARMILEAGE";
         ICacheManager cachemanager;
+        /// <summary>
+        /// 默认构造函数
+        /// </summary>
+        /// <param name="cachemanager">缓存接口</param>
         public CarService(ICacheManager cachemanager)
         {
             this.cachemanager = cachemanager;

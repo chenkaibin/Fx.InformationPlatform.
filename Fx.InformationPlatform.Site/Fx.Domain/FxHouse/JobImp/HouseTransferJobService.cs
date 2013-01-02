@@ -5,8 +5,16 @@ using Fx.Entity;
 
 namespace Fx.Domain.FxHouse
 {
+    /// <summary>
+    /// 房屋转让Job服务
+    /// </summary>
     public class HouseTransferJobService : IHouseTransferJob
     {
+        /// <summary>
+        /// 认证中...
+        /// </summary>
+        /// <param name="houseId">房屋转让帖子Id</param>
+        /// <returns>操作是否成功</returns>
         public bool Authorizing(int houseId)
         {
             using (var context = new FxHouseContext())
@@ -25,6 +33,11 @@ namespace Fx.Domain.FxHouse
             return false;
         }
 
+        /// <summary>
+        /// 认证成功
+        /// </summary>
+        /// <param name="houseId">房屋转让帖子Id</param>
+        /// <returns>操作是否成功</returns>
         public bool AuthorizeSuccess(int houseId)
         {
             using (var context = new FxHouseContext())
@@ -43,6 +56,12 @@ namespace Fx.Domain.FxHouse
             return false;
         }
 
+        /// <summary>
+        /// 认证失败
+        /// </summary>
+        /// <param name="houseId">房屋转让帖子Id</param>
+        /// <param name="msg">认证失败错误信息</param>
+        /// <returns>操作是否成功</returns>
         public bool AuthorizeFaild(int houseId,string msg)
         {
             using (var context = new FxHouseContext())
@@ -62,6 +81,11 @@ namespace Fx.Domain.FxHouse
             return false;
         }
 
+        /// <summary>
+        /// 图片CDN中...
+        /// </summary>
+        /// <param name="houseId">房屋转让帖子Id</param>
+        /// <returns>操作是否成功</returns>
         public bool PictrueCdning(int houseId)
         {
             using (var context = new FxHouseContext())
@@ -80,6 +104,11 @@ namespace Fx.Domain.FxHouse
             return false;
         }
 
+        /// <summary>
+        /// 图片CDN成功
+        /// </summary>
+        /// <param name="houseId">房屋转让帖子Id</param>
+        /// <returns>操作是否成功</returns>
         public bool PictrueCdnSuccessd(int houseId)
         {
             using (var context = new FxHouseContext())
@@ -98,6 +127,12 @@ namespace Fx.Domain.FxHouse
             return false;
         }
 
+        /// <summary>
+        /// 图片CDN失败
+        /// </summary>
+        /// <param name="houseId">房屋转让帖子Id</param>
+        /// <param name="errorMsg">图片CDN失败错误信息</param>
+        /// <returns>操作是否成功</returns>
         public bool PictrueCdnFailed(int houseId, string errorMsg)
         {
             using (var context = new FxHouseContext())
@@ -122,6 +157,11 @@ namespace Fx.Domain.FxHouse
             return false;
         }
 
+        /// <summary>
+        /// Job调度完成
+        /// </summary>
+        /// <param name="houseId">房屋转让帖子Id</param>
+        /// <returns>操作是否成功</returns>
         public bool JobSuccess(int houseId)
         {
             using (var context = new FxHouseContext())
@@ -140,6 +180,11 @@ namespace Fx.Domain.FxHouse
             return false;
         }
 
+        /// <summary>
+        /// 发布
+        /// </summary>
+        /// <param name="houseId">房屋转让帖子Id</param>
+        /// <returns>操作是否成功</returns>
         public bool Publish(int houseId)
         {
             using (var context = new FxHouseContext())
@@ -159,6 +204,11 @@ namespace Fx.Domain.FxHouse
             return false;
         }
 
+        /// <summary>
+        /// 帖子延期
+        /// </summary>
+        /// <param name="houseId">房屋转让帖子Id</param>
+        /// <returns>操作是否成功</returns>
         public bool Delay(int houseId)
         {
             using (var context = new FxHouseContext())
@@ -177,6 +227,11 @@ namespace Fx.Domain.FxHouse
             return false;
         }
 
+        /// <summary>
+        /// 以成交
+        /// </summary>
+        /// <param name="houseId">房屋转让帖子Id</param>
+        /// <returns>操作是否成功</returns>
         public bool End(int houseId)
         {
             using (var context = new FxHouseContext())
@@ -195,11 +250,11 @@ namespace Fx.Domain.FxHouse
             return false;
         }
 
-
-
-
-
-
+        /// <summary>
+        /// 不删除状态 （置顶中）
+        /// </summary>
+        /// <param name="houseId">房屋转让帖子Id</param>
+        /// <returns>操作是否成功</returns>
         public bool NoDelete(int houseId)
         {
             using (var context = new FxHouseContext())
@@ -218,7 +273,11 @@ namespace Fx.Domain.FxHouse
             return false;
         }
 
-
+        /// <summary>
+        /// 删除
+        /// </summary>
+        /// <param name="houseId">房屋转让帖子Id</param>
+        /// <returns>操作是否成功</returns>
         public bool Delete(int houseId)
         {
             using (var context = new FxHouseContext())

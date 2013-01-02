@@ -46,7 +46,7 @@ namespace Fx.Domain.FxAggregate
         /// <summary>
         /// 获取私信
         /// </summary>
-        /// <param name="id">私信id</param>
+        /// <param name="email">用户帐号</param>
         /// <returns>私信</returns>
         public List<PrivateMessage> GetByUser(string email)
         {
@@ -61,7 +61,7 @@ namespace Fx.Domain.FxAggregate
         /// <summary>
         /// 获取用户私信
         /// </summary>
-        /// <param name="email">用户帐号</param>
+        /// <param name="id">私信Id</param>
         /// <returns>私信列表</returns>
         public PrivateMessage GetById(int id)
         {

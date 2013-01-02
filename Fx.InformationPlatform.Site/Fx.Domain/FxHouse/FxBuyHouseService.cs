@@ -27,7 +27,7 @@ namespace Fx.Domain.FxHouse
         /// <summary>
         /// 保存房屋求购信息
         /// </summary>
-        /// <param name="car">房屋求购信息</param>
+        /// <param name="house">房屋求购信息</param>
         /// <returns>是否保存成功</returns>
         public bool SaveBuyHouse(Entity.FxHouse.HouseBuyInfo house)
         {

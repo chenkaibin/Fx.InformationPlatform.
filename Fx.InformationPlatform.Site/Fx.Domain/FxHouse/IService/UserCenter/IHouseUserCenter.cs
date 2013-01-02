@@ -11,32 +11,32 @@ namespace Fx.Domain.FxHouse.IService.UserCenter
     /// </summary>
     public interface IHouseUserCenter
     {
-        // <summary>
+        /// <summary>
         /// 根据用户获取所有的房屋转让信息
         /// </summary>
-        /// <param name="email"></param>
-        /// <returns></returns>
+        /// <param name="email">用户帐号</param>
+        /// <returns>房屋转让信息列表</returns>
         List<HouseTransferInfo> GetTransfers(string email);
 
         /// <summary>
         ///  根据用户获取所有的房屋求购信息
         /// </summary>
-        /// <param name="email"></param>
-        /// <returns></returns>
+        /// <param name="email">用户帐号</param>
+        /// <returns>房屋转让信息列表</returns>
         List<HouseBuyInfo> GetBuys(string email);
 
         /// <summary>
         /// 管理员获取所有的房屋转让信息
         /// </summary>
         /// <param name="page">页码</param>
-        /// <returns></returns>
+        /// <returns>房屋转让信息列表</returns>
         List<HouseTransferInfo> GetAdminTransfers(int page);
 
         /// <summary>
         /// 管理员获取所有的房屋求购信息
         /// </summary>
         /// <param name="page">页码</param>
-        /// <returns></returns>
+        /// <returns>房屋转让信息列表</returns>
         List<HouseBuyInfo> GetAdminBuys(int page);
     }
 }

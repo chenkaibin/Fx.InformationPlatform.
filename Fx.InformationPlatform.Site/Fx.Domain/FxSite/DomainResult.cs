@@ -11,6 +11,10 @@ namespace Fx.Domain
     /// </summary>
     public class DomainResult
     {
+        /// <summary>
+        /// 构造函数
+        /// </summary>
+        /// <param name="isSuccess">是否成功</param>
         public DomainResult(bool isSuccess)
         {
             this.isSuccess = isSuccess;

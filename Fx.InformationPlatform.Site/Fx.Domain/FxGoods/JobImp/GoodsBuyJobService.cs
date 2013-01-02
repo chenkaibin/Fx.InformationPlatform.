@@ -5,8 +5,16 @@ using Fx.Entity;
 
 namespace Fx.Domain.FxGoods
 {
+    /// <summary>
+    /// 物品求购Job服务
+    /// </summary>
     public class GoodsBuyJobService : IGoodsBuyJob
     {
+        /// <summary>
+        /// 认证中...
+        /// </summary>
+        /// <param name="goodsId">物品求购帖子Id</param>
+        /// <returns>是否成功</returns>
         public bool Authorizing(int goodsId)
         {
             using (var context = new FxGoodsContext())
@@ -25,6 +33,11 @@ namespace Fx.Domain.FxGoods
             return false;
         }
 
+        /// <summary>
+        /// 认证成功
+        /// </summary>
+        /// <param name="goodsId">物品求购帖子Id</param>
+        /// <returns>是否成功</returns>
         public bool AuthorizeSuccess(int goodsId)
         {
             using (var context = new FxGoodsContext())
@@ -43,6 +56,12 @@ namespace Fx.Domain.FxGoods
             return false;
         }
 
+        /// <summary>
+        /// 认证失败
+        /// </summary>
+        /// <param name="goodsId">物品求购帖子Id</param>
+        /// <param name="msg">认证失败错误信息</param>
+        /// <returns>是否成功</returns>
         public bool AuthorizeFaild(int goodsId,string msg)
         {
             using (var context = new FxGoodsContext())
@@ -62,24 +81,11 @@ namespace Fx.Domain.FxGoods
             return false;
         }
 
-        public bool PictureProcessdSuccessd(int goodsId)
-        {
-            using (var context = new FxGoodsContext())
-            {
-                var goods = context.GoodsBuyInfos.Where(r => r.GoodsBuyInfoId == goodsId).FirstOrDefault();
-                if (goods != null)
-                {
-                    goods.InfoProcessState = (int)ProcessState.AuthorizeFaild;
-                    goods.Logs.Add(new Entity.FxGoods.GoodsBuyLog()
-                    {
-                        OperteName = Enum.GetName(typeof(ProcessState), ProcessState.AuthorizeFaild)
-                    });
-                    return context.SaveChanges() > 0;
-                }
-            }
-            return false;
-        }
-
+        /// <summary>
+        /// 发布
+        /// </summary>
+        /// <param name="goodsId">物品求购帖子Id</param>
+        /// <returns>是否成功</returns>
         public bool Publish(int goodsId)
         {
             using (var context = new FxGoodsContext())
@@ -99,6 +105,11 @@ namespace Fx.Domain.FxGoods
             return false;
         }
 
+        /// <summary>
+        /// 帖子延期
+        /// </summary>
+        /// <param name="goodsId">物品求购帖子Id</param>
+        /// <returns>是否成功</returns>
         public bool Delay(int goodsId)
         {
             using (var context = new FxGoodsContext())
@@ -117,6 +128,11 @@ namespace Fx.Domain.FxGoods
             return false;
         }
 
+        /// <summary>
+        /// 以成交
+        /// </summary>
+        /// <param name="goodsId">物品求购帖子Id</param>
+        /// <returns>是否成功</returns>
         public bool End(int goodsId)
         {
             using (var context = new FxGoodsContext())
@@ -137,7 +153,11 @@ namespace Fx.Domain.FxGoods
 
 
 
-
+        /// <summary>
+        /// 图片CDN中...
+        /// </summary>
+        /// <param name="goodsId">物品求购帖子Id</param>
+        /// <returns>是否成功</returns>
         public bool PictrueCdning(int goodsId)
         {
             using (var context = new FxGoodsContext())
@@ -156,6 +176,11 @@ namespace Fx.Domain.FxGoods
             return false;
         }
 
+        /// <summary>
+        /// 图片CDN成功
+        /// </summary>
+        /// <param name="goodsId">物品求购帖子Id</param>
+        /// <returns>是否成功</returns>
         public bool PictrueCdnSuccessd(int goodsId)
         {
             using (var context = new FxGoodsContext())
@@ -174,6 +199,12 @@ namespace Fx.Domain.FxGoods
             return false;
         }
 
+        /// <summary>
+        /// 图片CDN失败
+        /// </summary>
+        /// <param name="goodsId">物品求购帖子Id</param>
+        /// <param name="errorMsg">CDN失败错误信息</param>
+        /// <returns>是否成功</returns>
         public bool PictrueCdnFailed(int goodsId, string errorMsg)
         {
             using (var context = new FxGoodsContext())
@@ -198,6 +229,11 @@ namespace Fx.Domain.FxGoods
             return false;
         }
 
+        /// <summary>
+        /// Job调度完成
+        /// </summary>
+        /// <param name="goodsId">物品求购帖子Id</param>
+        /// <returns>是否成功</returns>
         public bool JobSuccess(int goodsId)
         {
             using (var context = new FxGoodsContext())
@@ -216,7 +252,11 @@ namespace Fx.Domain.FxGoods
             return false;
         }
 
-
+        /// <summary>
+        /// 不删除状态 （置顶中）
+        /// </summary>
+        /// <param name="goodsId">物品求购帖子Id</param>
+        /// <returns>是否成功</returns>
         public bool NoDelete(int goodsId)
         {
             using (var context = new FxGoodsContext())
@@ -235,7 +275,11 @@ namespace Fx.Domain.FxGoods
             return false;
         }
 
-
+        /// <summary>
+        /// 删除
+        /// </summary>
+        /// <param name="goodsId">物品求购帖子Id</param>
+        /// <returns>是否成功</returns>
         public bool Delete(int goodsId)
         {
             using (var context = new FxGoodsContext())

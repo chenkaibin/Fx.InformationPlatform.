@@ -29,7 +29,7 @@ namespace Fx.Domain.FxGoods
         /// <summary>
         /// 保存物品求购信息
         /// </summary>
-        /// <param name="car">物品求购信息</param>
+        /// <param name="goods">物品求购信息</param>
         /// <returns>是否保存成功</returns>
         public bool SaveBuyGoods(Entity.FxGoods.GoodsBuyInfo goods)
         {

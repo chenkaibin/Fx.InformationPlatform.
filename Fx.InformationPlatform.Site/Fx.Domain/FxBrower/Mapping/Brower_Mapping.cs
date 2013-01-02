@@ -7,8 +7,14 @@ using Fx.Entity.FxBrower;
 
 namespace Fx.Domain.FxBrower.Mapping
 {
+    /// <summary>
+    /// 浏览器Mapping
+    /// </summary>
     public class Brower_Mapping : EntityTypeConfiguration<Brower>
     {
+        /// <summary>
+        /// 构造函数
+        /// </summary>
         public Brower_Mapping()
         {
             this.HasKey(t => t.BrowerId);

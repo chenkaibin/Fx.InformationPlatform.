@@ -23,12 +23,19 @@ namespace Fx.Domain
             System.Data.Entity.Database.SetInitializer(new SiteInitializer());
         }
 
+        /// <summary>
+        /// 默认构造函数,,读取数据库字符串fx.site-sqlserver
+        /// </summary>
         public SiteContext()
             : base("fx.site-sqlserver")
         {
            
         }
 
+        /// <summary>
+        /// 站点上下文数据库如何创建
+        /// </summary>
+        /// <param name="modelBuilder"></param>
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             //User
@@ -58,6 +65,9 @@ namespace Fx.Domain
         }
 
         //public DbSet<Applications> Applications { get; set; }
+        /// <summary>
+        /// Membership聚合根
+        /// </summary>
         public DbSet<Membership> Memberships { get; set; }
         //public DbSet<Paths> Paths { get; set; }
         //public DbSet<PersonalizationAllUsers> PersonalizationAllUsers { get; set; }
@@ -65,40 +75,43 @@ namespace Fx.Domain
         //public DbSet<Profile> Profiles { get; set; }
         //public DbSet<Roles> Roles { get; set; }
         //public DbSet<SchemaVersions> SchemaVersions { get; set; }
+        /// <summary>
+        /// 用户聚合根 暂时用于查询UserId和ApplicationId
+        /// </summary>
         public DbSet<Users> Users { get; set; }
         //public DbSet<WebEvent_Events> WebEvent_Events { get; set; }
        
         /// <summary>
-        /// 用户扩展信息
+        /// 用户扩展信息聚合根
         /// </summary>
         public DbSet<OtherInformation> OtherInformations { get; set; }
         
         /// <summary>
-        /// ELMAH
+        /// ELMAH聚合根
         /// </summary>
         public DbSet<ELMAH_Error> ELMAHErrors { get; set; }
 
 
         //Site
         /// <summary>
-        /// 区域
+        /// 区域聚合根
         /// </summary>
         public DbSet<Area> Areas { get; set; }
         /// <summary>
-        /// 城市
+        /// 城市聚合根
         /// </summary>
         public DbSet<City> Cities { get; set; }
         /// <summary>
-        /// 一级频道
+        /// 一级频道聚合根
         /// </summary>
         public DbSet<Channel> Channels { get; set; }
         /// <summary>
-        /// 二级频道
+        /// 二级频道聚合根
         /// </summary>
         public DbSet<ChannelList> ChannelLists { get; set; }
 
         /// <summary>
-        /// 物品新旧程度 后期整顿!!TODO
+        /// 物品新旧程度聚合根 后期整顿!!TODO
         /// </summary>
         public DbSet<GoodsCondition> GoodsConditions { get; set; }
     }

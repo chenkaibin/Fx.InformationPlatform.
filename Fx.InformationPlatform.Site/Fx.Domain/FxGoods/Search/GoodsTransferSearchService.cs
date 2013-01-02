@@ -17,6 +17,21 @@ namespace Fx.Domain.FxGoods.Search
     public class GoodsTransferSearchService : CommonSearch, ISiteSearch<GoodsTransferInfo>, IGoodsSearch<GoodsTransferInfo>, IHomeSearch<GoodsTransferInfo>
     {
         /// <summary>
+        /// 按关键字查询 （标题） 缓存会
+        /// </summary>
+        /// <param name="key">关键字</param>
+        /// <param name="page">页码</param>
+        /// <param name="take">获取数据的数量</param>
+        /// <param name="area">地区</param>
+        /// <param name="city">城市</param>
+        /// <param name="clc">帖子对应的二级或者三级频道Id</param>
+        /// <returns></returns>
+        public List<GoodsTransferInfo> SearchByKey(string key, int area, int city, int page, int take, int clc)
+        {
+            return SearchByKey(key, area, city, page, take, true, true, clc);
+        }
+
+        /// <summary>
         /// 根据关键字的查询，适用于子频道具体查询
         /// </summary>
         /// <param name="key">关键字</param>
@@ -27,18 +42,6 @@ namespace Fx.Domain.FxGoods.Search
         /// <param name="changegoods">是否换物</param>
         /// <param name="changeprice">是否根据价格</param>
         /// <param name="clc">二级频道id，可以以此找到相应三级区间</param>
-        /// <returns>物品查询的结果集合</returns>
-        public List<GoodsTransferInfo> SearchByKey(string key, int area, int city, int page, int take, int clc)
-        {
-            return SearchByKey(key, area, city, page, take, true, true, clc);
-        }
-
-        /// <summary>
-        /// 仅仅根据三级类别查询，用于大频道和后续仅仅点击页码的查询
-        /// </summary>
-        /// <param name="catagroy">三级分类目录列表id</param>
-        /// <param name="page">页码</param>
-        /// <param name="take">每页获取多少数据</param>
         /// <returns>物品查询的结果集合</returns>
         public List<GoodsTransferInfo> SearchByKey(string key, int area = 0, 
             int city = 0, int page = 0, 
@@ -83,15 +86,12 @@ namespace Fx.Domain.FxGoods.Search
         }
 
         /// <summary>
-        /// 按关键字查询 （标题） 缓存会
+        /// 仅仅根据三级类别查询，用于大频道和后续仅仅点击页码的查询
         /// </summary>
-        /// <param name="key">关键字</param>
+        /// <param name="catagroy">三级分类目录列表id</param>
         /// <param name="page">页码</param>
-        /// <param name="take">获取数据的数量</param>
-        /// <param name="area">地区</param>
-        /// <param name="city">城市</param>
-        /// <param name="clc">帖子对应的二级或者三级频道Id</param>
-        /// <returns></returns>
+        /// <param name="take">每页获取多少数据</param>
+        /// <returns>物品查询的结果集合</returns>
         public List<GoodsTransferInfo> SearchByCatagroy(Entity.Catagroy.ChannelListDetailCatagroy catagroy, int page, int take)
         {
             using (var content = new FxGoodsContext())

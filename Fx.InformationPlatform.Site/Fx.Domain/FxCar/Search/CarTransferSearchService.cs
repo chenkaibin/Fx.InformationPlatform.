@@ -101,6 +101,11 @@ namespace Fx.Domain.FxCar.Search
             }
         }
 
+        /// <summary>
+        /// 获取首页最热门汽车信息（未实现）
+        /// </summary>
+        /// <param name="count"></param>
+        /// <returns></returns>
         public List<CarTransferInfo> SearchHottestForHome(int count)
         {
             throw new NotImplementedException();

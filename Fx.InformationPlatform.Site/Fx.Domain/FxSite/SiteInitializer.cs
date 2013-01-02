@@ -8,8 +8,15 @@ using Fx.Entity.FxSite;
 
 namespace Fx.Domain
 {
+    /// <summary>
+    /// 站点上下文初始化
+    /// </summary>
     public class SiteInitializer : CreateDatabaseIfNotExists<SiteContext>
     {
+        /// <summary>
+        /// 数据保存
+        /// </summary>
+        /// <param name="context">站点上下文</param>
         protected override void Seed(SiteContext context)
         {
             base.Seed(context);

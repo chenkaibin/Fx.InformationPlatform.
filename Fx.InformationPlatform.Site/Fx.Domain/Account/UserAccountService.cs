@@ -217,7 +217,7 @@ namespace Fx.Domain.Account
         /// 获取当前的用户Guid
         /// </summary>
         /// <param name="Email">邮箱帐号</param>
-        /// <returns>领域处理结果，如信息不存在会爆出异常</returns>
+        /// <returns>领域处理结果，如信息不存在会抛出异常</returns>
         public Guid GetCurrentUser(string Email)
         {
             using (var content = new SiteContext())

@@ -13,11 +13,11 @@ namespace Fx.Domain.FxHouse.UserCenterImp
     /// </summary>
     public class HouseUserCenter : IHouseUserCenter
     {
-        // <summary>
+        /// <summary>
         /// 根据用户获取所有的房屋转让信息
         /// </summary>
-        /// <param name="email"></param>
-        /// <returns></returns>
+        /// <param name="email">用户帐号</param>
+        /// <returns>房屋转让信息列表</returns>
         public List<HouseTransferInfo> GetTransfers(string email)
         {
             using (var content = new FxHouseContext())
@@ -31,8 +31,8 @@ namespace Fx.Domain.FxHouse.UserCenterImp
         /// <summary>
         ///  根据用户获取所有的房屋求购信息
         /// </summary>
-        /// <param name="email"></param>
-        /// <returns></returns>
+        /// <param name="email">用户帐号</param>
+        /// <returns>房屋转让信息列表</returns>
         public List<HouseBuyInfo> GetBuys(string email)
         {
             using (var content = new FxHouseContext())
@@ -47,7 +47,7 @@ namespace Fx.Domain.FxHouse.UserCenterImp
         /// 管理员获取所有的房屋转让信息
         /// </summary>
         /// <param name="page">页码</param>
-        /// <returns></returns>
+        /// <returns>房屋转让信息列表</returns>
         public List<HouseTransferInfo> GetAdminTransfers(int page = 0)
         {
             using (var content = new FxHouseContext())
@@ -64,7 +64,7 @@ namespace Fx.Domain.FxHouse.UserCenterImp
         /// 管理员获取所有的房屋求购信息
         /// </summary>
         /// <param name="page">页码</param>
-        /// <returns></returns>
+        /// <returns>房屋转让信息列表</returns>
         public List<HouseBuyInfo> GetAdminBuys(int page = 0)
         {
             using (var content = new FxHouseContext())

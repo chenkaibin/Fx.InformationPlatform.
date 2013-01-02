@@ -19,13 +19,40 @@ namespace Fx.Domain.FxAggregate
     /// </summary>
     public class TopShowService : ITopShow, IHomeTopShow
     {
+        /// <summary>
+        /// 车辆求购保存读取接口
+        /// </summary>
         protected IBuyCar buyCarService;
+        /// <summary>
+        /// 车辆转让保存读取接口
+        /// </summary>
         protected ITransferCar transferCarService;
+        /// <summary>
+        /// 房屋求购保存读取接口
+        /// </summary>
         protected IBuyHouse buyHouseService;
+        /// <summary>
+        /// 房屋转让保存读取接口
+        /// </summary>
         protected ITransferHouse transferHouseService;
+        /// <summary>
+        /// 物品求购保存读取接口
+        /// </summary>
         protected IBuyGoods buyGoodsService;
+        /// <summary>
+        /// 物品转让保存读取接口
+        /// </summary>
         protected ITransferGoods transferGoodsService;
 
+        /// <summary>
+        /// 默认构造函数
+        /// </summary>
+        /// <param name="buyCarService">车辆求购保存读取接口</param>
+        /// <param name="transferCarService">车辆转让保存读取接口</param>
+        /// <param name="buyHouseService">房屋求购保存读取接口</param>
+        /// <param name="transferHouseService">房屋转让保存读取接口</param>
+        /// <param name="buyGoodsService">物品求购保存读取接口</param>
+        /// <param name="transferGoodsService">物品转让保存读取接口</param>
         public TopShowService(IBuyCar buyCarService,
             ITransferCar transferCarService,
             IBuyHouse buyHouseService,

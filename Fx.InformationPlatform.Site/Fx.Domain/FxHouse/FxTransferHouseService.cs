@@ -30,7 +30,7 @@ namespace Fx.Domain.FxHouse
         /// <summary>
         /// 保存房屋转让信息
         /// </summary>
-        /// <param name="car">房屋转让信息</param>
+        /// <param name="house">房屋转让信息</param>
         /// <returns>是否保存成功</returns>
         public bool SaveTransferHouse(HouseTransferInfo house)
         {

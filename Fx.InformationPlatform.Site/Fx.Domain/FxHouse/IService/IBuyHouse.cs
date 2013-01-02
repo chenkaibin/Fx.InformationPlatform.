@@ -21,7 +21,7 @@ namespace Fx.Domain.FxHouse.IService
         /// <summary>
         /// 保存房屋求购信息
         /// </summary>
-        /// <param name="car">房屋求购信息</param>
+        /// <param name="goods">房屋求购信息</param>
         /// <returns>是否保存成功</returns>
         bool SaveBuyHouse(HouseBuyInfo goods);
     }

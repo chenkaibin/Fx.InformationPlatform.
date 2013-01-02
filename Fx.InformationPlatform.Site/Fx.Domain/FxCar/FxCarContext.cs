@@ -11,23 +11,19 @@ namespace Fx.Domain.FxCar
     /// </summary>
     public class FxCarContext : DbContext
     {
-        static FxCarContext()
-        {
-            //System.Data.Entity.Database.SetInitializer(new FxCarInitializer());
-        }
-
+        /// <summary>
+        /// 默认构造函数,读取数据库字符串fx.car-sqlserver
+        /// </summary>
         public FxCarContext()
             : base("fx.car-sqlserver")
         {
 
         }
 
-        public FxCarContext(string nameOrConnectionString)
-            : base(nameOrConnectionString)
-        {
-
-        }
-
+        /// <summary>
+        /// 车辆上下文数据库模型如何创建
+        /// </summary>
+        /// <param name="modelBuilder"></param>
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder); 
@@ -40,15 +36,15 @@ namespace Fx.Domain.FxCar
         }
 
         /// <summary>
-        /// 车辆转让
+        /// 车辆转让聚合根
         /// </summary>
         public DbSet<CarTransferInfo> CarTransferInfos { get; set; }
         /// <summary>
-        /// 车辆求购 
+        /// 车辆求购 聚合根
         /// </summary>
         public DbSet<CarBuyInfo> CarBuyInfos { get; set; }
         /// <summary>
-        /// 图片CND错误  暂时用于监测图片错误信息 不正确的图片格式等导致意外的错误
+        /// 图片CND错误聚合根  暂时用于监测图片错误信息 不正确的图片格式等导致意外的错误
         /// </summary>
         public DbSet<PictureCdnError> PictureCdnErrors { get; set; }
     }

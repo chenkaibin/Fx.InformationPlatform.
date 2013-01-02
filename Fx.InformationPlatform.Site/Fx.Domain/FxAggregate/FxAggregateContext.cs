@@ -13,23 +13,19 @@ namespace Fx.Domain.FxAggregate
     /// </summary>
     public class FxAggregateContext : DbContext
     {
-        static FxAggregateContext()
-        {
-            //System.Data.Entity.Database.SetInitializer(new FxCarInitializer());
-        }
-
+        /// <summary>
+        /// 默认构造 ,读取数据库字符串fx.aggregate-sqlserver
+        /// </summary>
         public FxAggregateContext()
             : base("fx.aggregate-sqlserver")
         {
 
         }
 
-        public FxAggregateContext(string nameOrConnectionString)
-            : base(nameOrConnectionString)
-        {
-
-        }
-
+        /// <summary>
+        /// 模型创建方式
+        /// </summary>
+        /// <param name="modelBuilder"></param>
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
@@ -39,15 +35,15 @@ namespace Fx.Domain.FxAggregate
             
         }
         /// <summary>
-        /// 收藏信息
+        /// 收藏信息聚合根
         /// </summary>
         public DbSet<Favorite> Favorites { get; set; }
         /// <summary>
-        /// 私信
+        /// 私信聚合根
         /// </summary>
         public DbSet<PrivateMessage> PrivateMessages { get; set; }
         /// <summary>
-        /// 置顶信息
+        /// 置顶信息聚合根
         /// </summary>
         public DbSet<TopShow> TopShows { get; set; }
     }

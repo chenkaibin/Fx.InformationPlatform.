@@ -21,7 +21,7 @@ namespace Fx.Domain.FxGoods.IService
         /// <summary>
         /// 保存物品求购信息
         /// </summary>
-        /// <param name="car">物品求购信息</param>
+        /// <param name="goods">物品求购信息</param>
         /// <returns>是否保存成功</returns>
         bool SaveBuyGoods(GoodsBuyInfo goods);
     }
