@@ -11,7 +11,7 @@ namespace Fx.Domain.Account.Mapping.Other
     /// <summary>
     /// 用户扩展信息数据库Mapping
     /// </summary>
-    public class OtherInformation_Mapping : EntityTypeConfiguration<OtherInformation>
+    internal class OtherInformation_Mapping : EntityTypeConfiguration<OtherInformation>
     {
         /// <summary>
         /// 构造函数

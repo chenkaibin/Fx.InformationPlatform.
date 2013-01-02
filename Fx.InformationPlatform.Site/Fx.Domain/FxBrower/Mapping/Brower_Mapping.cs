@@ -10,7 +10,7 @@ namespace Fx.Domain.FxBrower.Mapping
     /// <summary>
     /// 浏览器Mapping
     /// </summary>
-    public class Brower_Mapping : EntityTypeConfiguration<Brower>
+    internal class Brower_Mapping : EntityTypeConfiguration<Brower>
     {
         /// <summary>
         /// 构造函数
