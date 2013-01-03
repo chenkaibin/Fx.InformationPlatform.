@@ -8,6 +8,9 @@ using System.Xml.Serialization;
 
 namespace Fx.Infrastructure.Data
 {
+    /// <summary>
+    /// 序列化帮助类
+    /// </summary>
     public class SerializeHelper
     {
         /// <summary>

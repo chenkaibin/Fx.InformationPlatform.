@@ -5,8 +5,14 @@ using System.Text;
 
 namespace Fx.Entity.FxCar
 {
+    /// <summary>
+    /// 汽车频道帖子基类
+    /// </summary>
     public class CarBase : IInfo
     {
+        /// <summary>
+        /// 构造函数
+        /// </summary>
         public CarBase()
         {
             this.CreatedTime = DateTime.Now;
@@ -22,7 +28,7 @@ namespace Fx.Entity.FxCar
         public string PublishTitle { get; set; }
 
         /// <summary>
-        /// 物品类别
+        /// 三级分类Id
         /// </summary>
         public virtual int CatagroyId { get; set; }
 
@@ -57,13 +63,18 @@ namespace Fx.Entity.FxCar
         public virtual string PublishUserEmail { get; set; }
 
         /// <summary>
-        /// 备注
+        /// 频道所在控制器
         /// </summary>
         public string Mark { get; set; }
 
+        /// <summary>
+        /// 车辆帖子所在控制器
+        /// </summary>
         public virtual string Controller { get; set; }
 
-
+        /// <summary>
+        /// 车辆帖子所执行的方法 
+        /// </summary>
         public virtual string Action { get; set; }
 
 
@@ -87,8 +98,14 @@ namespace Fx.Entity.FxCar
         /// </summary>
         public virtual bool IsPublish { get; set; }
 
+        /// <summary>
+        /// 帖子处理状态
+        /// </summary>
         public int InfoProcessState { get; set; }
 
+        /// <summary>
+        /// 错误信息
+        /// </summary>
         public string ErrorMsg { get; set; }
     }
 }

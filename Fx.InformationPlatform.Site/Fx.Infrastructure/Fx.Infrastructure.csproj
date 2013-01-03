@@ -52,24 +52,17 @@
     <Compile Include="Base\BaseIService.cs" />
     <Compile Include="Caching\CacheManager.cs" />
     <Compile Include="Caching\ICacheManager.cs" />
-    <Compile Include="Core\BrowserInfo.cs" />
     <Compile Include="Data\Cut.cs" />
-    <Compile Include="Data\IRepository.cs" />
     <Compile Include="Data\Serialize.cs" />
     <Compile Include="Data\SqlHelper.cs" />
-    <Compile Include="Db\Connection.cs" />
     <Compile Include="Files\FileHelper.cs" />
-    <Compile Include="Net\IMailManager.cs" />
-    <Compile Include="Net\Mail.cs" />
-    <Compile Include="Net\MailManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Security\Md5.cs" />
     <Compile Include="Tasks\IStartupTask.cs" />
     <Compile Include="Valide\EmailCheckAttribute.cs" />
-    <Compile Include="Valide\MobileCheckAttribute.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Core\TextFile1.txt" />
+    <Folder Include="Core\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>

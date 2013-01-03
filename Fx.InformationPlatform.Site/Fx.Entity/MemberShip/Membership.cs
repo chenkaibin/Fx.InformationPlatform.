@@ -13,31 +13,124 @@ namespace Fx.Entity.MemberShip
     using System;
     using System.Collections.Generic;
     
+    /// <summary>
+    /// 成员信息
+    /// </summary>
     public partial class Membership
     {
+        /// <summary>
+        /// 应用程序Id
+        /// </summary>
         public System.Guid ApplicationId { get; set; }
+
+        /// <summary>
+        /// 应用程序Id
+        /// </summary>
         public System.Guid UserId { get; set; }
+
+        /// <summary>
+        /// 密码
+        /// </summary>
         public string Password { get; set; }
+
+        /// <summary>
+        /// 存储密码的格式
+        /// </summary>
         public int PasswordFormat { get; set; }
+
+        /// <summary>
+        /// 密码的Hash值
+        /// </summary>
         public string PasswordSalt { get; set; }
+
+        /// <summary>
+        /// 手机PIN码
+        /// </summary>
         public string MobilePIN { get; set; }
+
+        /// <summary>
+        /// 电子邮件地址
+        /// </summary>
         public string Email { get; set; }
+
+        /// <summary>
+        /// 小写的电子邮件地址
+        /// </summary>
         public string LoweredEmail { get; set; }
+
+        /// <summary>
+        /// 遗忘密码问题
+        /// </summary>
         public string PasswordQuestion { get; set; }
+
+        /// <summary>
+        /// 遗忘密码答案
+        /// </summary>
         public string PasswordAnswer { get; set; }
+
+        /// <summary>
+        /// 是否通过认证 
+        /// </summary>
         public bool IsApproved { get; set; }
+
+        /// <summary>
+        /// 是否锁住
+        /// </summary>
         public bool IsLockedOut { get; set; }
+
+        /// <summary>
+        /// 创建时间
+        /// </summary>
         public System.DateTime CreateDate { get; set; }
+
+        /// <summary>
+        /// 最后登录时间
+        /// </summary>
         public System.DateTime LastLoginDate { get; set; }
+
+        /// <summary>
+        /// 最后密码更改时间
+        /// </summary>
         public System.DateTime LastPasswordChangedDate { get; set; }
+
+        /// <summary>
+        /// 最后一次锁帐号的时间
+        /// </summary>
         public System.DateTime LastLockoutDate { get; set; }
+
+        /// <summary>
+        /// 密码失败尝试次数
+        /// </summary>
         public int FailedPasswordAttemptCount { get; set; }
+
+        /// <summary>
+        /// 密码失败尝试窗口打开时间
+        /// </summary>
         public System.DateTime FailedPasswordAttemptWindowStart { get; set; }
+
+        /// <summary>
+        /// 遗失密码问题尝试次数
+        /// </summary>
         public int FailedPasswordAnswerAttemptCount { get; set; }
+
+        /// <summary>
+        /// 遗失密码问题输入窗口打开时间
+        /// </summary>
         public System.DateTime FailedPasswordAnswerAttemptWindowStart { get; set; }
+
+        /// <summary>
+        /// 备注
+        /// </summary>
         public string Comment { get; set; }
-    
+        
+        /// <summary>
+        /// 成员信息相关应用程序信息
+        /// </summary>
         public virtual Applications Applications { get; set; }
+
+        /// <summary>
+        /// 成员信息相关用户信息
+        /// </summary>
         public virtual Users Users { get; set; }
     }
 }

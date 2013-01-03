@@ -44,7 +44,7 @@ namespace Fx.Entity
         /// <summary>
         /// 发布者接收信息邮箱
         /// </summary>
-         string PublishUserEmail { get; set; }
+        string PublishUserEmail { get; set; }
 
 
         /// <summary>
@@ -87,7 +87,7 @@ namespace Fx.Entity
         /// 错误信息
         /// </summary>
         string ErrorMsg { get; set; }
-    }   
+    }
 }
 
 

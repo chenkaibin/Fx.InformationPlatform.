@@ -49,7 +49,6 @@
     <Compile Include="Catagroy\ChannelCatagroy.cs" />
     <Compile Include="Catagroy\ChannelListCatagroy.cs" />
     <Compile Include="Catagroy\ChannelListDetailCatagroy.cs" />
-    <Compile Include="Catagroy\CityCatagroy.cs" />
     <Compile Include="Catagroy\GoodsConditionCatagroy.cs" />
     <Compile Include="Catagroy\MileCatagroy.cs" />
     <Compile Include="Catagroy\PictureCatagroy.cs" />
@@ -96,7 +95,6 @@
     <Compile Include="PictureCdnError.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="FxGoods\GoodsBase.cs" />
-    <Compile Include="PublishImage.cs" />
     <Compile Include="TransferPicture.cs" />
   </ItemGroup>
   <ItemGroup>

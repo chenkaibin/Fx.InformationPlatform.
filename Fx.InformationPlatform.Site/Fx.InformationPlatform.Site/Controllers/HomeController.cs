@@ -35,12 +35,6 @@ namespace Fx.InformationPlatform.Site.Controllers
             return View(CreateModel());
         }
 
-        public ActionResult Test()
-        {
-            return Content(InfosoftBrowserInfo.BrowserJavaScript);
-        }
-
-
 
         private HomeModel CreateModel()
         {

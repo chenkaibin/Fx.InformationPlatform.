@@ -13,20 +13,52 @@ namespace Fx.Entity.MemberShip
     using System;
     using System.Collections.Generic;
     
+    /// <summary>
+    /// 路径信息
+    /// </summary>
     public partial class Paths
     {
+        /// <summary>
+        /// 默认构造函数
+        /// </summary>
         public Paths()
         {
             this.PersonalizationPerUser = new HashSet<PersonalizationPerUser>();
         }
-    
+        
+        /// <summary>
+        /// 应用程序Id
+        /// </summary>
         public System.Guid ApplicationId { get; set; }
+
+        /// <summary>
+        /// 路径Id
+        /// </summary>
         public System.Guid PathId { get; set; }
+
+        /// <summary>
+        /// 路径信息
+        /// </summary>
         public string Path { get; set; }
+
+        /// <summary>
+        /// 小写的路径信息
+        /// </summary>
         public string LoweredPath { get; set; }
     
+        /// <summary>
+        /// 路径信息相关应用程序信息
+        /// </summary>
         public virtual Applications Applications { get; set; }
+
+        /// <summary>
+        /// 路径信息相关所有用户个性化信息
+        /// </summary>
         public virtual PersonalizationAllUsers PersonalizationAllUsers { get; set; }
+
+        /// <summary>
+        /// 路径信息相关单个用户个性化信息
+        /// </summary>
         public virtual ICollection<PersonalizationPerUser> PersonalizationPerUser { get; set; }
     }
 }

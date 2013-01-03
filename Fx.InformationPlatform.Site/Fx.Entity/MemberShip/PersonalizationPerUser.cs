@@ -13,19 +13,44 @@ namespace Fx.Entity.MemberShip
     using System;
     using System.Collections.Generic;
     
+    /// <summary>
+    /// 单个用户个性化信息
+    /// </summary>
     public partial class PersonalizationPerUser
     {
+        /// <summary>
+        /// 单个用户个性化信息主键Id
+        /// </summary>
         public System.Guid Id { get; set; }
+
+        /// <summary>
+        /// 路径Id
+        /// </summary>
         public Nullable<System.Guid> PathId { get; set; }
+
+        /// <summary>
+        /// 用户Id
+        /// </summary>
         public Nullable<System.Guid> UserId { get; set; }
+
+        /// <summary>
+        /// 个性化设置
+        /// </summary>
         public byte[] PageSettings { get; set; }
+
+        /// <summary>
+        /// 最后更新日期
+        /// </summary>
         public System.DateTime LastUpdatedDate { get; set; }
     
+        /// <summary>
+        /// 单个用户个性化信息相关路径
+        /// </summary>
         public virtual Paths Paths { get; set; }
+        
+        /// <summary>
+        /// 单个用户个性化信息相关用户
+        /// </summary>
         public virtual Users Users { get; set; }
-
-        public PersonalizationPerUser()
-        {
-        }
     }
 }

@@ -7,7 +7,7 @@ using Fx.Domain.FxGoods.IService;
 namespace Fx.Domain.FxGoods
 {
     /// <summary>
-    /// 全局物品缓存服务
+    /// 全局缓存物品统计服务
     /// </summary>
     public class GlobalCacheGoods : IGlobalCacheGoods
     {

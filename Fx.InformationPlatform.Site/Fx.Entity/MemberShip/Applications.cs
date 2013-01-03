@@ -13,20 +13,46 @@ namespace Fx.Entity.MemberShip
     using System;
     using System.Collections.Generic;
 
+    /// <summary>
+    /// 应用程序信息
+    /// </summary>
     public partial class Applications
     {
-        public Applications()
-        {
-        }
-
+        /// <summary>
+        /// 置应用程序的名称
+        /// </summary>
         public string ApplicationName { get; set; }
+        /// <summary>
+        /// 小写的应用程序名
+        /// </summary>
         public string LoweredApplicationName { get; set; }
+        /// <summary>
+        /// 应用程序的Id, GUID值
+        /// </summary>
         public System.Guid ApplicationId { get; set; }
+        /// <summary>
+        /// 应用程序的描述
+        /// </summary>
         public string Description { get; set; }
 
+        /// <summary>
+        /// 应用程序信息相关成员信息
+        /// </summary>
         public virtual ICollection<Membership> Membership { get; set; }
+
+        /// <summary>
+        /// 应用程序信息相关路径信息
+        /// </summary>
         public virtual ICollection<Paths> Paths { get; set; }
+
+        /// <summary>
+        /// 应用程序信息相关角色表
+        /// </summary>
         public virtual ICollection<Roles> Roles { get; set; }
+
+        /// <summary>
+        /// 应用程序信息相关用户表
+        /// </summary>
         public virtual ICollection<Users> Users { get; set; }
     }
 }

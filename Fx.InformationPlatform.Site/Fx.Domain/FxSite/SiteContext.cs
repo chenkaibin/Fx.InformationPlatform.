@@ -1,15 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data.Entity;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Data.Entity;
 using Fx.Domain.Account.Mapping;
 using Fx.Domain.Account.Mapping.Other;
 using Fx.Domain.FxSite.Mapping;
 using Fx.Entity.FxSite;
 using Fx.Entity.MemberShip;
-using Fx.Infrastructure.Db;
 
 namespace Fx.Domain
 {

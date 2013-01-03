@@ -9,22 +9,58 @@
 
 namespace Fx.Entity.FxSite
 {
-    #pragma warning disable 1573
+#pragma warning disable 1573
     using System;
     using System.Collections.Generic;
-    
+
+    /// <summary>
+    /// ELMAH错误日志 MVC全局错误日志
+    /// </summary>
     public partial class ELMAH_Error
     {
+        /// <summary>
+        /// 错误日志主键Id
+        /// </summary>
         public System.Guid ErrorId { get; set; }
+        /// <summary>
+        /// 错误日志对应的应用程序
+        /// </summary>
         public string Application { get; set; }
+        /// <summary>
+        /// 错误日志所在主机
+        /// </summary>
         public string Host { get; set; }
+        /// <summary>
+        /// 错误日志类型
+        /// </summary>
         public string Type { get; set; }
+        /// <summary>
+        /// 错误日志源
+        /// </summary>
         public string Source { get; set; }
+        /// <summary>
+        /// 错误日志信息
+        /// </summary>
         public string Message { get; set; }
+        /// <summary>
+        /// 错误日志来源用户
+        /// </summary>
         public string User { get; set; }
+        /// <summary>
+        /// 错误日志状态code
+        /// </summary>
         public int StatusCode { get; set; }
+        /// <summary>
+        /// 错误日志发生的UTC时间
+        /// </summary>
         public System.DateTime TimeUtc { get; set; }
+        /// <summary>
+        /// 错误日志序列 （可能有误）
+        /// </summary>
         public int Sequence { get; set; }
+        /// <summary>
+        /// 错误日志XML描述信息
+        /// </summary>
         public string AllXml { get; set; }
     }
 }

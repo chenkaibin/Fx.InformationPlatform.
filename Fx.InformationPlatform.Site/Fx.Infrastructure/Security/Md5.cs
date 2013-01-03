@@ -5,14 +5,17 @@ using System.Text;
 
 namespace Fx.Infrastructure.Security
 {
+    /// <summary>
+    /// Md5加解密类
+    /// </summary>
     public class Md5
     {        
         /// <summary>
         /// MD5加密
         /// </summary>
-        /// <param name="pToEncrypt"></param>
-        /// <param name="sKey"></param>
-        /// <returns></returns>
+        /// <param name="pToEncrypt">需要加密的字符串</param>
+        /// <param name="sKey">密钥</param>
+        /// <returns>加密后的字符串</returns>
         public static string MD5Encrypt(string pToEncrypt, string sKey)
         {
             DESCryptoServiceProvider des = new DESCryptoServiceProvider();
@@ -37,9 +40,9 @@ namespace Fx.Infrastructure.Security
         /// <summary>
         ///MD5解密
         /// </summary>
-        /// <param name="pToDecrypt"></param>
-        /// <param name="sKey"></param>
-        /// <returns></returns>
+        /// <param name="pToDecrypt">需要解密的字符串</param>
+        /// <param name="sKey">密钥</param>
+        /// <returns>解密后的结果</returns>
         public static string MD5Decrypt(string pToDecrypt, string sKey)
         {
             DESCryptoServiceProvider des = new DESCryptoServiceProvider();

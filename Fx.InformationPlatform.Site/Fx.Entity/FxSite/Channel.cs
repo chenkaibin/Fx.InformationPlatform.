@@ -11,6 +11,9 @@ namespace Fx.Entity.FxSite
     /// </summary>
     public class Channel : IAction
     {
+        /// <summary>
+        /// 默认构造函数
+        /// </summary>
         public Channel()
         {
             this.ChannelLists = new List<ChannelList>();            
@@ -37,12 +40,12 @@ namespace Fx.Entity.FxSite
         public virtual ICollection<ChannelList> ChannelLists { get; set; }
 
         /// <summary>
-        /// 所在的控制器 针对MVC个性化的东西
+        /// 具体一级频道所对应的控制器名称
         /// </summary>
         public string ControllerName { get; set; }
 
         /// <summary>
-        /// 所处的Action 针对MVC个性化的东西
+        /// 具体一级频道所执行方法名称
         /// </summary>
         public string ActionName { get; set; }
 

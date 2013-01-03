@@ -6,8 +6,14 @@ using System.Threading.Tasks;
 
 namespace Fx.Entity.FxGoods
 {
+    /// <summary>
+    /// 物品帖子基类
+    /// </summary>
     public class GoodsBase : IInfo
     {
+        /// <summary>
+        /// 默认构造函数
+        /// </summary>
         public GoodsBase()
         {
             this.CreatedTime = DateTime.Now;
@@ -23,9 +29,9 @@ namespace Fx.Entity.FxGoods
         public string PublishTitle { get; set; }
 
         /// <summary>
-        /// 物品类别
+        /// 三级分类Id
         /// </summary>
-        public virtual int CatagroyId { get; set; }
+        public int CatagroyId { get; set; }
 
         /// <summary>
         /// 价格
@@ -56,24 +62,28 @@ namespace Fx.Entity.FxGoods
         /// <summary>
         /// 发布者接收信息邮箱
         /// </summary>
-        public virtual string PublishUserEmail { get; set; }
+        public string PublishUserEmail { get; set; }
 
         /// <summary>
         /// 备注
         /// </summary>
         public string Mark { get; set; }
 
+        /// <summary>
+        /// 物品帖子所在控制器
+        /// </summary>
+        public string Controller { get; set; }
 
-        public virtual string Controller { get; set; }
-
-
-        public virtual string Action { get; set; }
+        /// <summary>
+        /// 物品帖子所执行的方法 
+        /// </summary>
+        public string Action { get; set; }
 
 
         /// <summary>
         /// 发布此信息用户的帐号 这里是发布者的Email 因为使用邮箱作为帐号
         /// </summary>
-        public virtual string UserAccount { get; set; }
+        public string UserAccount { get; set; }
 
         /// <summary>
         /// 创建时间
@@ -83,15 +93,21 @@ namespace Fx.Entity.FxGoods
         /// <summary>
         /// 是否逻辑删除
         /// </summary>
-        public virtual bool IsDelete { get; set; }
+        public bool IsDelete { get; set; }
 
         /// <summary>
         /// 是否发布
         /// </summary>
-        public virtual bool IsPublish { get; set; }
+        public bool IsPublish { get; set; }
 
+        /// <summary>
+        /// 帖子所在状态
+        /// </summary>
         public int InfoProcessState { get; set; }
 
+        /// <summary>
+        /// 错误信息
+        /// </summary>
         public string ErrorMsg { get; set; }
     }
 }

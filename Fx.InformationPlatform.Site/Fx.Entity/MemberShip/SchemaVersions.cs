@@ -13,10 +13,24 @@ namespace Fx.Entity.MemberShip
     using System;
     using System.Collections.Generic;
     
+    /// <summary>
+    /// 模式版本 Membership中不对外开放
+    /// </summary>
     public partial class SchemaVersions
     {
+        /// <summary>
+        /// 特性
+        /// </summary>
         public string Feature { get; set; }
+
+        /// <summary>
+        /// 不支持的模式类型
+        /// </summary>
         public string CompatibleSchemaVersion { get; set; }
+
+        /// <summary>
+        /// 是否当前版本
+        /// </summary>
         public bool IsCurrentVersion { get; set; }
     }
 }

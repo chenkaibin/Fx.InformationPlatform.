@@ -10,14 +10,29 @@ namespace Fx.Entity.FxAggregate
     /// </summary>
     public class Favorite
     {
+        /// <summary>
+        /// 我的收藏主键Id
+        /// </summary>
         public int FavoriteId { get; set; }
 
+        /// <summary>
+        /// 频道
+        /// </summary>
         public int ChannelCatagroy { get; set; }
 
+        /// <summary>
+        /// 帖子Id
+        /// </summary>
         public int InfoId { get; set; }
 
+        /// <summary>
+        /// 标题
+        /// </summary>
         public string Title { get; set; }
 
+        /// <summary>
+        /// 收藏创建时间
+        /// </summary>
         public DateTime CreatedTime { get; set; }
 
         /// <summary>
@@ -25,6 +40,9 @@ namespace Fx.Entity.FxAggregate
         /// </summary>
         public string UserAccount { get; set; }
 
+        /// <summary>
+        /// 默认构造
+        /// </summary>
         public Favorite()
         {
             this.CreatedTime = DateTime.Now;

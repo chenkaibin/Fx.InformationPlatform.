@@ -13,20 +13,52 @@ namespace Fx.Entity.MemberShip
     using System;
     using System.Collections.Generic;
     
+    /// <summary>
+    /// 角色
+    /// </summary>
     public partial class Roles
     {
+        /// <summary>
+        /// 默认构造函数
+        /// </summary>
         public Roles()
         {
             this.Users = new HashSet<Users>();
         }
     
+        /// <summary>
+        /// 应用程序Id
+        /// </summary>
         public System.Guid ApplicationId { get; set; }
+
+        /// <summary>
+        /// 角色Id
+        /// </summary>
         public System.Guid RoleId { get; set; }
+
+        /// <summary>
+        /// 角色Id
+        /// </summary>
         public string RoleName { get; set; }
+
+        /// <summary>
+        /// 小的角色名称 
+        /// </summary>
         public string LoweredRoleName { get; set; }
+
+        /// <summary>
+        /// 描述
+        /// </summary>
         public string Description { get; set; }
     
+        /// <summary>
+        /// 角色相关应用程序信息
+        /// </summary>
         public virtual Applications Applications { get; set; }
+
+        /// <summary>
+        /// 角色相关用户信息
+        /// </summary>
         public virtual ICollection<Users> Users { get; set; }
 
 

@@ -1,7 +1,7 @@
 ﻿namespace Fx.Entity
 {
     /// <summary>
-    /// 确定信息在MVC中相关路由信息
+    /// 确定相关频道在MVC中运行信息
     /// </summary>
     public interface IAction
     {

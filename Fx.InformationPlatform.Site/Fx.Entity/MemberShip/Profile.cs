@@ -13,18 +13,39 @@ namespace Fx.Entity.MemberShip
     using System;
     using System.Collections.Generic;
     
+    /// <summary>
+    /// 用户资料存储
+    /// </summary>
     public partial class Profile
     {
+        /// <summary>
+        /// 用户Id
+        /// </summary>
         public System.Guid UserId { get; set; }
+
+        /// <summary>
+        /// 属性名称
+        /// </summary>
         public string PropertyNames { get; set; }
+
+        /// <summary>
+        /// 字符串值
+        /// </summary>
         public string PropertyValuesString { get; set; }
+
+        /// <summary>
+        /// 字符串值
+        /// </summary>
         public byte[] PropertyValuesBinary { get; set; }
+
+        /// <summary>
+        /// 字符串值
+        /// </summary>
         public System.DateTime LastUpdatedDate { get; set; }
     
+        /// <summary>
+        /// 用户资料存储相关用户
+        /// </summary>
         public virtual Users Users { get; set; }
-
-        public Profile()
-        {
-        }
     }
 }

@@ -5,8 +5,14 @@ using System.Text;
 
 namespace Fx.Entity.FxHouse
 {
+    /// <summary>
+    /// 房屋帖子基类
+    /// </summary>
     public class HouseBase : IInfo
     {
+        /// <summary>
+        /// 默认构造函数
+        /// </summary>
         public HouseBase()
         {
             this.CreatedTime = DateTime.Now;
@@ -21,9 +27,9 @@ namespace Fx.Entity.FxHouse
         public string PublishTitle { get; set; }
 
         /// <summary>
-        /// 物品类别
+        /// 三级分类Id
         /// </summary>
-        public virtual int CatagroyId { get; set; }
+        public int CatagroyId { get; set; }
 
         /// <summary>
         /// 价格
@@ -40,6 +46,9 @@ namespace Fx.Entity.FxHouse
         /// </summary>
         public int CityId { get; set; }
 
+        /// <summary>
+        /// 是否包Bill
+        /// </summary>
         public bool Bill { get; set; }
 
         /// <summary>
@@ -62,10 +71,15 @@ namespace Fx.Entity.FxHouse
         /// </summary>
         public string Mark { get; set; }
 
-        public virtual string Controller { get; set; }
+        /// <summary>
+        /// 房屋帖子所在控制器
+        /// </summary>
+        public string Controller { get; set; }
 
-
-        public virtual string Action { get; set; }
+        /// <summary>
+        /// 房屋帖子所执行的方法 
+        /// </summary>
+        public string Action { get; set; }
 
 
         /// <summary>
@@ -81,15 +95,21 @@ namespace Fx.Entity.FxHouse
         /// <summary>
         /// 是否逻辑删除
         /// </summary>
-        public virtual bool IsDelete { get; set; }
+        public bool IsDelete { get; set; }
 
         /// <summary>
         /// 是否发布
         /// </summary>
-        public virtual bool IsPublish { get; set; }
+        public bool IsPublish { get; set; }
 
+        /// <summary>
+        /// 帖子所在状态
+        /// </summary>
         public int InfoProcessState { get; set; }
 
+        /// <summary>
+        /// 错误信息
+        /// </summary>
         public string ErrorMsg { get; set; }
     }
 }

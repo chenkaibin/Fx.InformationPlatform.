@@ -5,14 +5,17 @@ using System.Text;
 
 namespace Fx.Infrastructure.Data
 {
+    /// <summary>
+    /// 字符串切割帮助类 可以区分中英文 1个中文2个英文长度
+    /// </summary>
     public class Cut
     {
         /// <summary>
-        /// 获取指定长度的字符串 1个中文2个字符
+        /// 获取指定长度的字符串
         /// </summary>
         /// <param name="str">字符串</param>
         /// <param name="len">字符串的英文长度</param>
-        /// <returns></returns>
+        /// <returns>结果字符串</returns>
         public static string CutStr(string str, int len)
         {
             if (str == null || str.Length == 0 || len <= 0)
@@ -46,7 +49,7 @@ namespace Fx.Infrastructure.Data
         /// 获取字符串长度。与string.Length不同的是，该方法将中文作 2 个字符计算。
         /// </summary>
         /// <param name="str">目标字符串</param>
-        /// <returns></returns>
+        /// <returns>结果字符串</returns>
         public static int GetLength(string str)
         {
             if (str == null || str.Length == 0) { return 0; }

@@ -5,9 +5,15 @@ using System.Text;
 
 namespace Fx.Entity.FxHouse
 {
-   public class HouseBuyLog
+    /// <summary>
+    /// 房屋求购日志
+    /// </summary>
+    public class HouseBuyLog
     {
-       public int HouseBuyLogId { get; set; }
+        /// <summary>
+        /// 房屋求购日志主键Id
+        /// </summary>
+        public int HouseBuyLogId { get; set; }
 
         /// <summary>
         /// 操作名称
@@ -19,8 +25,14 @@ namespace Fx.Entity.FxHouse
         /// </summary>
         public string Source { get; set; }
 
-        public virtual DateTime OperteTime { get; set; }
+        /// <summary>
+        /// 操作时间
+        /// </summary>
+        public DateTime OperteTime { get; set; }
 
+        /// <summary>
+        /// 默认构造函数 
+        /// </summary>
         public HouseBuyLog()
         {
             this.OperteTime = DateTime.Now;

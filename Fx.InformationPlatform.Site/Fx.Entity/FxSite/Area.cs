@@ -11,13 +11,22 @@ namespace Fx.Entity.FxSite
     /// </summary>
     public class Area
     {
+        /// <summary>
+        /// 默认构造函数
+        /// </summary>
         public Area()
         {
             this.Cities = new HashSet<City>();
         }
 
+        /// <summary>
+        /// 地区主键Id
+        /// </summary>
         public int AreaId { get; set; }
 
+        /// <summary>
+        /// 地区名称
+        /// </summary>
         public string AreaName { get; set; }
 
         /// <summary>
@@ -25,6 +34,9 @@ namespace Fx.Entity.FxSite
         /// </summary>
         public virtual int Sorted { get; set; }
 
+        /// <summary>
+        /// 地区相关城市
+        /// </summary>
         public virtual ICollection<City> Cities { get; set; }
     }
 }

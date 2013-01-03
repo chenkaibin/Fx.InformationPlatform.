@@ -98,6 +98,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Data\BrowserInfo.cs" />
     <Compile Include="Data\DataCreateTest.cs" />
     <Compile Include="Data\CreateUrl.cs" />
     <Compile Include="DbCreate\CreateDatabase.cs" />
@@ -109,6 +110,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="App.config" />
+    <Content Include="Data\TextFile1.txt" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

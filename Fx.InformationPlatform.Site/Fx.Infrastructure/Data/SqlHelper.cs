@@ -8,6 +8,9 @@ using System.Text.RegularExpressions;
 
 namespace Fx.Infrastructure.Data
 {
+    /// <summary>
+    /// Ado.net Sql帮助类
+    /// </summary>
     public class SqlHelper
     {
         private string connectString = null;
@@ -20,6 +23,11 @@ namespace Fx.Infrastructure.Data
             this.connectString = ConnString;
         }
 
+        /// <summary>
+        /// 获取表信息
+        /// </summary>
+        /// <param name="strSql">sql</param>
+        /// <returns>表信息</returns>
         public DataTable GetDt(string strSql)
         {
             if (ProcessSqlStr(strSql))
@@ -67,19 +75,24 @@ namespace Fx.Infrastructure.Data
         }
 
 
-        public bool ProcessSqlStr(string inputString)
+        /// <summary>
+        /// 处理Sql字符串，检查是否sql注入
+        /// </summary>
+        /// <param name="strSql">sql</param>
+        /// <returns>是否sql注入</returns>
+        private bool ProcessSqlStr(string strSql)
         {
             string SqlStr = @"and|or|exec|execute|insert|select|delete|update|alter|create|drop|count|\*|chr|char|asc|mid|substring|master|truncate|declare|xp_cmdshell|restore|backup|net +user|net +localgroup +administrators";
             try
             {
-                if ((inputString != null) && (inputString != String.Empty))
+                if ((strSql != null) && (strSql != String.Empty))
                 {
                     string str_Regex = @"\b(" + SqlStr + @")\b";
                     Regex Regex = new Regex(str_Regex, RegexOptions.IgnoreCase);
-                    //string s = Regex.Match(inputString).Value; 
-                    if (true == Regex.IsMatch(inputString))
+                    if (true == Regex.IsMatch(strSql))
+                    {
                         return false;
-
+                    }
                 }
             }
             catch
@@ -90,26 +103,29 @@ namespace Fx.Infrastructure.Data
         }
     }
 
+    /// <summary>
+    /// sql扩展类
+    /// </summary>
     public static class Extend
     {
         /// <summary>
         /// 对like语句字符过滤
         /// </summary>
-        /// <param name="Keyword"></param>
-        /// <returns></returns>
+        /// <param name="Keyword">关键字</param>
+        /// <returns>过滤后的关键字</returns>
         public static string EncodingKeyword(this string Keyword)
         {
             return Keyword.Replace("_", "[_]").Replace("%", "[%]");
         }
 
         /// <summary>
-        /// 对sql语句过滤
+        /// 对sql语句进行注释符号过滤
         /// </summary>
-        /// <param name="Content"></param>
-        /// <returns></returns>
-        public static string EncodingString(this string Content)
+        /// <param name="strSql">sql</param>
+        /// <returns>过滤后的sql</returns>
+        public static string EncodingString(this string strSql)
         {
-            return Content.Replace("'", "''").Replace("--", "");
+            return strSql.Replace("'", "''").Replace("--", "");
         }
     }
 }
