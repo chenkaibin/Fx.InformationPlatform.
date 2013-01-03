@@ -17,14 +17,21 @@ namespace Fx.InformationPlatform.Site.Controllers
 #endif
     public class BuyController : Controller
     {
-        IChannelService channelService;
+        private IChannelService channelService;
+        /// <summary>
+        /// 默认构造函数
+        /// </summary>
+        /// <param name="channelService">一级频道服务接口</param>
         public BuyController(IChannelService channelService)
         {
             this.channelService = channelService;
         }
 
-        //
-        // GET: /Publish/
+        /// <summary>
+        /// 求购页面频道首页
+        /// </summary>
+        /// <param name="id">默认选中第几个选项卡</param>
+        /// <returns>View</returns>
         public ActionResult Index(int id)
         {
             ViewBag.Select = id;

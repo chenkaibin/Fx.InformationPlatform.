@@ -9,12 +9,17 @@ using Fx.Domain.FxGoods.IService;
 namespace Fx.InformationPlatform.Site.Controllers
 {
     /// <summary>
-    /// 具体二手转让详情页面
+    /// 二手转让详情控制器
     /// </summary>
     public class GoodsTransferDetailController : Controller
     {
-        protected ITransferGoods transferGoods;
-        protected IFavorite favorite;
+        private ITransferGoods transferGoods;
+        private IFavorite favorite;
+        /// <summary>
+        /// 默认构造函数 
+        /// </summary>
+        /// <param name="transfergoods">物品转让保存读取接口</param>
+        /// <param name="favorite">收藏接口</param>
         public GoodsTransferDetailController(ITransferGoods transfergoods,
             IFavorite favorite)
         {
@@ -22,6 +27,11 @@ namespace Fx.InformationPlatform.Site.Controllers
             this.favorite = favorite;
         }
 
+        /// <summary>
+        /// 二手转让详情首页
+        /// </summary>
+        /// <param name="id">帖子Id</param>
+        /// <returns>View</returns>
         public ActionResult Index(int id)
         {
             if (id <= 0)
@@ -48,6 +58,11 @@ namespace Fx.InformationPlatform.Site.Controllers
             }
         }
 
+        /// <summary>
+        /// 物品转让信息收藏
+        /// </summary>
+        /// <param name="infoId">帖子Id</param>
+        /// <returns>View</returns>
         public ActionResult Favorite(int infoId)
         {
             if (infoId > 0 && User.Identity.IsAuthenticated)

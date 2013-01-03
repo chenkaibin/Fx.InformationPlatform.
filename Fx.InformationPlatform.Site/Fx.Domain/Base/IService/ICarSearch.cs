@@ -6,7 +6,7 @@ using System.Text;
 namespace Fx.Domain.Base.IService
 {
     /// <summary>
-    /// 汽车交易检索接口
+    /// 车辆交易检索接口
     /// </summary>
     /// <typeparam name="T"></typeparam>
     public interface ICarSearch<T> where T : class

@@ -7,7 +7,7 @@ using Fx.Entity;
 namespace Fx.Domain.Base.IService
 {
     /// <summary>
-    /// 帖子关键字查询接口
+    /// 大频道帖子关键字查询接口
     /// </summary>
     /// <typeparam name="T"></typeparam>
     public interface ISiteSearch<T> where T : class

@@ -15,7 +15,7 @@ using FxCacheService.FxSite;
 namespace Fx.InformationPlatform.Site.Controllers
 {
     /// <summary>
-    /// 房屋转让发布
+    /// 房屋转让发布控制器
     /// </summary>
 #if DEBUG
 
@@ -24,9 +24,15 @@ namespace Fx.InformationPlatform.Site.Controllers
 #endif
     public class HouseTransferController : BaseController, ISiteJob
     {
-        IHouse houseService;
-        ITransferHouse transferService;
-        IAccountService accountService;
+        private IHouse houseService;
+        private ITransferHouse transferService;
+        private IAccountService accountService;
+        /// <summary>
+        /// 默认构造函数
+        /// </summary>
+        /// <param name="houseService">站点下房屋基础信息（基本不变）接口</param>
+        /// <param name="buyService">房屋转让保存读取接口</param>
+        /// <param name="accountService">帐号服务接口</param>
         public HouseTransferController(IHouse houseService,
             ITransferHouse buyService,
             IAccountService accountService)
@@ -36,20 +42,34 @@ namespace Fx.InformationPlatform.Site.Controllers
             this.accountService = accountService;
         }
 
+        /// <summary>
+        /// 商业用房转让页面
+        /// </summary>
+        /// <returns>View</returns>
         public ActionResult CommercialProperties()
         {
             BindData();
             return View();
         }
 
-
+        /// <summary>
+        /// 居住用房转让页面
+        /// </summary>
+        /// <returns>View</returns>
         public ActionResult Properties()
         {
             BindData();
             return View();
         }
 
-
+        /// <summary>
+        /// 商业用房发布 
+        /// </summary>
+        /// <param name="house">房屋转让视图模型</param>
+        /// <param name="facefile">正面照片</param>
+        /// <param name="otherfile">其他方位</param>
+        /// <param name="badfile">其他方位照片2</param>
+        /// <returns>View</returns>
         [HttpPost]
         public ActionResult CommercialProperties(TransferViewHouse house,
             List<HttpPostedFileBase> facefile, List<HttpPostedFileBase> otherfile, List<HttpPostedFileBase> badfile)
@@ -58,6 +78,14 @@ namespace Fx.InformationPlatform.Site.Controllers
         }
 
 
+        /// <summary>
+        /// 居住用房发布 
+        /// </summary>
+        /// <param name="house">房屋转让视图模型</param>
+        /// <param name="facefile">正面照片</param>
+        /// <param name="otherfile">其他方位</param>
+        /// <param name="badfile">其他方位照片2</param>
+        /// <returns>View</returns>
         [HttpPost]
         public ActionResult Properties(TransferViewHouse house,
             List<HttpPostedFileBase> facefile, List<HttpPostedFileBase> otherfile, List<HttpPostedFileBase> badfile)
@@ -80,12 +108,6 @@ namespace Fx.InformationPlatform.Site.Controllers
             }
             return View("FaildTransfer");
         }
-
-        public ActionResult FaildTransfer()
-        {
-            return View();
-        }
-
 
         private HouseTransferInfo MapperHouse(TransferViewHouse house)
         {
@@ -131,7 +153,7 @@ namespace Fx.InformationPlatform.Site.Controllers
                         CdnUrl = "",
                         TransferPictureCatagroy = (int)PictureCatagroy.Head,
                         PhysicalPath = GetPhysicalPath() + pictureName,
-                        MinImageUrl=GetVirtualPath()+pictureMinName,
+                        MinImageUrl = GetVirtualPath() + pictureMinName,
                     });
                     SaveFile(face, GetPhysicalPath(), GetPhysicalPath() + pictureName);
                 }
@@ -257,7 +279,7 @@ namespace Fx.InformationPlatform.Site.Controllers
             return pictureName;
         }
 
-        public void SaveFile(HttpPostedFileBase file, string folderPath, string filePath)
+        private void SaveFile(HttpPostedFileBase file, string folderPath, string filePath)
         {
             if (!System.IO.File.Exists(folderPath))
             {
@@ -267,6 +289,9 @@ namespace Fx.InformationPlatform.Site.Controllers
         }
         #endregion
 
+        /// <summary>
+        /// Job运行
+        /// </summary>
         public void RunJob()
         {
             new System.Threading.Thread(() =>

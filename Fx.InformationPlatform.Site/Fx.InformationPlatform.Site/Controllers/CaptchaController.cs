@@ -7,9 +7,31 @@ using System.Web.Mvc;
 
 namespace Fx.InformationPlatform.Site.Controllers
 {
+    /// <summary>
+    /// 验证码控制器
+    /// </summary>
     public class CaptchaController : Controller
     {
-        #region 生成校验码图片
+        /// <summary>
+        /// 默认构造函数
+        /// </summary>
+        public CaptchaController()
+        {
+            this.Length = 4;
+            this.FontSize = 14;
+            this.Padding = 1;
+            this.Chaos = false;
+            this.ChaosColor = Color.LightGray;
+            this.BackgroundColor = Color.White;
+            this.Colors = new Color[] { Color.Black, Color.Red, Color.DarkBlue, Color.Green, Color.Orange, Color.Brown, Color.DarkCyan, Color.Purple };
+            this.Fonts = new string[] { "Arial", "Georgia" };
+            this.CodeSerial = "0,1,2,3,4,5,6,7,8,9,a,b,c,d,e,f,g,h,i,j,k,l,m,n,o,p,q,r,s,t,u,v,w,x,y,z,A,B,C,D,E,F,G,H,I,J,K,L,M,N,O,P,Q,R,S,T,U,V,W,X,Y,Z";
+        }
+
+        /// <summary>
+        /// 生成校验码图片
+        /// </summary>
+        /// <returns>FileContentResult</returns> 
         public FileContentResult CreateImageCode()
         {
             string code = CreateVerifyCode(4);
@@ -70,90 +92,64 @@ namespace Fx.InformationPlatform.Site.Controllers
             image.Save(ms, System.Drawing.Imaging.ImageFormat.Jpeg);
             return File(ms.GetBuffer(), "image/JPEG");
         }
-        #endregion
-        #region 属性
-        #region 验证码长度
-        int length = 4;
-        public int Length
-        {
-            get { return length; }
-            set { length = value; }
-        }
-        #endregion
-        #region 验证码字体大小(为了显示扭曲效果，默认40像素，可以自行修改)
-        int fontSize = 14;
-        public int FontSize
-        {
-            get { return fontSize; }
-            set { fontSize = value; }
-        }
-        #endregion
-        #region 边框补(默认1像素)
-        int padding = 1;
-        public int Padding
-        {
-            get { return padding; }
-            set { padding = value; }
-        }
-        #endregion
-        #region 是否输出燥点(默认不输出)
-        bool chaos = false;
-        public bool Chaos
-        {
-            get { return chaos; }
-            set { chaos = value; }
-        }
-        #endregion
-        #region 输出燥点的颜色(默认灰色)
-        Color chaosColor = Color.LightGray;
-        public Color ChaosColor
-        {
-            get { return chaosColor; }
-            set { chaosColor = value; }
-        }
-        #endregion
-        #region 自定义背景色(默认白色)
-        Color backgroundColor = Color.White;
-        public Color BackgroundColor
-        {
-            get { return backgroundColor; }
-            set { backgroundColor = value; }
-        }
-        #endregion
-        #region 自定义随机颜色数组
-        Color[] colors = { Color.Black, Color.Red, Color.DarkBlue, Color.Green, Color.Orange, Color.Brown, Color.DarkCyan, Color.Purple };
-        public Color[] Colors
-        {
-            get { return colors; }
-            set { colors = value; }
-        }
-        #endregion
-        #region 自定义字体数组
-        string[] fonts = { "Arial", "Georgia" };
-        public string[] Fonts
-        {
-            get { return fonts; }
-            set { fonts = value; }
-        }
-        #endregion
-        #region 自定义随机码字符串序列(使用逗号分隔)
-        string codeSerial = "0,1,2,3,4,5,6,7,8,9,a,b,c,d,e,f,g,h,i,j,k,l,m,n,o,p,q,r,s,t,u,v,w,x,y,z,A,B,C,D,E,F,G,H,I,J,K,L,M,N,O,P,Q,R,S,T,U,V,W,X,Y,Z";
-        public string CodeSerial
-        {
-            get { return codeSerial; }
-            set { codeSerial = value; }
-        }
-        #endregion
-        #endregion
-        #region 产生波形滤镜效果
+
+
+     
+        /// <summary>
+        /// 验证码长度(默认4个长度)
+        /// </summary>
+        public int Length { get; set; }
+   
+        
+        /// <summary>
+        /// 验证码字体大小(为了显示扭曲效果，默认40像素)
+        /// </summary>
+        public int FontSize { get; set; }
+        
+        /// <summary>
+        /// 边框补(默认1像素)
+        /// </summary>
+        public int Padding { get; set; }
+
+        /// <summary>
+        /// 是否输出燥点(默认不输出)
+        /// </summary>
+        public bool Chaos { get; set; }
+
+        /// <summary>
+        /// 输出燥点的颜色(默认灰色)
+        /// </summary>
+        public Color ChaosColor { get; set; }
+
+        /// <summary>
+        /// 自定义背景色(默认白色)
+        /// </summary>
+        public Color BackgroundColor { get; set; }
+   
+        /// <summary>
+        /// 自定义随机颜色数组
+        /// </summary>
+        public Color[] Colors { get; set; }
+
+        /// <summary>
+        ///  自定义字体数组 默认Arial Georgia
+        /// </summary>
+        public string[] Fonts { get; set; }
+
+       
+        /// <summary>
+        /// 自定义随机码字符串序列(使用逗号分隔) 默认0-9 a-z  A-Z
+        /// </summary>
+        public string CodeSerial { get; set; }
+       
         private const double PI = 3.1415926535897932384626433832795;
         private const double PI2 = 6.283185307179586476925286766559;
         /// <summary>
-        /// 正弦曲线Wave扭曲图片（Edit By 51aspx.com）
+        /// 正弦曲线Wave扭曲图片 产生波形滤镜效果
         /// </summary>
         /// <param name="srcBmp">图片路径</param>
         /// <param name="bXDir">如果扭曲则选择为True</param>
-        /// <param name="nMultValue">波形的幅度倍数，越大扭曲的程度越高，一般为3</param>
+        /// <param name="dMultValue">波形的幅度倍数，越大扭曲的程度越高，一般为3</param>
         /// <param name="dPhase">波形的起始相位，取值区间[0-2*PI)</param>
         /// <returns></returns>
         public System.Drawing.Bitmap TwistImage(Bitmap srcBmp, bool bXDir, double dMultValue, double dPhase)
@@ -187,8 +183,12 @@ namespace Fx.InformationPlatform.Site.Controllers
             return destBmp;
         }
 
-        #endregion
-        #region 生成随机字符码
+       
+        /// <summary>
+        /// 生成随机字符码
+        /// </summary>
+        /// <param name="codeLen">长度</param>
+        /// <returns>随即码</returns>
         public string CreateVerifyCode(int codeLen)
         {
             if (codeLen == 0)
@@ -206,11 +206,15 @@ namespace Fx.InformationPlatform.Site.Controllers
             }
             return code;
         }
+
+        /// <summary>
+        /// 创建随即码
+        /// </summary>
+        /// <returns></returns>
         public string CreateVerifyCode()
         {
             return CreateVerifyCode(0);
         }
-        #endregion
 
     }
 }

@@ -12,10 +12,18 @@ namespace Fx.InformationPlatform.Site.Controllers
 #else
     [Authorize]
 #endif
+    /// <summary>
+    /// 处理Ajax Post提交请求控制器
+    /// </summary>
     public class AjaxPostController : Controller
     {
-        protected IAggregateInfo aggregateInfoService;
-        protected IPrivateMessage privateMessageService;
+        private IAggregateInfo aggregateInfoService;
+        private IPrivateMessage privateMessageService;
+        /// <summary>
+        /// 默认构造函数
+        /// </summary>
+        /// <param name="aggregateInfoService">聚合信息接口</param>
+        /// <param name="privateMessageService">私信接口</param>
         public AjaxPostController(IAggregateInfo aggregateInfoService,
             IPrivateMessage privateMessageService)
         {
@@ -24,11 +32,12 @@ namespace Fx.InformationPlatform.Site.Controllers
         }
 
         /// <summary>
-        /// 发送一条私信
+        /// 发送私信
         /// </summary>
-        /// <param name="infoId"></param>
-        /// <param name="channelCatagroy"></param>
-        /// <returns></returns>
+        /// <param name="infoId">帖子Id</param>
+        /// <param name="channelCatagroy">频道</param>
+        /// <param name="privateTxt">私信内容</param>
+        /// <returns>View</returns>
         public ActionResult PrivateMessage(int infoId, int channelCatagroy, string privateTxt)
         {
             if (!User.Identity.IsAuthenticated)

@@ -9,12 +9,17 @@ using Fx.Domain.FxHouse.IService;
 namespace Fx.InformationPlatform.Site.Controllers
 {
     /// <summary>
-    /// 具体房屋求购详情页面
+    /// 房屋求购详情控制器
     /// </summary>
     public class HouseBuyDetailController : Controller
     {
-        protected IBuyHouse buyHouse;
-        protected IFavorite favorite;
+        private IBuyHouse buyHouse;
+        private IFavorite favorite;
+        /// <summary>
+        /// 默认构造函数
+        /// </summary>
+        /// <param name="buyHouse">房屋求购保存读取接口</param>
+        /// <param name="favorite">收藏接口</param>
         public HouseBuyDetailController(IBuyHouse buyHouse,
             IFavorite favorite)
         {
@@ -22,6 +27,11 @@ namespace Fx.InformationPlatform.Site.Controllers
             this.favorite = favorite;
         }
 
+        /// <summary>
+        /// 房屋求购详情首页
+        /// </summary>
+        /// <param name="id">帖子Id</param>
+        /// <returns>View</returns>
         public ActionResult Index(int id)
         {
             if (id <= 0)
@@ -48,6 +58,11 @@ namespace Fx.InformationPlatform.Site.Controllers
             }
         }
 
+        /// <summary>
+        /// 房屋求购信息收藏
+        /// </summary>
+        /// <param name="infoId">帖子Id</param>
+        /// <returns>View</returns>
         public ActionResult Favorite(int infoId)
         {
             if (infoId > 0 && User.Identity.IsAuthenticated)

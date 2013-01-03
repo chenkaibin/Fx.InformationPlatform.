@@ -9,16 +9,24 @@ using FxCacheService.FxGoods;
 namespace Fx.InformationPlatform.Site.Controllers
 {
     /// <summary>
-    /// 二手列表页面 二级页面
+    /// 物品列表控制器
     /// </summary>
     public class GoodsListController : Controller
     {
-        protected GoodsCache goodsCache;
+        private GoodsCache goodsCache;
+        /// <summary>
+        /// 默认构造函数
+        /// </summary>
+        /// <param name="goodsCache">物品缓存</param>
         public GoodsListController(GoodsCache goodsCache)
         {
             this.goodsCache = goodsCache;
         }
 
+        /// <summary>
+        /// 物品列表首页
+        /// </summary>
+        /// <returns>View</returns>
         public ActionResult Index()
         {
             var model = new GoodsListModel();

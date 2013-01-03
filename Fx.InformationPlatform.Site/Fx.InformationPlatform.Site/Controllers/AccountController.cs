@@ -19,6 +19,11 @@ namespace Fx.InformationPlatform.Site.Controllers
     {
         private IAccountService accountService;
         private GlobalCache gloCache;
+        /// <summary>
+        /// 默认构造函数
+        /// </summary>
+        /// <param name="accountService">帐号服务接口</param>
+        /// <param name="gloCache">全局缓存</param>
         public AccountController(IAccountService accountService,
             GlobalCache gloCache)
         {
@@ -27,14 +32,20 @@ namespace Fx.InformationPlatform.Site.Controllers
             ViewBag.UserCount = gloCache.UserCount();
         }
 
-        //
-        // GET: /Account/
-
+        
+        /// <summary>
+        /// 帐号首页
+        /// </summary>
+        /// <returns>View</returns>
         public ActionResult Index()
         {
             return View();
         }
 
+        /// <summary>
+        /// 用户登录页面
+        /// </summary>
+        /// <returns>View</returns>
         [HttpGet]
         public ActionResult Login()
         {
@@ -45,6 +56,12 @@ namespace Fx.InformationPlatform.Site.Controllers
             return View();
         }
 
+        /// <summary>
+        /// 用户登录
+        /// </summary>
+        /// <param name="user">用户注册模型</param>
+        /// <param name="returnUrl">返回Url</param>
+        /// <returns>View</returns>
         [HttpPost]
         public ActionResult Login(RegisterUser user, string returnUrl)
         {
@@ -77,13 +94,21 @@ namespace Fx.InformationPlatform.Site.Controllers
             return View();
         }
 
+        /// <summary>
+        /// 注册用户页面展示
+        /// </summary>
+        /// <returns>View</returns>
         [HttpGet]
         public ActionResult Register()
         {
             return View();
         }
 
-
+        /// <summary>
+        /// 注册用户
+        /// </summary>
+        /// <param name="user">用户注册模型</param>
+        /// <returns>View</returns>
         public ActionResult Register(RegisterUser user)
         {
             if (user != null && user.PasswordQuestion != null)
@@ -144,7 +169,7 @@ namespace Fx.InformationPlatform.Site.Controllers
         /// <summary>
         /// 注销用户
         /// </summary>
-        /// <returns></returns>
+        /// <returns>View</returns>
         public ActionResult LoginOff()
         {
             System.Web.Security.FormsAuthentication.SignOut();
@@ -152,6 +177,10 @@ namespace Fx.InformationPlatform.Site.Controllers
             return RedirectToAction("Index", "Home");
         }
 
+        /// <summary>
+        /// 重置密码页面
+        /// </summary>
+        /// <returns>View</returns>
         public ActionResult ResetPassword()
         {
             return View();
@@ -162,7 +191,9 @@ namespace Fx.InformationPlatform.Site.Controllers
         /// 邮箱重置密码 需要考虑恶意破解的问题 但是没有实现
         /// </summary>
         /// <param name="useremail"></param>
-        /// <returns></returns>
+        /// <param name="passwordAnswer">密保问题</param>
+        /// <param name="passwordQuestion">密保答案</param>
+        /// <returns>View</returns>
         [HttpPost]
         public ActionResult ResetPassword(string useremail, string passwordQuestion, string passwordAnswer)
         {

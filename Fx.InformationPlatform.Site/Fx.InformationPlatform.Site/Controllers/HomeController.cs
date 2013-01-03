@@ -12,13 +12,19 @@ using Fx.InformationPlatform.Site.ViewModel;
 namespace Fx.InformationPlatform.Site.Controllers
 {
     /// <summary>
-    /// 首页
+    /// 首页控制器
     /// </summary>
     public class HomeController : Controller
     {
         private FxCacheService.FxGoods.GoodsCache goodsCache;
         private FxCacheService.FxHouse.HouseCache houseCache;
         private FxCacheService.FxCar.CarCache carCache;
+        /// <summary>
+        /// 默认构造函数
+        /// </summary>
+        /// <param name="goodsCache">物品缓存</param>
+        /// <param name="houseCache">房屋缓存</param>
+        /// <param name="carCache">车辆缓存</param>
         public HomeController(FxCacheService.FxGoods.GoodsCache goodsCache,
             FxCacheService.FxHouse.HouseCache houseCache,
             FxCacheService.FxCar.CarCache carCache)
@@ -27,9 +33,11 @@ namespace Fx.InformationPlatform.Site.Controllers
             this.houseCache = houseCache;
             this.carCache = carCache;
         }
-        //
-        // GET: /Home/
-
+        
+        /// <summary>
+        /// 英淘网首页
+        /// </summary>
+        /// <returns>View</returns>
         public ActionResult Index()
         {            
             return View(CreateModel());
@@ -56,10 +64,10 @@ namespace Fx.InformationPlatform.Site.Controllers
 
 
         /// <summary>
-        /// 
+        /// 首页查询入口
         /// </summary>
-        /// <param name="searchText">Key：查找关键字</param>
-        /// <param name="logochose">Channel:物品交易</param>
+        /// <param name="searchTextModel">查找的关键字</param>
+        /// <param name="logochoseModel">频道</param>
         /// <returns></returns>
         [HttpPost]
         public ActionResult HomeSearchFacade(string searchTextModel, string logochoseModel)

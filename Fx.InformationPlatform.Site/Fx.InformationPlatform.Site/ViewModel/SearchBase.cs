@@ -9,14 +9,26 @@ using FxCacheService.FxSite;
 
 namespace Fx.InformationPlatform.Site.ViewModel
 {
+    /// <summary>
+    /// 查询结果基类
+    /// </summary>
     public class SearchBase
     {
-        public SiteCache siteCache;
+        /// <summary>
+        /// 站点缓存
+        /// </summary>
+        protected SiteCache siteCache;
+        /// <summary>
+        /// 默认构造函数
+        /// </summary>
         public SearchBase()
         {
             this.siteCache = System.Web.Mvc.DependencyResolver.Current.GetService<SiteCache>();            
         }
 
+        /// <summary>
+        /// 区域数据
+        /// </summary>
         public List<Fx.Entity.FxSite.Area> Areas
         {
             get
@@ -25,20 +37,44 @@ namespace Fx.InformationPlatform.Site.ViewModel
             }
         }
 
+        /// <summary>
+        /// 广告信息
+        /// </summary>
         public string Ad { get; set; }
 
+        /// <summary>
+        /// 当前所运行的方法
+        /// </summary>
         public string Action { get; set; }
 
+        /// <summary>
+        /// 关键字
+        /// </summary>
         public string Key { get; set; }
 
+        /// <summary>
+        /// 区域Id
+        /// </summary>
         public int AreaId { get; set; }
 
+        /// <summary>
+        /// 城市Id
+        /// </summary>
         public int CityId { get; set; }
 
+        /// <summary>
+        /// 分页栏当前的索引
+        /// </summary>
         public int CurrentIndex { get; set; }
 
+        /// <summary>
+        /// 三级分类
+        /// </summary>
         public int Clc { get; set; }
 
+        /// <summary>
+        /// 分页栏开始索引
+        /// </summary>
         public int StartIndex
         {
             get
@@ -54,6 +90,9 @@ namespace Fx.InformationPlatform.Site.ViewModel
             }
         }
 
+        /// <summary>
+        /// 分页栏结束索引
+        /// </summary>
         public int EndIndex
         {
             get
@@ -63,6 +102,9 @@ namespace Fx.InformationPlatform.Site.ViewModel
             }
         }
 
+        /// <summary>
+        /// 模型检查
+        /// </summary>
         public virtual void CheckModel()
         {
 

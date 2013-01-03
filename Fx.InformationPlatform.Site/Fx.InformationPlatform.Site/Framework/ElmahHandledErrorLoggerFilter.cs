@@ -12,6 +12,10 @@ namespace Fx.InformationPlatform.Site.Framework
     /// </summary>
     public class ElmahHandledErrorLoggerFilter : IExceptionFilter
     {
+        /// <summary>
+        /// Elmah在异常发生的时候,如何处理异常
+        /// </summary>
+        /// <param name="context"></param>
         public void OnException(ExceptionContext context)
         {
             // Log only handled exceptions, because all other will be caught by ELMAH anyway.

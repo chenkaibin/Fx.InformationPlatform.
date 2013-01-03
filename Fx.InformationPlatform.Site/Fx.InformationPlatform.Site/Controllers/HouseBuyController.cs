@@ -13,7 +13,7 @@ using FxCacheService.FxSite;
 namespace Fx.InformationPlatform.Site.Controllers
 {
     /// <summary>
-    /// 房屋求购 
+    /// 房屋求购控制器 
     /// </summary>
 #if DEBUG
 
@@ -22,9 +22,15 @@ namespace Fx.InformationPlatform.Site.Controllers
 #endif
     public class HouseBuyController : BaseController, ISiteJob
     {
-        IHouse houseService;
-        IBuyHouse buyService;
-        IAccountService accountService;
+        private IHouse houseService;
+        private IBuyHouse buyService;
+        private IAccountService accountService;
+        /// <summary>
+        /// 默认构造函数
+        /// </summary>
+        /// <param name="houseService">站点下房屋基础信息接口</param>
+        /// <param name="buyService">房屋求购保存读取接口</param>
+        /// <param name="accountService">帐号服务接口</param>
         public HouseBuyController(IHouse houseService,
             IBuyHouse buyService,
             IAccountService accountService)
@@ -34,25 +40,42 @@ namespace Fx.InformationPlatform.Site.Controllers
             this.accountService = accountService;
         }
 
+        /// <summary>
+        /// 商业用房页面
+        /// </summary>
+        /// <returns></returns>
         public ActionResult CommercialProperties()
         {
             BindData();
             return View();
         }
 
+        /// <summary>
+        /// 居住用房页面
+        /// </summary>
+        /// <returns></returns>
         public ActionResult Properties()
         {
             BindData();
             return View();
         }
 
-
+        /// <summary>
+        /// 商业用房发布
+        /// </summary>
+        /// <param name="house">房屋求购视图模型</param>
+        /// <returns>View</returns>
         [HttpPost]
         public ActionResult CommercialProperties(BuyViewHouse house)
         {
             return PublishHouse(house);
         }
 
+        /// <summary>
+        /// 居住用房发布
+        /// </summary>
+        /// <param name="house">房屋求购视图模型</param>
+        /// <returns>View</returns>
         [HttpPost]
         public ActionResult Properties(BuyViewHouse house)
         {
@@ -120,7 +143,9 @@ namespace Fx.InformationPlatform.Site.Controllers
             ViewData["catagroy"] = details;
         }
 
-
+        /// <summary>
+        /// Job运行
+        /// </summary>
         public void RunJob()
         {
             new System.Threading.Thread(() =>

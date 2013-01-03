@@ -8,14 +8,26 @@ using Fx.Domain.FxSite.IService;
 
 namespace Fx.InformationPlatform.Site.Controllers
 {
+    /// <summary>
+    /// 处理Ajax Get请求控制器
+    /// </summary>
     public class AjaxController : Controller
     {
-        ISite publishService;
+        private ISite publishService;
+        /// <summary>
+        /// 默认构造函数
+        /// </summary>
+        /// <param name="publishService">站点基础信息接口</param>
         public AjaxController(ISite publishService)
         {
             this.publishService = publishService;
         }
 
+        /// <summary>
+        /// 根据区域Id获取相应城市Html 缓存3600秒
+        /// </summary>
+        /// <param name="areaId">区域Id</param>
+        /// <returns>ContentResult</returns>
         [OutputCache(Duration = 3600)]
         public ActionResult City(int areaId)
         {
@@ -34,7 +46,10 @@ namespace Fx.InformationPlatform.Site.Controllers
             }
         }
 
-
+        /// <summary>
+        /// 获取物品求购新旧基础信息 缓存3600秒
+        /// </summary>
+        /// <returns>ContentResult</returns>
         [OutputCache(Duration = 3600)]
         public ActionResult GoodsBuyCondition()
         {
@@ -53,7 +68,10 @@ namespace Fx.InformationPlatform.Site.Controllers
             }
         }
 
-
+        /// <summary>
+        /// 获取物品转让新旧基础信息 缓存3600秒
+        /// </summary>
+        /// <returns>ContentResult</returns>
         [OutputCache(Duration = 3600)]
         public ActionResult GoodsTransferCondition()
         {

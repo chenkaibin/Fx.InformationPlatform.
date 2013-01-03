@@ -15,7 +15,7 @@ using FxCacheService.FxSite;
 namespace Fx.InformationPlatform.Site.Controllers
 {
     /// <summary>
-    /// 二手求购发布
+    /// 物品求购发布控制器
     /// </summary>
 #if DEBUG
 
@@ -27,6 +27,12 @@ namespace Fx.InformationPlatform.Site.Controllers
         IGoods goodsService;
         IBuyGoods buyService;
         IAccountService accountService;
+        /// <summary>
+        /// 默认构造函数
+        /// </summary>
+        /// <param name="goodsService">点下物品基础信息接口</param>
+        /// <param name="buyService">物品求购保存读取接口</param>
+        /// <param name="accountService">帐号服务接口</param>
         public GoodsBuyController(IGoods goodsService,
             IBuyGoods buyService,
             IAccountService accountService)
@@ -36,30 +42,50 @@ namespace Fx.InformationPlatform.Site.Controllers
             this.accountService = accountService;
         }
 
+        /// <summary>
+        /// 数码产品求购页面
+        /// </summary>
+        /// <returns>View</returns>
         public ActionResult Electronics()
         {
             BindData();
             return View();
         }
 
+        /// <summary>
+        /// 居家用品求购页面
+        /// </summary>
+        /// <returns>View</returns>
         public ActionResult HomeSupplies()
         {
             BindData();
             return View();
         }
 
+        /// <summary>
+        /// 衣服鞋包求购页面
+        /// </summary>
+        /// <returns>View</returns>
         public ActionResult Fashion()
         {
             BindData();
             return View();
         }
 
+        /// <summary>
+        /// 文化生活求购页面
+        /// </summary>
+        /// <returns>View</returns>
         public ActionResult CultureLife()
         {
             BindData();
             return View();
         }
 
+        /// <summary>
+        /// 物品其他求购页面
+        /// </summary>
+        /// <returns>View</returns>
         public ActionResult Other()
         {
             BindData();
@@ -87,7 +113,14 @@ namespace Fx.InformationPlatform.Site.Controllers
             ViewData["catagroy"] = details;
         }
 
-
+        /// <summary>
+        ///  数码产品发布
+        /// </summary>
+        /// <param name="goods">物品求购视图模型</param>
+        /// <param name="facefile">正面照片</param>
+        /// <param name="otherfile">其他方位照片</param>
+        /// <param name="badfile">其他方位照片2</param>
+        /// <returns>View</returns>
         [HttpPost]
         public ActionResult Electronics(BuyViewGoods goods,
             List<HttpPostedFileBase> facefile, List<HttpPostedFileBase> otherfile, List<HttpPostedFileBase> badfile)
@@ -95,6 +128,14 @@ namespace Fx.InformationPlatform.Site.Controllers
             return PublishGoods(goods, facefile, otherfile, badfile);
         }
 
+        /// <summary>
+        ///  居家用品发布
+        /// </summary>
+        /// <param name="goods">物品求购视图模型</param>
+        /// <param name="facefile">正面照片</param>
+        /// <param name="otherfile">其他方位照片</param>
+        /// <param name="badfile">其他方位照片2</param>
+        /// <returns>View</returns>
         [HttpPost]
         public ActionResult HomeSupplies(BuyViewGoods goods,
             List<HttpPostedFileBase> facefile, List<HttpPostedFileBase> otherfile, List<HttpPostedFileBase> badfile)
@@ -102,6 +143,14 @@ namespace Fx.InformationPlatform.Site.Controllers
             return PublishGoods(goods, facefile, otherfile, badfile);
         }
 
+        /// <summary>
+        ///  衣服鞋包发布
+        /// </summary>
+        /// <param name="goods">物品求购视图模型</param>
+        /// <param name="facefile">正面照片</param>
+        /// <param name="otherfile">其他方位照片</param>
+        /// <param name="badfile">其他方位照片2</param>
+        /// <returns>View</returns>
         [HttpPost]
         public ActionResult Fashion(BuyViewGoods goods,
             List<HttpPostedFileBase> facefile, List<HttpPostedFileBase> otherfile, List<HttpPostedFileBase> badfile)
@@ -109,6 +158,14 @@ namespace Fx.InformationPlatform.Site.Controllers
             return PublishGoods(goods, facefile, otherfile, badfile);
         }
 
+        /// <summary>
+        ///  文化生活发布
+        /// </summary>
+        /// <param name="goods">物品求购视图模型</param>
+        /// <param name="facefile">正面照片</param>
+        /// <param name="otherfile">其他方位照片</param>
+        /// <param name="badfile">其他方位照片2</param>
+        /// <returns>View</returns>
         [HttpPost]
         public ActionResult CultureLife(BuyViewGoods goods,
             List<HttpPostedFileBase> facefile, List<HttpPostedFileBase> otherfile, List<HttpPostedFileBase> badfile)
@@ -116,6 +173,14 @@ namespace Fx.InformationPlatform.Site.Controllers
             return PublishGoods(goods, facefile, otherfile, badfile);
         }
 
+        /// <summary>
+        ///  物品其他发布
+        /// </summary>
+        /// <param name="goods">物品求购视图模型</param>
+        /// <param name="facefile">正面照片</param>
+        /// <param name="otherfile">其他方位照片</param>
+        /// <param name="badfile">其他方位照片2</param>
+        /// <returns>View</returns>
         [HttpPost]
         public ActionResult Other(BuyViewGoods goods,
             List<HttpPostedFileBase> facefile, List<HttpPostedFileBase> otherfile, List<HttpPostedFileBase> badfile)
@@ -287,7 +352,7 @@ namespace Fx.InformationPlatform.Site.Controllers
         }
 
 
-        public void SaveFile(HttpPostedFileBase file, string folderPath, string filePath)
+        private void SaveFile(HttpPostedFileBase file, string folderPath, string filePath)
         {
             if (!System.IO.File.Exists(folderPath))
             {
@@ -297,7 +362,9 @@ namespace Fx.InformationPlatform.Site.Controllers
         }
         #endregion
 
-
+        /// <summary>
+        /// Job执行
+        /// </summary>
         public void RunJob()
         {
             new System.Threading.Thread(() =>

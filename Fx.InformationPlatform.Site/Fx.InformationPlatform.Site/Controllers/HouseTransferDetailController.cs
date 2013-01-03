@@ -9,19 +9,29 @@ using Fx.Domain.FxHouse.IService;
 namespace Fx.InformationPlatform.Site.Controllers
 {
     /// <summary>
-    /// 具体房屋转让详情页面
+    /// 具体房屋转让详情控制器
     /// </summary>
     public class HouseTransferDetailController : Controller
     {
-       protected ITransferHouse transferHouse;
-       protected IFavorite favorite;
-       public HouseTransferDetailController(ITransferHouse transferHouse,
-           IFavorite favorite)
+        private ITransferHouse transferHouse;
+        private IFavorite favorite;
+        /// <summary>
+        /// 默认构造函数
+        /// </summary>
+        /// <param name="transferHouse">房屋转让保存读取接口</param>
+        /// <param name="favorite">收藏接口</param>
+        public HouseTransferDetailController(ITransferHouse transferHouse,
+            IFavorite favorite)
         {
             this.transferHouse = transferHouse;
             this.favorite = favorite;
         }
 
+        /// <summary>
+        /// 具体房屋转让详情首页
+        /// </summary>
+        /// <param name="id">帖子Id</param>
+        /// <returns>View</returns>
         public ActionResult Index(int id)
         {
             if (id <= 0)
@@ -48,6 +58,11 @@ namespace Fx.InformationPlatform.Site.Controllers
             }
         }
 
+        /// <summary>
+        /// 房屋转让信息收藏
+        /// </summary>
+        /// <param name="infoId">帖子Id</param>
+        /// <returns>View</returns>
         public ActionResult Favorite(int infoId)
         {
             if (infoId > 0 && User.Identity.IsAuthenticated)

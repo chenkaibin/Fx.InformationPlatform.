@@ -6,25 +6,49 @@ using Fx.Entity;
 
 namespace Fx.InformationPlatform.Site.ViewModel
 {
+    /// <summary>
+    /// 物品求购视图模型
+    /// </summary>
     public class BuyViewGoods
     {
+        /// <summary>
+        /// 标题
+        /// </summary>
         public string Title { get; set; }
 
+        /// <summary>
+        /// 三级分类Id
+        /// </summary>
         public int CatagroyId { get; set; }
 
+        /// <summary>
+        /// 价格
+        /// </summary>
         public decimal Price { get; set; }
 
+        /// <summary>
+        /// 是否换物
+        /// </summary>
         public bool IsChangeGoods { get; set; }
 
         /// <summary>
-        /// 想要交互物品的信息
+        /// 想要交换物品的信息
         /// </summary>
         public string ChangeGoodsMsg { get; set; }
 
+        /// <summary>
+        /// 区域Id
+        /// </summary>
         public int AreaId { get; set; }
 
+        /// <summary>
+        /// 城市Id
+        /// </summary>
         public int CityId { get; set; }
 
+        /// <summary>
+        /// 物品新旧程度Id
+        /// </summary>
         public int GoodConditionId { get; set; }
 
         /// <summary>
@@ -32,16 +56,34 @@ namespace Fx.InformationPlatform.Site.ViewModel
         /// </summary>
         public string GoodConditonMsg { get; set; }
 
+        /// <summary>
+        /// 正面照片
+        /// </summary>
         public List<BuyPicture> FaceFiles { get; set; }
 
+        /// <summary>
+        /// 其他方位照片
+        /// </summary>
         public List<BuyPicture> OtherFiles { get; set; }
 
+        /// <summary>
+        /// 其他方位照片2
+        /// </summary>
         public List<BuyPicture> BadFiles { get; set; }
 
+        /// <summary>
+        /// 发布者接收信息邮箱
+        /// </summary>
         public string Email { get; set; }
 
+        /// <summary>
+        /// 备注
+        /// </summary>
         public string Mark { get; set; }
 
+        /// <summary>
+        /// 默认构造函数
+        /// </summary>
         public BuyViewGoods()
         {
             FaceFiles = new List<BuyPicture>();

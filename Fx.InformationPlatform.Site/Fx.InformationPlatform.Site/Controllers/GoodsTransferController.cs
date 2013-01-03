@@ -15,7 +15,7 @@ using FxCacheService.FxSite;
 namespace Fx.InformationPlatform.Site.Controllers
 {
     /// <summary>
-    /// 二手转让发布
+    /// 二手转让发布控制器
     /// </summary>
 #if DEBUG
 
@@ -27,8 +27,12 @@ namespace Fx.InformationPlatform.Site.Controllers
         IGoods goodsService;
         ITransferGoods transferService;
         IAccountService accountService;
-
-
+        /// <summary>
+        /// 默认构造函数
+        /// </summary>
+        /// <param name="goodsService">站点下物品基础信息接口</param>
+        /// <param name="transferService">物品转让保存读取接口</param>
+        /// <param name="accountService">帐号服务接口</param>
         public GoodsTransferController(IGoods goodsService,
             ITransferGoods transferService,
             IAccountService accountService)
@@ -39,30 +43,50 @@ namespace Fx.InformationPlatform.Site.Controllers
         }
 
 
+        /// <summary>
+        /// 数码产品转让页面
+        /// </summary>
+        /// <returns>View</returns>
         public ActionResult Electronics()
         {
             BindData();
             return View();
         }
 
+        /// <summary>
+        /// 居家用品转让页面
+        /// </summary>
+        /// <returns>View</returns>
         public ActionResult HomeSupplies()
         {
             BindData();
             return View();
         }
 
+        /// <summary>
+        /// 衣服鞋包转让页面
+        /// </summary>
+        /// <returns>View</returns>
         public ActionResult Fashion()
         {
             BindData();
             return View();
         }
 
+        /// <summary>
+        /// 文化生活转让页面
+        /// </summary>
+        /// <returns>View</returns>
         public ActionResult CultureLife()
         {
             BindData();
             return View();
         }
 
+        /// <summary>
+        /// 物品其他转让页面
+        /// </summary>
+        /// <returns>View</returns>
         public ActionResult Other()
         {
             BindData();
@@ -91,6 +115,14 @@ namespace Fx.InformationPlatform.Site.Controllers
             ViewData["catagroy"] = details;
         }
 
+        /// <summary>
+        ///  数码产品发布
+        /// </summary>
+        /// <param name="goods">物品转让视图模型</param>
+        /// <param name="facefile">正面照片</param>
+        /// <param name="otherfile">其他方位照片</param>
+        /// <param name="badfile">其他方位照片2</param>
+        /// <returns>View</returns>
         [HttpPost]
         public ActionResult Electronics(TransferViewGoods goods,
             List<HttpPostedFileBase> facefile, List<HttpPostedFileBase> otherfile, List<HttpPostedFileBase> badfile)
@@ -98,6 +130,14 @@ namespace Fx.InformationPlatform.Site.Controllers
             return PublishGoods(goods, facefile, otherfile, badfile);
         }
 
+        /// <summary>
+        ///  居家用品发布
+        /// </summary>
+        /// <param name="goods">物品转让视图模型</param>
+        /// <param name="facefile">正面照片</param>
+        /// <param name="otherfile">其他方位照片</param>
+        /// <param name="badfile">其他方位照片2</param>
+        /// <returns>View</returns>
         [HttpPost]
         public ActionResult HomeSupplies(TransferViewGoods goods,
             List<HttpPostedFileBase> facefile, List<HttpPostedFileBase> otherfile, List<HttpPostedFileBase> badfile)
@@ -105,6 +145,14 @@ namespace Fx.InformationPlatform.Site.Controllers
             return PublishGoods(goods, facefile, otherfile, badfile);
         }
 
+        /// <summary>
+        ///  衣服鞋包发布
+        /// </summary>
+        /// <param name="goods">物品转让视图模型</param>
+        /// <param name="facefile">正面照片</param>
+        /// <param name="otherfile">其他方位照片</param>
+        /// <param name="badfile">其他方位照片2</param>
+        /// <returns>View</returns>
         [HttpPost]
         public ActionResult Fashion(TransferViewGoods goods,
             List<HttpPostedFileBase> facefile, List<HttpPostedFileBase> otherfile, List<HttpPostedFileBase> badfile)
@@ -112,6 +160,14 @@ namespace Fx.InformationPlatform.Site.Controllers
             return PublishGoods(goods, facefile, otherfile, badfile);
         }
 
+        /// <summary>
+        /// 文化生活发布
+        /// </summary>
+        /// <param name="goods">物品转让视图模型</param>
+        /// <param name="facefile">正面照片</param>
+        /// <param name="otherfile">其他方位照片</param>
+        /// <param name="badfile">其他方位照片2</param>
+        /// <returns>View</returns>
         [HttpPost]
         public ActionResult CultureLife(TransferViewGoods goods,
             List<HttpPostedFileBase> facefile, List<HttpPostedFileBase> otherfile, List<HttpPostedFileBase> badfile)
@@ -119,6 +175,14 @@ namespace Fx.InformationPlatform.Site.Controllers
             return PublishGoods(goods, facefile, otherfile, badfile);
         }
 
+        /// <summary>
+        ///  物品其他发布
+        /// </summary>
+        /// <param name="goods">物品转让视图模型</param>
+        /// <param name="facefile">正面照片</param>
+        /// <param name="otherfile">其他方位照片</param>
+        /// <param name="badfile">其他方位照片2</param>
+        /// <returns>View</returns>
         [HttpPost]
         public ActionResult Other(TransferViewGoods goods,
             List<HttpPostedFileBase> facefile, List<HttpPostedFileBase> otherfile, List<HttpPostedFileBase> badfile)
@@ -139,11 +203,6 @@ namespace Fx.InformationPlatform.Site.Controllers
                 return View("Success");
             }
             return View("FaildTransfer");
-        }
-
-        public ActionResult FaildTransfer()
-        {
-            return View();
         }
 
 
@@ -240,21 +299,6 @@ namespace Fx.InformationPlatform.Site.Controllers
         }
 
 
-        public ActionResult Get(int Id)
-        {
-            return View(transferService.Get(Id));
-        }
-
-     
-
-
-        public ActionResult Success()
-        {
-            return View();
-        }
-
-
-
         #region UpLoad
         private readonly string transferPhysicalImagePath = @"UploadImage\Transfer\GoodsImage\";
         private readonly string transferVirtualImagePath = "UploadImage/Transfer/GoodsImage/";
@@ -310,7 +354,7 @@ namespace Fx.InformationPlatform.Site.Controllers
             return pictureName;
         }
 
-        public void SaveFile(HttpPostedFileBase file, string folderPath, string filePath)
+        private void SaveFile(HttpPostedFileBase file, string folderPath, string filePath)
         {
             if (!System.IO.File.Exists(folderPath))
             {
@@ -320,6 +364,9 @@ namespace Fx.InformationPlatform.Site.Controllers
         }
         #endregion
 
+        /// <summary>
+        /// Job运行
+        /// </summary>
         public void RunJob()
         {
             //new FxTask.FxGoods.Transfer.GoodsTransferJobLoad();

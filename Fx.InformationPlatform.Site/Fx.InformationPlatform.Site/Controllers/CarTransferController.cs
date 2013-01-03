@@ -15,7 +15,7 @@ using FxCacheService.FxSite;
 namespace Fx.InformationPlatform.Site.Controllers
 {
     /// <summary>
-    /// 车辆转让发布
+    /// 车辆转让发布控制器
     /// </summary>
 #if DEBUG
 
@@ -24,10 +24,15 @@ namespace Fx.InformationPlatform.Site.Controllers
 #endif
     public class CarTransferController : BaseController, ISiteJob
     {
-        ICar carService;
-        ITransferCar transferService;
-        IAccountService accountService;
-
+        private ICar carService;
+        private ITransferCar transferService;
+        private IAccountService accountService;
+        /// <summary>
+        /// 默认构造函数
+        /// </summary>
+        /// <param name="carService">站点下车辆基础信息（基本不变）接口</param>
+        /// <param name="buyService">车辆转让保存读取接口</param>
+        /// <param name="accountService">帐号服务接口</param>
         public CarTransferController(ICar carService,
             ITransferCar buyService,
             IAccountService accountService)
@@ -37,29 +42,26 @@ namespace Fx.InformationPlatform.Site.Controllers
             this.accountService = accountService;
         }
 
+        /// <summary>
+        /// 二手车页面
+        /// </summary>
+        /// <returns></returns>
         public ActionResult SecondHandCar()
         {
             BindData();
             return View();
         }
-
-        public ActionResult CarAccessories()
-        {
-            BindData();
-            return View();
-        }
         
-
-
+        /// <summary>
+        /// 二手车发布
+        /// </summary>
+        /// <param name="car">车辆转让视图模型</param>
+        /// <param name="facefile">正面照片</param>
+        /// <param name="otherfile">其他方位照片</param>
+        /// <param name="badfile">其他方位照片2</param>
+        /// <returns>View</returns>
         [HttpPost]
         public ActionResult SecondHandCar(TransferViewCar car,
-            List<HttpPostedFileBase> facefile, List<HttpPostedFileBase> otherfile, List<HttpPostedFileBase> badfile)
-        {
-            return PublishCar(car, facefile, otherfile, badfile);
-        }
-
-        [HttpPost]
-        public ActionResult CarAccessories(TransferViewCar car,
             List<HttpPostedFileBase> facefile, List<HttpPostedFileBase> otherfile, List<HttpPostedFileBase> badfile)
         {
             return PublishCar(car, facefile, otherfile, badfile);
@@ -77,11 +79,6 @@ namespace Fx.InformationPlatform.Site.Controllers
                 return View("Success");
             }
             return View("FaildTransfer");
-        }
-
-        public ActionResult FaildTransfer()
-        {
-            return View();
         }
 
 
@@ -295,7 +292,8 @@ namespace Fx.InformationPlatform.Site.Controllers
             return pictureName;
         }
 
-        public void SaveFile(HttpPostedFileBase file, string folderPath, string filePath)
+        
+        private void SaveFile(HttpPostedFileBase file, string folderPath, string filePath)
         {
             if (!System.IO.File.Exists(folderPath))
             {
@@ -305,6 +303,9 @@ namespace Fx.InformationPlatform.Site.Controllers
         }
         #endregion
 
+        /// <summary>
+        /// Job运行
+        /// </summary>
         public void RunJob()
         {
             new System.Threading.Thread(() =>

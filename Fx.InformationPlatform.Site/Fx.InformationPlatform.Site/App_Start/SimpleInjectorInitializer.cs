@@ -11,9 +11,14 @@ namespace Fx.InformationPlatform.Site.App_Start
     using SimpleInjector;
     using SimpleInjector.Integration.Web.Mvc;
 
+    /// <summary>
+    /// SimpleInjector IOC初始化
+    /// </summary>
     public static class SimpleInjectorInitializer
     {
-        /// <summary>Initialize the container and register it as MVC3 Dependency Resolver.</summary>
+        /// <summary>
+        /// 初始化容器并注册IOC到MVC的依赖解决方案
+        /// </summary>
         public static void Initialize()
         {
             var container = new Container();
@@ -24,7 +29,6 @@ namespace Fx.InformationPlatform.Site.App_Start
 
             container.RegisterMvcAttributeFilterProvider();
 
-            // Using Entity Framework? Please read this: http://simpleinjector.codeplex.com/discussions/363935
             container.Verify();
 
             DependencyResolver.SetResolver(new SimpleInjectorDependencyResolver(container));
@@ -47,7 +51,7 @@ namespace Fx.InformationPlatform.Site.App_Start
             container.Register<Fx.Domain.FxAggregate.IService.IFavorite, Fx.Domain.FxAggregate.FavoriteService>();
             container.Register<Fx.Domain.FxAggregate.IService.IAggregateInfo, Fx.Domain.FxAggregate.AggregateInfoService>();
             container.Register<Fx.Domain.FxAggregate.IService.IPrivateMessage, Fx.Domain.FxAggregate.PrivateMessageService>();
-            
+
         }
 
         private static void InitCacheContainer(Container container)
@@ -67,7 +71,7 @@ namespace Fx.InformationPlatform.Site.App_Start
             container.Register<Fx.Domain.FxHouse.Search.HouseBuySearchService>();
             container.Register<Fx.Domain.FxHouse.Search.HouseTransferSearchService>();
             //领域层提供给缓存服务层专门拉取数据的接口
-            container.Register<Fx.Domain.FxCar.IService.IGlobalCacheCar,Fx.Domain.FxCar.GlobalCacheCar>();
+            container.Register<Fx.Domain.FxCar.IService.IGlobalCacheCar, Fx.Domain.FxCar.GlobalCacheCar>();
             container.Register<Fx.Domain.FxGoods.IService.IGlobalCacheGoods, Fx.Domain.FxGoods.GlobalCacheGoods>();
             container.Register<Fx.Domain.FxHouse.IService.IGolbalCacheHouse, Fx.Domain.FxHouse.GlobalHouseCache>();
         }
@@ -95,15 +99,15 @@ namespace Fx.InformationPlatform.Site.App_Start
         private static void InitSearchContainer(Container container)
         {
             //FxGoodsSearch
-            container.Register<IHomeSearch<Fx.Entity.FxGoods.GoodsTransferInfo>,Fx.Domain.FxGoods.Search.GoodsTransferSearchService>();
+            container.Register<IHomeSearch<Fx.Entity.FxGoods.GoodsTransferInfo>, Fx.Domain.FxGoods.Search.GoodsTransferSearchService>();
             container.Register<ISiteSearch<GoodsTransferInfo>, Fx.Domain.FxGoods.Search.GoodsTransferSearchService>();
-            container.Register<ISiteSearch<GoodsBuyInfo>, Fx.Domain.FxGoods.Search.GoodsBuySearchService>();           
+            container.Register<ISiteSearch<GoodsBuyInfo>, Fx.Domain.FxGoods.Search.GoodsBuySearchService>();
             //GoodsConditionSearch
             container.Register<IGoodsSearch<GoodsTransferInfo>, Fx.Domain.FxGoods.Search.GoodsTransferSearchService>();
             container.Register<IGoodsSearch<GoodsBuyInfo>, Fx.Domain.FxGoods.Search.GoodsBuySearchService>();
 
             //FxCarSearch
-            container.Register<IHomeSearch<Fx.Entity.FxCar.CarTransferInfo>,Fx.Domain.FxCar.Search.CarTransferSearchService>();
+            container.Register<IHomeSearch<Fx.Entity.FxCar.CarTransferInfo>, Fx.Domain.FxCar.Search.CarTransferSearchService>();
             container.Register<ISiteSearch<CarTransferInfo>, Fx.Domain.FxCar.Search.CarTransferSearchService>();
             container.Register<ISiteSearch<CarBuyInfo>, Fx.Domain.FxCar.Search.CarBuySearchService>();
             //CarConditionSearch
@@ -111,7 +115,7 @@ namespace Fx.InformationPlatform.Site.App_Start
             container.Register<ICarSearch<CarBuyInfo>, Fx.Domain.FxCar.Search.CarBuySearchService>();
 
             //FxHouseSearch
-            container.Register<IHomeSearch<Fx.Entity.FxHouse.HouseTransferInfo>,Fx.Domain.FxHouse.Search.HouseTransferSearchService>();
+            container.Register<IHomeSearch<Fx.Entity.FxHouse.HouseTransferInfo>, Fx.Domain.FxHouse.Search.HouseTransferSearchService>();
             container.Register<ISiteSearch<HouseTransferInfo>, Fx.Domain.FxHouse.Search.HouseTransferSearchService>();
             container.Register<ISiteSearch<HouseBuyInfo>, Fx.Domain.FxHouse.Search.HouseBuySearchService>();
             //HouseConditionSearch

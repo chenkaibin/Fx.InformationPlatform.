@@ -10,11 +10,15 @@ using System.Text;
 
 namespace Fx.InformationPlatform.Site.Controllers
 {
+    /// <summary>
+    /// 记录浏览器信息控制器
+    /// </summary>
     public class BrowerController : Controller
     {
-        //
-        // GET: /Brower/
-
+        /// <summary>
+        /// 浏览器首页
+        /// </summary>
+        /// <returns>跳转Home/Index或者http://oldbrower.yingtao.co.uk/</returns>
         public ActionResult Index()
         {
             SaveUserAgent();
@@ -29,6 +33,10 @@ namespace Fx.InformationPlatform.Site.Controllers
             }
         }
 
+        /// <summary>
+        /// 检测浏览器是否是现代浏览器
+        /// </summary>
+        /// <returns>True/False</returns>
         private bool CheckAgent()
         {
             var agent = Request.UserAgent;
@@ -72,6 +80,9 @@ namespace Fx.InformationPlatform.Site.Controllers
             //return true;
         }
 
+        /// <summary>
+        /// 保存用户浏览器信息
+        /// </summary>
         private void SaveUserAgent()
         {
             BrowerService service = new BrowerService();

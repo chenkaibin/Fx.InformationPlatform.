@@ -10,12 +10,17 @@ using Fx.Entity.FxGoods;
 namespace Fx.InformationPlatform.Site.Controllers
 {
     /// <summary>
-    /// 具体二手求购详情页面
+    /// 二手求购详情控制器
     /// </summary>
     public class GoodsBuyDetailController : Controller
     {
-        protected IBuyGoods buyGoods;
-        protected IFavorite favorite;
+        private IBuyGoods buyGoods;
+        private IFavorite favorite;
+        /// <summary>
+        /// 默认构造函数
+        /// </summary>
+        /// <param name="buygoods">物品求购保存读取接口</param>
+        /// <param name="favorite">收藏接口</param>
         public GoodsBuyDetailController(IBuyGoods buygoods,
              IFavorite favorite)
         {
@@ -23,6 +28,11 @@ namespace Fx.InformationPlatform.Site.Controllers
             this.favorite = favorite;
         }
 
+        /// <summary>
+        /// 二手求购详情首页
+        /// </summary>
+        /// <param name="id">帖子Id</param>
+        /// <returns>View</returns>
         public ActionResult Index(int id)
         {
             GoodsBuyInfo goods;
@@ -58,6 +68,11 @@ namespace Fx.InformationPlatform.Site.Controllers
             }
         }
 
+        /// <summary>
+        /// 物品求购信息收藏
+        /// </summary>
+        /// <param name="infoId">帖子Id</param>
+        /// <returns>View</returns>
         public ActionResult Favorite(int infoId)
         {
             if (infoId > 0 && User.Identity.IsAuthenticated)

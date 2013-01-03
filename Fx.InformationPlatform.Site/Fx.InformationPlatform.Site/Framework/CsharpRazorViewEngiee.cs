@@ -11,6 +11,9 @@ namespace Fx.InformationPlatform.Site.Framework
     /// </summary>
     public class CsharpRazorViewEngiee : RazorViewEngine
     {
+        /// <summary>
+        /// 默认构造函数
+        /// </summary>
         public CsharpRazorViewEngiee()
         {
             this.AreaMasterLocationFormats = VBFilter(this.AreaMasterLocationFormats);

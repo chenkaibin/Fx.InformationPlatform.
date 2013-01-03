@@ -14,7 +14,7 @@ using FxCacheService.FxSite;
 namespace Fx.InformationPlatform.Site.Controllers
 {
     /// <summary>
-    /// 汽车求购发布
+    /// 汽车求购发布控制器
     /// </summary>
 #if DEBUG
 
@@ -23,9 +23,15 @@ namespace Fx.InformationPlatform.Site.Controllers
 #endif
     public class CarBuyController : BaseController, ISiteJob
     {
-        ICar carService;
-        IBuyCar buyService;
-        IAccountService accountService;
+        private ICar carService;
+        private IBuyCar buyService;
+        private IAccountService accountService;
+        /// <summary>
+        /// 默认构造函数
+        /// </summary>
+        /// <param name="carService">站点下车辆基础信息接口</param>
+        /// <param name="buyService">车辆求购保存读取接口</param>
+        /// <param name="accountService">帐号服务接口</param>
         public CarBuyController(ICar carService ,
             IBuyCar buyService,
             IAccountService accountService)
@@ -35,33 +41,32 @@ namespace Fx.InformationPlatform.Site.Controllers
             this.accountService = accountService;
         }
 
+        /// <summary>
+        /// 发布二手车页面
+        /// </summary>
+        /// <returns></returns>
         public ActionResult SecondHandCar()
         {
             BindData();
             return View();
         }
 
-        public ActionResult CarAccessories()
-        {
-            BindData();
-            return View();
-        }
-        
-
+        /// <summary>
+        /// 二手车发布
+        /// </summary>
+        /// <param name="car">车辆求购信息视图模型</param>
+        /// <returns></returns>
         [HttpPost]
         public ActionResult SecondHandCar(BuyViewCar car)
         {
             return PublishCar(car);
         }
 
-
-        [HttpPost]
-        public ActionResult CarAccessories(BuyViewCar car)
-        {
-            return PublishCar(car);
-        }
-
-
+        /// <summary>
+        /// 车辆发布
+        /// </summary>
+        /// <param name="car">车辆求购信息视图模型</param>
+        /// <returns>跳转成功页面或者失败页面</returns>
         private ActionResult PublishCar(BuyViewCar car)
         {
             if (BuildCar(car))
@@ -166,16 +171,9 @@ namespace Fx.InformationPlatform.Site.Controllers
         }
         #endregion
 
-
-        //Test
-        public ActionResult Test()
-        {
-            Fx.Domain.FxCar.CarBuyJobService job = new Domain.FxCar.CarBuyJobService();
-            bool res= job.AuthorizeSuccess(1);
-            return Json(res);
-        }
-
-
+        /// <summary>
+        /// 发布成功后运行的Job
+        /// </summary>
         public void RunJob()
         {
             new System.Threading.Thread(() =>

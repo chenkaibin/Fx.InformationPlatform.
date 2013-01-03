@@ -9,12 +9,17 @@ using Fx.Domain.FxCar.IService;
 namespace Fx.InformationPlatform.Site.Controllers
 {
     /// <summary>
-    /// 具体车辆转让详情页面
+    /// 车辆转让详情控制器
     /// </summary>
     public class CarTransferDetailController : Controller
     {
-        protected ITransferCar transferCar;
-        protected IFavorite favorite;
+        private ITransferCar transferCar;
+        private IFavorite favorite;
+        /// <summary>
+        /// 默认构造函数
+        /// </summary>
+        /// <param name="transferCar">车辆转让保存读取接口</param>
+        /// <param name="favorite">收藏接口</param>
         public CarTransferDetailController(ITransferCar transferCar,
             IFavorite favorite)
         {
@@ -22,6 +27,11 @@ namespace Fx.InformationPlatform.Site.Controllers
             this.favorite = favorite;
         }
 
+        /// <summary>
+        /// 车辆转让详情首页
+        /// </summary>
+        /// <param name="id">帖子id</param>
+        /// <returns>View</returns>
         public ActionResult Index(int id)
         {
             if (id <= 0)
@@ -48,6 +58,11 @@ namespace Fx.InformationPlatform.Site.Controllers
             }
         }
 
+        /// <summary>
+        /// 车辆转让信息收藏
+        /// </summary>
+        /// <param name="infoId">帖子id</param>
+        /// <returns>View</returns>
         public ActionResult Favorite(int infoId)
         {
             if (infoId > 0 && User.Identity.IsAuthenticated)

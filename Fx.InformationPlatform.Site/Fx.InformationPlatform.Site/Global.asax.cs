@@ -14,16 +14,26 @@ namespace Fx.InformationPlatform.Site
     // Note: For instructions on enabling IIS6 or IIS7 classic mode, 
     // visit http://go.microsoft.com/?LinkId=9394801
 
+    /// <summary>
+    /// Fx.InformationPlatform.Site MVC程序
+    /// </summary>
     public class MvcApplication : System.Web.HttpApplication
     {
         //public static Container Container { get; private set; }
-
+        /// <summary>
+        /// 注册全局异常过滤器
+        /// </summary>
+        /// <param name="filters"></param>
         public static void RegisterGlobalFilters(GlobalFilterCollection filters)
         {
             filters.Add(new Fx.InformationPlatform.Site.Framework.ElmahHandledErrorLoggerFilter());
             filters.Add(new HandleErrorAttribute());
         }
 
+        /// <summary>
+        /// 注册路由
+        /// </summary>
+        /// <param name="routes"></param>
         public static void RegisterRoutes(RouteCollection routes)
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
@@ -50,6 +60,9 @@ namespace Fx.InformationPlatform.Site
 
         }
 
+        /// <summary>
+        /// 程序启动
+        /// </summary>
         protected void Application_Start()
         {
             System.Web.Mvc.ViewEngines.Engines.Clear();

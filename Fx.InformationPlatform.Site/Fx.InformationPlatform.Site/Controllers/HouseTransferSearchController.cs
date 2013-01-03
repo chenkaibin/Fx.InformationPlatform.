@@ -11,26 +11,40 @@ using FxCacheService.FxSite;
 
 namespace Fx.InformationPlatform.Site.Controllers
 {
+    /// <summary>
+    /// 房屋转让查询控制器
+    /// </summary>
     public class HouseTransferSearchController : Controller
     {
-        protected HouseCache houseCache;
+        private HouseCache houseCache;
         /// <summary>
         /// 用于一般检索
         /// </summary>
-        protected Fx.Domain.Base.IService.ISiteSearch<HouseTransferInfo> transferHouseSearch;
+        private Fx.Domain.Base.IService.ISiteSearch<HouseTransferInfo> siteHouseSearch;
         /// <summary>
         /// 用于房屋分类查看
         /// </summary>
-        protected Fx.Domain.Base.IService.IHouseSearch<HouseTransferInfo> houseSearch;
+        private Fx.Domain.Base.IService.IHouseSearch<HouseTransferInfo> houseSearch;
+        /// <summary>
+        /// 默认构造函数
+        /// </summary>
+        /// <param name="houseCache">房屋缓存</param>
+        /// <param name="siteHouseSearch">大频道帖子关键字查询接口</param>
+        /// <param name="houseSearch">房屋交易检索接口</param>
         public HouseTransferSearchController(HouseCache houseCache,
-            Fx.Domain.Base.IService.ISiteSearch<HouseTransferInfo> transferHouseSearch,
+            Fx.Domain.Base.IService.ISiteSearch<HouseTransferInfo> siteHouseSearch,
             Fx.Domain.Base.IService.IHouseSearch<HouseTransferInfo> houseSearch)
         {
             this.houseCache = houseCache;
-            this.transferHouseSearch = transferHouseSearch;
+            this.siteHouseSearch = siteHouseSearch;
             this.houseSearch = houseSearch;
         }
 
+        /// <summary>
+        /// 展销商铺页面
+        /// </summary>
+        /// <param name="id">第几页</param>
+        /// <returns>View</returns>
         public ActionResult Shop(int id)
         {
             var model = new HouseTransferSearchModel(id);
@@ -51,11 +65,16 @@ namespace Fx.InformationPlatform.Site.Controllers
                     model.MainHouse = houseSearch.SearchByCatagroy(ChannelListDetailCatagroy.Shop, page, 10);
                 }
             }
-            
+
             model.CheckModel();
             return View(model);
         }
 
+        /// <summary>
+        /// 饮食商铺页面
+        /// </summary>
+        /// <param name="id">第几页</param>
+        /// <returns>View</returns>
         public ActionResult Restaurants(int id)
         {
             var model = new HouseTransferSearchModel(id);
@@ -76,11 +95,16 @@ namespace Fx.InformationPlatform.Site.Controllers
                     model.MainHouse = houseSearch.SearchByCatagroy(ChannelListDetailCatagroy.Restaurants, page, 10);
                 }
             }
-            
+
             model.CheckModel();
             return View(model);
         }
 
+        /// <summary>
+        /// 仓库页面
+        /// </summary>
+        /// <param name="id">第几页</param>
+        /// <returns>View</returns>
         public ActionResult Warehouse(int id)
         {
             var model = new HouseTransferSearchModel(id);
@@ -101,11 +125,16 @@ namespace Fx.InformationPlatform.Site.Controllers
                     model.MainHouse = houseSearch.SearchByCatagroy(ChannelListDetailCatagroy.Warehouse, page, 10);
                 }
             }
-            
+
             model.CheckModel();
             return View(model);
         }
 
+        /// <summary>
+        /// 办公室页面
+        /// </summary>
+        /// <param name="id">第几页</param>
+        /// <returns>View</returns>
         public ActionResult Office(int id)
         {
             var model = new HouseTransferSearchModel(id);
@@ -126,11 +155,16 @@ namespace Fx.InformationPlatform.Site.Controllers
                     model.MainHouse = houseSearch.SearchByCatagroy(ChannelListDetailCatagroy.Office, page, 10);
                 }
             }
-            
+
             model.CheckModel();
             return View(model);
         }
 
+        /// <summary>
+        /// House页面
+        /// </summary>
+        /// <param name="id">第几页</param>
+        /// <returns>View</returns>
         public ActionResult House(int id)
         {
             var model = new HouseTransferSearchModel(id);
@@ -151,11 +185,16 @@ namespace Fx.InformationPlatform.Site.Controllers
                     model.MainHouse = houseSearch.SearchByCatagroy(ChannelListDetailCatagroy.House, page, 10);
                 }
             }
-            
+
             model.CheckModel();
             return View(model);
         }
 
+        /// <summary>
+        /// Flat页面
+        /// </summary>
+        /// <param name="id">第几页</param>
+        /// <returns>View</returns>
         public ActionResult Flat(int id)
         {
             var model = new HouseTransferSearchModel(id);
@@ -176,11 +215,16 @@ namespace Fx.InformationPlatform.Site.Controllers
                     model.MainHouse = houseSearch.SearchByCatagroy(ChannelListDetailCatagroy.Flat, page, 10);
                 }
             }
-            
+
             model.CheckModel();
             return View(model);
         }
 
+        /// <summary>
+        /// 学生公寓页面
+        /// </summary>
+        /// <param name="id">第几页</param>
+        /// <returns>View</returns>
         public ActionResult StudentAparment(int id)
         {
             var model = new HouseTransferSearchModel(id);
@@ -201,7 +245,7 @@ namespace Fx.InformationPlatform.Site.Controllers
                     model.MainHouse = houseSearch.SearchByCatagroy(ChannelListDetailCatagroy.StudentAparment, page, 10);
                 }
             }
-            
+
             model.CheckModel();
             return View(model);
         }

@@ -45,7 +45,7 @@ namespace Fx.Entity.FxGoods
         public bool IsChange { get; set; }
 
         /// <summary>
-        /// 交互物品信息
+        /// 交换物品信息
         /// </summary>
         public string ChangeMsg { get; set; }
 

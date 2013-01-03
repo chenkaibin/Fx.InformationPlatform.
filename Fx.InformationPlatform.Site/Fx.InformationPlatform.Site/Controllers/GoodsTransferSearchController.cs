@@ -11,27 +11,39 @@ using FxCacheService.FxSite;
 
 namespace Fx.InformationPlatform.Site.Controllers
 {
+    /// <summary>
+    /// 物品转让查询控制器
+    /// </summary>
     public class GoodsTransferSearchController : Controller
     {
-        protected GoodsCache goodsCache;
-        protected SiteCache siteCache;
+        private GoodsCache goodsCache;
         /// <summary>
         /// 用于一般检索
         /// </summary>
-        protected Fx.Domain.Base.IService.ISiteSearch<GoodsTransferInfo> transferGoodsSearch;
+        private Fx.Domain.Base.IService.ISiteSearch<GoodsTransferInfo> siteGoodsSearch;
         /// <summary>
         /// 用于二手分类查看
         /// </summary>
-        protected Fx.Domain.Base.IService.IGoodsSearch<GoodsTransferInfo> goodsSearch;
+        private Fx.Domain.Base.IService.IGoodsSearch<GoodsTransferInfo> goodsSearch;
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="goodsCache">物品缓存</param>
+        /// <param name="siteGoodsSearch">大频道帖子关键字查询接口</param>
+        /// <param name="goodsSearch">物品交易检索接口</param>
         public GoodsTransferSearchController(GoodsCache goodsCache,
-            Fx.Domain.Base.IService.ISiteSearch<GoodsTransferInfo> transferGoodsSearch,
+            Fx.Domain.Base.IService.ISiteSearch<GoodsTransferInfo> siteGoodsSearch,
             Fx.Domain.Base.IService.IGoodsSearch<GoodsTransferInfo> goodsSearch)
         {
             this.goodsCache = goodsCache;
-            this.transferGoodsSearch = transferGoodsSearch;
+            this.siteGoodsSearch = siteGoodsSearch;
             this.goodsSearch = goodsSearch;
         }
-
+        /// <summary>
+        /// 手机页面
+        /// </summary>
+        /// <param name="id">第几页</param>
+        /// <returns>View</returns>
         public ActionResult Phone(int id)
         {
             var model = new GoodsTransferSearchModel(id);
@@ -57,6 +69,11 @@ namespace Fx.InformationPlatform.Site.Controllers
             return View(model);
         }
 
+        /// <summary>
+        /// 电脑页面
+        /// </summary>
+        /// <param name="id">第几页</param>
+        /// <returns>View</returns>
         public ActionResult Computer(int id)
         {
             var model = new GoodsTransferSearchModel(id);
@@ -82,6 +99,11 @@ namespace Fx.InformationPlatform.Site.Controllers
             return View(model);
         }
 
+        /// <summary>
+        /// 数码摄像器材页面
+        /// </summary>
+        /// <param name="id">第几页</param>
+        /// <returns>View</returns>
         public ActionResult DigitalCamera(int id)
         {
             var model = new GoodsTransferSearchModel(id);
@@ -107,6 +129,11 @@ namespace Fx.InformationPlatform.Site.Controllers
             return View(model);
         }
 
+        /// <summary>
+        /// 电脑配件页面
+        /// </summary>
+        /// <param name="id">第几页</param>
+        /// <returns>View</returns>
         public ActionResult ComputerAccessories(int id)
         {
             var model = new GoodsTransferSearchModel(id);
@@ -132,6 +159,11 @@ namespace Fx.InformationPlatform.Site.Controllers
             return View(model);
         }
 
+        /// <summary>
+        /// 游戏机页面
+        /// </summary>
+        /// <param name="id">第几页</param>
+        /// <returns>View</returns>
         public ActionResult PlayStations(int id)
         {
             var model = new GoodsTransferSearchModel(id);
@@ -157,6 +189,11 @@ namespace Fx.InformationPlatform.Site.Controllers
             return View(model);
         }
 
+        /// <summary>
+        /// 游戏机配件页面
+        /// </summary>
+        /// <param name="id">第几页</param>
+        /// <returns>View</returns>
         public ActionResult PSAccessories(int id)
         {
             var model = new GoodsTransferSearchModel(id);
@@ -182,6 +219,11 @@ namespace Fx.InformationPlatform.Site.Controllers
             return View(model);
         }
 
+        /// <summary>
+        /// 手机配件页面
+        /// </summary>
+        /// <param name="id">第几页</param>
+        /// <returns>View</returns>
         public ActionResult PhoneAccessories(int id)
         {
             var model = new GoodsTransferSearchModel(id);
@@ -207,6 +249,11 @@ namespace Fx.InformationPlatform.Site.Controllers
             return View(model);
         }
 
+        /// <summary>
+        /// 数码产品其他页面
+        /// </summary>
+        /// <param name="id">第几页</param>
+        /// <returns>View</returns>
         public ActionResult ElectronicsOther(int id)
         {
             var model = new GoodsTransferSearchModel(id);
@@ -232,6 +279,11 @@ namespace Fx.InformationPlatform.Site.Controllers
             return View(model);
         }
 
+        /// <summary>
+        /// 家具页面
+        /// </summary>
+        /// <param name="id">第几页</param>
+        /// <returns>View</returns>
         public ActionResult Furniture(int id)
         {
             var model = new GoodsTransferSearchModel(id);
@@ -257,6 +309,11 @@ namespace Fx.InformationPlatform.Site.Controllers
             return View(model);
         }
 
+        /// <summary>
+        /// 厨房家电页面
+        /// </summary>
+        /// <param name="id">第几页</param>
+        /// <returns>View</returns>
         public ActionResult KitchenAppliances(int id)
         {
             var model = new GoodsTransferSearchModel(id);
@@ -282,6 +339,11 @@ namespace Fx.InformationPlatform.Site.Controllers
             return View(model);
         }
 
+        /// <summary>
+        /// 视听家电页面
+        /// </summary>
+        /// <param name="id">第几页</param>
+        /// <returns>View</returns>
         public ActionResult AudioAppliances(int id)
         {
             var model = new GoodsTransferSearchModel(id);
@@ -307,6 +369,11 @@ namespace Fx.InformationPlatform.Site.Controllers
             return View(model);
         }
 
+        /// <summary>
+        /// 餐具/厨具页面
+        /// </summary>
+        /// <param name="id">第几页</param>
+        /// <returns>View</returns>
         public ActionResult KitchenDinningWares(int id)
         {
             var model = new GoodsTransferSearchModel(id);
@@ -332,6 +399,11 @@ namespace Fx.InformationPlatform.Site.Controllers
             return View(model);
         }
 
+        /// <summary>
+        /// 工艺品/摆设页面
+        /// </summary>
+        /// <param name="id">第几页</param>
+        /// <returns>View</returns>
         public ActionResult Decoration(int id)
         {
             var model = new GoodsTransferSearchModel(id);
@@ -357,6 +429,11 @@ namespace Fx.InformationPlatform.Site.Controllers
             return View(model);
         }
 
+        /// <summary>
+        /// 其他家电页面
+        /// </summary>
+        /// <param name="id">第几页</param>
+        /// <returns>View</returns>
         public ActionResult OtherElectronics(int id)
         {
             var model = new GoodsTransferSearchModel(id);
@@ -382,6 +459,11 @@ namespace Fx.InformationPlatform.Site.Controllers
             return View(model);
         }
 
+        /// <summary>
+        /// 运动器材页面
+        /// </summary>
+        /// <param name="id">第几页</param>
+        /// <returns>View</returns>
         public ActionResult GymEquipment(int id)
         {
             var model = new GoodsTransferSearchModel(id);
@@ -407,6 +489,11 @@ namespace Fx.InformationPlatform.Site.Controllers
             return View(model);
         }
 
+        /// <summary>
+        /// 单车页面
+        /// </summary>
+        /// <param name="id">第几页</param>
+        /// <returns>View</returns>
         public ActionResult Bike(int id)
         {
             var model = new GoodsTransferSearchModel(id);
@@ -432,6 +519,11 @@ namespace Fx.InformationPlatform.Site.Controllers
             return View(model);
         }
 
+        /// <summary>
+        /// 居家用品其他页面
+        /// </summary>
+        /// <param name="id">第几页</param>
+        /// <returns>View</returns>
         public ActionResult HomeSuppliesOther(int id)
         {
             var model = new GoodsTransferSearchModel(id);
@@ -457,6 +549,11 @@ namespace Fx.InformationPlatform.Site.Controllers
             return View(model);
         }
 
+        /// <summary>
+        /// 衣服页面
+        /// </summary>
+        /// <param name="id">第几页</param>
+        /// <returns>View</returns>
         public ActionResult Clothing(int id)
         {
             var model = new GoodsTransferSearchModel(id);
@@ -482,6 +579,11 @@ namespace Fx.InformationPlatform.Site.Controllers
             return View(model);
         }
 
+        /// <summary>
+        /// 鞋子页面
+        /// </summary>
+        /// <param name="id">第几页</param>
+        /// <returns>View</returns>
         public ActionResult Shoes(int id)
         {
             var model = new GoodsTransferSearchModel(id);
@@ -507,6 +609,11 @@ namespace Fx.InformationPlatform.Site.Controllers
             return View(model);
         }
 
+        /// <summary>
+        /// 箱包页面
+        /// </summary>
+        /// <param name="id">第几页</param>
+        /// <returns>View</returns>
         public ActionResult Bag(int id)
         {
             var model = new GoodsTransferSearchModel(id);
@@ -532,6 +639,11 @@ namespace Fx.InformationPlatform.Site.Controllers
             return View(model);
         }
 
+        /// <summary>
+        /// 首饰页面
+        /// </summary>
+        /// <param name="id">第几页</param>
+        /// <returns>View</returns>
         public ActionResult Accessories(int id)
         {
             var model = new GoodsTransferSearchModel(id);
@@ -557,6 +669,11 @@ namespace Fx.InformationPlatform.Site.Controllers
             return View(model);
         }
 
+        /// <summary>
+        /// 衣服鞋包其他页面
+        /// </summary>
+        /// <param name="id">第几页</param>
+        /// <returns>View</returns>
         public ActionResult FashionOther(int id)
         {
             var model = new GoodsTransferSearchModel(id);
@@ -582,6 +699,11 @@ namespace Fx.InformationPlatform.Site.Controllers
             return View(model);
         }
 
+        /// <summary>
+        /// 乐器页面
+        /// </summary>
+        /// <param name="id">第几页</param>
+        /// <returns>View</returns>
         public ActionResult MusicInstruments(int id)
         {
             var model = new GoodsTransferSearchModel(id);
@@ -607,6 +729,11 @@ namespace Fx.InformationPlatform.Site.Controllers
             return View(model);
         }
 
+        /// <summary>
+        /// 印刷品页面
+        /// </summary>
+        /// <param name="id">第几页</param>
+        /// <returns>View</returns>
         public ActionResult Books(int id)
         {
             var model = new GoodsTransferSearchModel(id);
@@ -632,6 +759,11 @@ namespace Fx.InformationPlatform.Site.Controllers
             return View(model);
         }
 
+        /// <summary>
+        /// 玩具模型页面
+        /// </summary>
+        /// <param name="id">第几页</param>
+        /// <returns>View</returns>
         public ActionResult Toys(int id)
         {
             var model = new GoodsTransferSearchModel(id);
@@ -657,7 +789,11 @@ namespace Fx.InformationPlatform.Site.Controllers
             return View(model);
         }
 
-
+        /// <summary>
+        /// 文具页面
+        /// </summary>
+        /// <param name="id">第几页</param>
+        /// <returns>View</returns>
         public ActionResult Stationary(int id)
         {
             var model = new GoodsTransferSearchModel(id);
@@ -683,6 +819,11 @@ namespace Fx.InformationPlatform.Site.Controllers
             return View(model);
         }
 
+        /// <summary>
+        /// 文化生活其他页面
+        /// </summary>
+        /// <param name="id">第几页</param>
+        /// <returns>View</returns>
         public ActionResult CultureLifeOther(int id)
         {
             var model = new GoodsTransferSearchModel(id);
@@ -708,6 +849,11 @@ namespace Fx.InformationPlatform.Site.Controllers
             return View(model);
         }
 
+        /// <summary>
+        /// 物品交易其他之其他页面
+        /// </summary>
+        /// <param name="id">第几页</param>
+        /// <returns>View</returns>
         public ActionResult OtherOther(int id)
         {
             var model = new GoodsTransferSearchModel(id);
