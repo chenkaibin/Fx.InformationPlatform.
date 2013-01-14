@@ -108,9 +108,10 @@
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
-    <PostBuildEvent>copy /V "$(TargetDir)\Fx.Entity.dll" "E:\Program Files\GitHubWorkspace\net\FxInformationJob\FxInformationJob\FxInformationJob\packages\Fx\Fx.Entity\Fx.Entity.dll"
-copy /V "$(TargetDir)\Fx.Entity.dll" "E:\Program Files\GitHubWorkspace\net\FxUserCenter\FxUserCenter\FxUserCenter\packages\Fx\Fx.Entity\Fx.Entity.dll"
-copy /V "$(TargetDir)\Fx.Entity.dll" "E:\Program Files\GitHubWorkspace\net\FxCacheService\FxCacheService\FxCacheService\packages\Fx\Fx.Entity\Fx.Entity.dll"
+    <PostBuildEvent>copy /V "$(TargetDir)\Fx.Entity.dll" "E:\Program Files\GitHubWorkspace\net\packages\Fx\Fx.Entity.dll"
+copy /V "$(TargetDir)\Fx.Entity.pdb" "E:\Program Files\GitHubWorkspace\net\packages\Fx\Fx.Entity.pdb"
+copy /V "$(TargetDir)\Fx.Entity.XML" "E:\Program Files\GitHubWorkspace\net\packages\Fx\Fx.Entity.XML"
+copy /V "$(TargetDir)\Fx.Entity.dll" "E:\Program Files\GitHubWorkspace\net\packages\Fx\Fx.Entity.dll"
 </PostBuildEvent>
   </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

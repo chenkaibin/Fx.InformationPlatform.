@@ -8,13 +8,14 @@ using FxCacheService.FxSite;
 
 namespace Fx.InformationPlatform.Site.Controllers
 {
+    /// <summary>
+    /// 处理Ajax Post提交请求控制器
+    /// </summary>
 #if DEBUG
 #else
     [Authorize]
 #endif
-    /// <summary>
-    /// 处理Ajax Post提交请求控制器
-    /// </summary>
+   
     public class AjaxPostController : Controller
     {
         private IAggregateInfo aggregateInfoService;

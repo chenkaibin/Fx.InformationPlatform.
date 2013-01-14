@@ -169,7 +169,7 @@
     <Compile Include="FxSite\GoodsService.cs" />
     <Compile Include="FxSite\HouseService.cs" />
     <Compile Include="FxSite\IService\ICar.cs" />
-    <Compile Include="FxSite\IService\IChannel.cs" />
+    <Compile Include="FxSite\IService\IChannelService.cs" />
     <Compile Include="FxSite\IService\IGoods.cs" />
     <Compile Include="FxSite\IService\IHouse.cs" />
     <Compile Include="FxSite\IService\ISite.cs" />
@@ -197,9 +197,9 @@
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
-    <PostBuildEvent>copy /V "$(TargetDir)\Fx.Domain.dll" "E:\Program Files\GitHubWorkspace\net\FxInformationJob\FxInformationJob\FxInformationJob\packages\Fx\Fx.Domain\Fx.Domain.dll"
-copy /V "$(TargetDir)\Fx.Domain.dll" "E:\Program Files\GitHubWorkspace\net\FxUserCenter\FxUserCenter\FxUserCenter\packages\Fx\Fx.Domain\Fx.Domain.dll"
-copy /V "$(TargetDir)\Fx.Domain.dll" "E:\Program Files\GitHubWorkspace\net\FxCacheService\FxCacheService\FxCacheService\packages\Fx\Fx.Domain\Fx.Domain.dll"</PostBuildEvent>
+    <PostBuildEvent>copy /V "$(TargetDir)\Fx.Domain.dll" "E:\Program Files\GitHubWorkspace\net\packages\Fx\Fx.Domain.dll"
+copy /V "$(TargetDir)\Fx.Domain.dll" "E:\Program Files\GitHubWorkspace\net\packages\Fx\Fx.Domain.pdb"
+copy /V "$(TargetDir)\Fx.Domain.pdb" "E:\Program Files\GitHubWorkspace\net\packages\Fx\Fx.Domain.XML"</PostBuildEvent>
   </PropertyGroup>
   <PropertyGroup>
     <PreBuildEvent>

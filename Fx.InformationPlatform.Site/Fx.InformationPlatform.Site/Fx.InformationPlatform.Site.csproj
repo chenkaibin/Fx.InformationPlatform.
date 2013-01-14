@@ -39,6 +39,7 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <DocumentationFile>bin\Fx.InformationPlatform.Site.XML</DocumentationFile>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="ChenHttp">
@@ -51,8 +52,9 @@
     <Reference Include="FluentEmail">
       <HintPath>..\packages\fluent-email.1.1.0\lib\net40\FluentEmail.dll</HintPath>
     </Reference>
-    <Reference Include="FxCacheService">
-      <HintPath>..\packages\Fx\FxCacheService\FxCacheService.dll</HintPath>
+    <Reference Include="FxCacheService, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\packages\Fx\FxCacheService.dll</HintPath>
     </Reference>
     <Reference Include="FxTask">
       <HintPath>..\packages\FxTask\FxTask.dll</HintPath>
@@ -763,8 +765,13 @@
     </VisualStudio>
   </ProjectExtensions>
   <PropertyGroup>
-    <PostBuildEvent>
-    </PostBuildEvent>
+    <PostBuildEvent>copy /V "$(TargetDir)\Fx.InformationPlatform.Site.dll" "E:\Program Files\GitHubWorkspace\net\packages\Fx\Fx.InformationPlatform.Site.dll"
+copy /V "$(TargetDir)\Fx.InformationPlatform.Site.pdb" "E:\Program Files\GitHubWorkspace\net\packages\Fx\Fx.InformationPlatform.Site.pdb"
+copy /V "$(TargetDir)\Fx.InformationPlatform.Site.XML" "E:\Program Files\GitHubWorkspace\net\packages\Fx\Fx.InformationPlatform.Site.XML"</PostBuildEvent>
+  </PropertyGroup>
+  <PropertyGroup>
+    <PreBuildEvent>
+    </PreBuildEvent>
   </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

@@ -8,7 +8,7 @@ namespace Fx.Domain.Base.IService
     /// <summary>
     /// 首页的信息接口
     /// </summary>
-    /// <typeparam name="T"></typeparam>
+    /// <typeparam name="T">查询返回类型</typeparam>
     public interface IHomeSearch<T> where T : class
     {
         /// <summary>
