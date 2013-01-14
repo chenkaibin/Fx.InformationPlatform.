@@ -12,6 +12,7 @@ namespace Fx.InformationPlatform.Site.Tests.Email
         [TestMethod]
         public void SendEmail()
         {
+           
             var email = FluentEmail.Email
                         .From("fengxing@yingtao.co.uk")
                         .To("117822597@qq.com", "name")

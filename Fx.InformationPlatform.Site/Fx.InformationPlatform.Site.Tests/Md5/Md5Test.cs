@@ -13,8 +13,8 @@ namespace Fx.InformationPlatform.Site.Tests.Md5
         [TestMethod]
         public void JsMd5()
         {
-            string input = "123456";
-            string md5 = "e10adc3949ba59abbe56e057f20f883e";
+            //string input = "123456";
+            //string md5 = "e10adc3949ba59abbe56e057f20f883e";
         }
 
 
