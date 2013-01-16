@@ -48,9 +48,6 @@ namespace Fx.Domain.FxGoods.Search
             int take = 10, bool changegoods = true, 
             bool changeprice = true, int clc = 0)
         {
-            
-
-
             int start = 1 + page * 10;
             int end = page * 10 + take;
             var where = CreateWhereExpress(key, area, city, changegoods, changeprice, clc);
@@ -59,9 +56,8 @@ namespace Fx.Domain.FxGoods.Search
                 "    AS RowNumber,[GoodsTransferInfoId],CreatedTime " +
                 "      FROM [FxGoods].[Goods].[GoodsTransferInfo] " + where.ToString() + " ) " +
                 "  AS A1 WHERE RowNumber BETWEEN " + start + " AND " + end;
-
-            SqlHelper db = new SqlHelper(ConfigurationManager.ConnectionStrings["fx.goods-sqlserver"].ToString());
-            var dt = db.GetDt(sql);
+           
+            var dt = GetDataTable(sql, key);
             var ids = new List<int>();
             if (dt != null)
             {
@@ -84,6 +80,22 @@ namespace Fx.Domain.FxGoods.Search
                 return new List<GoodsTransferInfo>();
             }
         }
+
+
+        private System.Data.DataTable GetDataTable(string sql, string key)
+        {
+            SqlHelper db = new SqlHelper(ConfigurationManager.ConnectionStrings["fx.goods-sqlserver"].ToString());
+            if (string.IsNullOrWhiteSpace(key))
+            {
+                return db.GetDt(sql);
+            }
+            else
+            {
+                return db.GetDt(sql, new System.Data.SqlClient.SqlParameter("key", "%" + key + "%"));
+            }
+        }
+
+
 
         /// <summary>
         /// 仅仅根据三级类别查询，用于大频道和后续仅仅点击页码的查询

@@ -39,8 +39,7 @@ namespace Fx.Domain.FxCar.Search
                 "      FROM [FxCar].[Car].[CarTransferInfo] " + where.ToString() + " ) " +
                 "  AS A1 WHERE RowNumber BETWEEN " + start + " AND " + end;
 
-            SqlHelper db = new SqlHelper(ConfigurationManager.ConnectionStrings["fx.car-sqlserver"].ToString());
-            var dt = db.GetDt(sql);
+            var dt = GetDataTable(sql, key);
             var ids = new List<int>();
             if (dt != null)
             {
@@ -61,6 +60,19 @@ namespace Fx.Domain.FxCar.Search
             else
             {
                 return new List<CarTransferInfo>();
+            }
+        }
+
+        private System.Data.DataTable GetDataTable(string sql, string key)
+        {
+            SqlHelper db = new SqlHelper(ConfigurationManager.ConnectionStrings["fx.car-sqlserver"].ToString());
+            if (string.IsNullOrWhiteSpace(key))
+            {
+                return db.GetDt(sql);
+            }
+            else
+            {
+                return db.GetDt(sql, new System.Data.SqlClient.SqlParameter("key", "%" + key + "%"));
             }
         }
 

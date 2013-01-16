@@ -39,8 +39,7 @@ namespace Fx.Domain.FxHouse.Search
                 "      FROM [FxHouse].[House].[HouseTransferInfo] " + where.ToString() + " ) " +
                 "  AS A1 WHERE RowNumber BETWEEN " + start + " AND " + end;
 
-            SqlHelper db = new SqlHelper(ConfigurationManager.ConnectionStrings["fx.house-sqlserver"].ToString());
-            var dt = db.GetDt(sql);
+            var dt = GetDataTable(sql, key);
             var ids = new List<int>();
             if (dt != null)
             {
@@ -63,6 +62,20 @@ namespace Fx.Domain.FxHouse.Search
                 return new List<HouseTransferInfo>();
             }
         }
+
+        private System.Data.DataTable GetDataTable(string sql, string key)
+        {
+            SqlHelper db = new SqlHelper(ConfigurationManager.ConnectionStrings["fx.house-sqlserver"].ToString());
+            if (string.IsNullOrWhiteSpace(key))
+            {
+                return db.GetDt(sql);
+            }
+            else
+            {
+                return db.GetDt(sql, new System.Data.SqlClient.SqlParameter("key", "%" + key + "%"));
+            }
+        }
+
 
         /// <summary>
         /// 获取首页最新房屋信息

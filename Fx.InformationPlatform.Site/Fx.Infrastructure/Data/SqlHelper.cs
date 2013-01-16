@@ -30,22 +30,41 @@ namespace Fx.Infrastructure.Data
         /// <returns>表信息</returns>
         public DataTable GetDt(string strSql)
         {
-            if (ProcessSqlStr(strSql))
+            SqlConnection cn = new SqlConnection();
+            cn.ConnectionString = connectString;
+            SqlCommand cmd = cn.CreateCommand();
+            cmd.CommandText = strSql;
+            SqlDataAdapter sda = new SqlDataAdapter(cmd);
+            DataTable dt = new DataTable();
+            sda.Fill(dt);
+            return dt;
+        }
+
+
+        /// <summary>
+        /// 主要执行查询操作
+        /// </summary>
+        /// <param name="strSql">执行的sql语句</param>
+        /// <param name="pars">参数数组</param>
+        /// <returns></returns>
+        public DataTable GetDt(string strSql, params SqlParameter[] pars)
+        {
+            using (SqlConnection con = new SqlConnection(connectString))
             {
-                SqlConnection cn = new SqlConnection();
-                cn.ConnectionString = connectString;
-                SqlCommand cmd = cn.CreateCommand();
-                cmd.CommandText = strSql;
-                SqlDataAdapter sda = new SqlDataAdapter(cmd);
-                DataTable dt = new DataTable();
-                sda.Fill(dt);
-                return dt;
-            }
-            else
-            {
-                return null;
+                con.Open();
+                using (SqlCommand cmd = con.CreateCommand())
+                {
+                    cmd.CommandText = strSql;
+                    cmd.Parameters.AddRange(pars);
+
+                    SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+                    DataTable dt = new DataTable();
+                    adapter.Fill(dt);
+                    return dt;
+                }
             }
         }
+
 
         /// <summary>
         /// 更新 删除

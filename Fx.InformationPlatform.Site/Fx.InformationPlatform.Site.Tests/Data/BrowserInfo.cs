@@ -94,7 +94,7 @@ public static class InfosoftBrowserInfo
                     (_browser.Cookies)? "YES": "NO",
                     (_browser.SupportsCss)? "YES": "NO",
                     (_browser.VBScript)? "YES": "NO",
-                    //(_browser.JavaScript)? "YES": "NO",
+                    (_browser.JavaScript)? "YES": "NO",
                     (_browser.JavaApplets)? "YES": "NO",
                     (_browser.ActiveXControls)? "YES": "NO",
                     (_browser.SupportsCallback)? "YES": "NO",

@@ -23,7 +23,7 @@ namespace Fx.Domain.Base
             sb.Append(" where IsPublish='True' ");
             if (!string.IsNullOrWhiteSpace(key))
             {
-                sb.Append(string.Format(" and PublishTitle like N'%{0}%' ", key));
+                sb.Append(string.Format(" and PublishTitle like @key ", key));
             }
             if (area > 0)
             {

@@ -15,7 +15,7 @@ namespace Fx.Domain.FxGoods.Search
     /// 物品求购查询服务
     /// </summary>
     public class GoodsBuySearchService : CommonSearch, ISiteSearch<GoodsBuyInfo>, IGoodsSearch<GoodsBuyInfo>
-    {   
+    {
         /// <summary>
         /// 按关键字查询 （标题） 缓存会
         /// </summary>
@@ -57,8 +57,13 @@ namespace Fx.Domain.FxGoods.Search
                 "      FROM [FxGoods].[Goods].[GoodsBuyInfo] " + where.ToString() + " ) " +
                 "  AS A1 WHERE RowNumber BETWEEN " + start + " AND " + end;
 
-            SqlHelper db = new SqlHelper(ConfigurationManager.ConnectionStrings["fx.goods-sqlserver"].ToString());
-            var dt = db.GetDt(sql);
+
+
+
+            var dt = GetDataTable(sql, key);
+
+
+
             var ids = new List<int>();
             if (dt != null)
             {
@@ -79,6 +84,19 @@ namespace Fx.Domain.FxGoods.Search
             else
             {
                 return new List<GoodsBuyInfo>();
+            }
+        }
+
+        private System.Data.DataTable GetDataTable(string sql, string key)
+        {
+            SqlHelper db = new SqlHelper(ConfigurationManager.ConnectionStrings["fx.goods-sqlserver"].ToString());
+            if (string.IsNullOrWhiteSpace(key))
+            {
+                return db.GetDt(sql);
+            }
+            else
+            {
+                return db.GetDt(sql, new System.Data.SqlClient.SqlParameter("key", "%" + key + "%"));
             }
         }
 

@@ -102,7 +102,7 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="Quartz">
-      <HintPath>..\packages\Quartz.NET-2.0\bin\4.0\release\Quartz\Quartz.dll</HintPath>
+      <HintPath>..\..\..\..\packages\Quartz.NET-2.0\bin\4.0\release\Quartz\Quartz.dll</HintPath>
     </Reference>
     <Reference Include="RazorEngine">
       <HintPath>..\packages\fluent-email.1.1.0\lib\net40\RazorEngine.dll</HintPath>
