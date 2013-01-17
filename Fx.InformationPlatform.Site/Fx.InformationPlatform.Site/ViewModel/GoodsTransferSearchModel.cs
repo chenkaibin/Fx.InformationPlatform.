@@ -58,6 +58,7 @@ namespace Fx.InformationPlatform.Site.ViewModel
         public GoodsTransferSearchModel(int id)
             : base()
         {
+            CheckModel();
             this.CurrentIndex = id;
             this.IsChangeByGoods = true;
             this.IsChangeByPrice = true;

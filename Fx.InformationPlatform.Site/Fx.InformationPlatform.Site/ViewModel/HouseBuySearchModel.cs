@@ -48,6 +48,7 @@ namespace Fx.InformationPlatform.Site.ViewModel
         public HouseBuySearchModel(int id)
             : base()
         {
+            CheckModel();
             this.CurrentIndex = id;
             this.TopHouse = DependencyResolver.Current.GetService<HouseCache>().GetHouseBuyTopShow();
         }

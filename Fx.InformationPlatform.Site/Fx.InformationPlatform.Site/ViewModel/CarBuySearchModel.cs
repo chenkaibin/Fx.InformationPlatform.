@@ -48,6 +48,7 @@ namespace Fx.InformationPlatform.Site.ViewModel
         public CarBuySearchModel(int id)
             : base()            
         {
+            CheckModel();
             this.CurrentIndex = id;
             this.TopCars = DependencyResolver.Current.GetService<CarCache>().GetCarBuyTopShow();
         }
