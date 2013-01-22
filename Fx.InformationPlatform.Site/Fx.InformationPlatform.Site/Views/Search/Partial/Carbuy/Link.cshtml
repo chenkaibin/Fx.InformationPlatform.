@@ -8,7 +8,7 @@
             area = Model.AreaId,
             city = Model.CityId,
             clc = Model.Clc
-        }, new { @class = "pre-btn" })
+        }, new { @class = "pre-btn",rel="nofollow" })
 }
 else
 {
@@ -19,13 +19,13 @@ else
             area = Model.AreaId,
             city = Model.CityId,
             clc = Model.Clc
-        }, new { @class = "pre-btn" })
+        }, new { @class = "pre-btn",rel="nofollow" })
 }
 @for (int i = Model.StartIndex; i <= Model.EndIndex; i++)
 {
     if (i == Model.CurrentIndex)
     {
-    <a href="#" class="currents-pages">@Model.CurrentIndex</a>
+    <a href="#" class="currents-pages" rel="nofollow">@Model.CurrentIndex</a>
     }
     else
     {
@@ -36,7 +36,7 @@ else
             area = Model.AreaId,
             city = Model.CityId,
             clc = Model.Clc
-        })
+        }, new { rel="nofollow" })
     }
 }
 @Html.ActionLink("下一页", Model.Action, new
@@ -46,4 +46,4 @@ else
         area = Model.AreaId,
         city = Model.CityId,
         clc = Model.Clc
-    }, new { @class = "next-btn" })
+    }, new { @class = "next-btn",rel="nofollow" })

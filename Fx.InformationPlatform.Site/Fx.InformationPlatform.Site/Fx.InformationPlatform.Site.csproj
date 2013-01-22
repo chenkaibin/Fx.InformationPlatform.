@@ -765,9 +765,8 @@
     </VisualStudio>
   </ProjectExtensions>
   <PropertyGroup>
-    <PostBuildEvent>copy /V "$(TargetDir)\Fx.InformationPlatform.Site.dll" "E:\Program Files\GitHubWorkspace\net\packages\Fx\Fx.InformationPlatform.Site.dll"
-copy /V "$(TargetDir)\Fx.InformationPlatform.Site.pdb" "E:\Program Files\GitHubWorkspace\net\packages\Fx\Fx.InformationPlatform.Site.pdb"
-copy /V "$(TargetDir)\Fx.InformationPlatform.Site.XML" "E:\Program Files\GitHubWorkspace\net\packages\Fx\Fx.InformationPlatform.Site.XML"</PostBuildEvent>
+    <PostBuildEvent>
+    </PostBuildEvent>
   </PropertyGroup>
   <PropertyGroup>
     <PreBuildEvent>

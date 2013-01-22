@@ -197,9 +197,8 @@
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
-    <PostBuildEvent>copy /V "$(TargetDir)\Fx.Domain.dll" "E:\Program Files\GitHubWorkspace\net\packages\Fx\Fx.Domain.dll"
-copy /V "$(TargetDir)\Fx.Domain.dll" "E:\Program Files\GitHubWorkspace\net\packages\Fx\Fx.Domain.pdb"
-copy /V "$(TargetDir)\Fx.Domain.pdb" "E:\Program Files\GitHubWorkspace\net\packages\Fx\Fx.Domain.XML"</PostBuildEvent>
+    <PostBuildEvent>
+    </PostBuildEvent>
   </PropertyGroup>
   <PropertyGroup>
     <PreBuildEvent>

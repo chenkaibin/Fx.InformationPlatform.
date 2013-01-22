@@ -108,11 +108,8 @@
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
-    <PostBuildEvent>copy /V "$(TargetDir)\Fx.Entity.dll" "E:\Program Files\GitHubWorkspace\net\packages\Fx\Fx.Entity.dll"
-copy /V "$(TargetDir)\Fx.Entity.pdb" "E:\Program Files\GitHubWorkspace\net\packages\Fx\Fx.Entity.pdb"
-copy /V "$(TargetDir)\Fx.Entity.XML" "E:\Program Files\GitHubWorkspace\net\packages\Fx\Fx.Entity.XML"
-copy /V "$(TargetDir)\Fx.Entity.dll" "E:\Program Files\GitHubWorkspace\net\packages\Fx\Fx.Entity.dll"
-</PostBuildEvent>
+    <PostBuildEvent>
+    </PostBuildEvent>
   </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
